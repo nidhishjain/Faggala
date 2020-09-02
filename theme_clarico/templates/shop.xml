@@ -520,8 +520,8 @@
     <template id="products_categories_ept" inherit_id="website_sale.products_categories"
               name="Ecommerce Categories">
         <xpath expr="//div[@id='wsale_products_categories_collapse']/ul[hasclass('flex-column')]" position="before">
-            <h4 class="te_ctg_h4 d-none d-lg-block">
-                Product Category
+            <h4 class="te_ctg_h4 d-none d-lg-block pull-right"  dir="rtl" lang="ar">
+                أصناف المنتجات
             </h4>
         </xpath>
         <xpath expr="//div[@id='wsale_products_categories_collapse']/ul[hasclass('flex-column')]"

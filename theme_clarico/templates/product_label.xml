@@ -17,6 +17,24 @@
                 </div>
             </t>
         </xpath>
+
+        <xpath expr="//div[hasclass('carousel-inner')]" position="after">
+            <t t-if="request.website.viewref('theme_clarico.clarico_shop_products_label').active">
+                <div t-if="product.label_line_ids">
+                    <t t-foreach="product.label_line_ids" t-as="labels">
+                        <t t-if="labels.website_id.id == website.id">
+                            <div class="te_ribbon-wrapper">
+                                <div class="label_div">
+                                    <div class="p-1 te_label_name te_label_name" t-field="labels.label.name"/>
+                                </div>
+                            </div>
+
+                        </t>
+                    </t>
+                </div>
+            </t>
+
+        </xpath>
     </template>
     <!--===================== Shop Product label style 1 / style 2 / style 3 =========================-->
     <template id="clarico_shop_products_label" inherit_id="website_sale.products_item"
@@ -30,9 +48,26 @@
                                 <div class="p-1 te_label_name te_label_name" t-field="labels.label.name"/>
                             </div>
                         </div>
+                        <div t-attf-class="{{'' if combination_info['has_discounted_price'] else 'd-none'}} te_ribbon-wrapper wrapper2">
+                            <div class="label_div">
+                                <div class="p-1 te_label_name te_label_name" style="display:inline;margin:0px;padding:0px;">
+                                     <strong>%</strong>
+                                    <span t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
+                                          t-esc="'%.1f'%((combination_info['price']/combination_info['list_price'])*100)"/>
+                                </div>
+                            </div>
+                        </div>
                     </t>
                 </t>
             </div>
+            <style>
+                .wrapper2{
+                position: absolute;
+                top:1% !important;
+                right: 0px;
+                width:100px ;
+                }
+            </style>
         </xpath>
     </template>
     <!--===================== Shop Product label style 4=========================-->

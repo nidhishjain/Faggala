@@ -246,7 +246,7 @@
                                                                        t-att-product-id="product.id"
                                                                        t-att-variant-count="product.product_variant_count">
                                                                         <span class="fa fa-shopping-cart"/>
-                                                                        Add to Cart
+                                                                        اضف الي السلة
                                                                     </a>
                                                                 </t>
                                                                 <t t-else="">
@@ -257,7 +257,7 @@
                                                                        t-att-product-id="product.id"
                                                                        t-att-variant-count="product.product_variant_count">
                                                                         <span class="fa fa-shopping-cart"/>
-                                                                        Add to Cart
+                                                                        اضف الي السلة
                                                                     </a>
                                                                 </t>
                                                             </t>

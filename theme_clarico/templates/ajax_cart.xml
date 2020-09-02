@@ -243,11 +243,11 @@
                         <div class="te_cart_btn">
                             <a role="button" href="javascript:void(0)"
                                class="btn btn-secondary mb32 d-xl-inline-block ajax-sucess-continue">
-                                <span class="">Continue Shopping</span>
+                                <span class="">متابعه التسوف </span>
                             </a>
                             <a role="button" class="btn btn-primary float-right d-xl-inline-block ajax-sucess-checkout"
                                href="/shop/checkout?express=1">
-                                <span class="">Process Checkout</span>
+                                <span class="">استكمال عملية البيع </span>
                                 <span class="fa fa-chevron-right"/>
                             </a>
                         </div>

@@ -3,7 +3,7 @@
     <!-- Quick view in shop -->
     <template id="quickview_icon_shop_product_item" inherit_id="website_sale.products_item">
         <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
-            <a title="Quick View" class="btn btn-secondary quick-view-a te_quick_view"
+            <a title="ألق نظرة" class="btn btn-secondary quick-view-a te_quick_view"
                t-att-data-id="'%s' % product.id">
                 <span class="fa fa-eye"/>
             </a>
@@ -167,7 +167,7 @@
                                        t-attf-class="btn btn-primary btn-lg mt16 a-submit te_theme_button quick-add-to-cart #{'disabled out_of_stock' if product.sudo().virtual_available &lt; 1 else ''}"
                                        href="#">
                                         <span class="fa fa-shopping-cart"/>
-                                        Add to Cart
+                                        اضف الي السلة
                                     </a>
                                 </t>
                                 <t t-else="">
@@ -176,7 +176,7 @@
                                        t-attf-class="btn btn-primary btn-lg mt16 a-submit te_theme_button quick-add-to-cart #{'disabled out_of_stock' if product.sudo().virtual_available &lt; 1 else ''}"
                                        href="#">
                                         <span class="fa fa-shopping-cart"/>
-                                        Add to Cart
+                                        اضف الي السلة
                                     </a>
                                 </t>
                                 <t t-if="buy_now_show">
