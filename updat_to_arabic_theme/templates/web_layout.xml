@@ -1,0 +1,15 @@
+<odoo>
+
+    <template id="arabic_pages" inherit_id="portal.frontend_layout" primary="True">>
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="lang">ar</attribute>
+            <attribute name="dir">rtl</attribute>
+        </xpath>
+
+
+
+    </template>
+
+
+
+</odoo>
