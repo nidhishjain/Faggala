@@ -47,7 +47,8 @@
         'templates/product_label.xml',
         'templates/menu_config.xml',
         'templates/404.xml',
-        'templates/extra_pages.xml'
+        'templates/extra_pages.xml',
+        "views/res_company.xml"
 
     ],
 

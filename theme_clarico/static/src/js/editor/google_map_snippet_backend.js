@@ -37,6 +37,7 @@ odoo.define('theme_clarico.google_map_snippet_backend',function(require) {
                         var width_val = $dialog.find('.width_div input').val();
                         var height_val = $dialog.find('.height_div input').val();
                         if($.isNumeric(lat_long)){
+                            console.log('map')
                             $('#wrapwrap').find('.google_map_div').append('<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=' + lat_long[0] + ',' + lat_long[1] +'&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" allowfullscreen></iframe></div><style>.mapouter{width:'+ width_val +'px;height:'+ height_val +'px;}.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div>');
                         }
                         else{

@@ -1,1 +1,1 @@
-from . import theme_clarico
+from . import theme_clarico, res_company
