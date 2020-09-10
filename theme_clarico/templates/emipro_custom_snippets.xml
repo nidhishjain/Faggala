@@ -889,7 +889,8 @@
                                 </p>
                                 <div class="s_share text-left pt16 pb16 te_t_slider_all_social_icon"
                                      style="animation: fadeIn 1s ease-in both;animation-delay: 1s;">
-                                    <a href="https://www.google.com/maps"
+
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={url}"
                                        class="s_share_facebook" target="_blank">
                                         <span class="fa fa-facebook rounded shadow-sm te_t_slider_social_icon"/>
                                     </a>
@@ -930,7 +931,8 @@
                                 </p>
                                 <div class="s_share text-left pt16 pb16 te_t_slider_all_social_icon"
                                      style="animation: fadeIn 1s ease-in both;animation-delay: 1s;">
-                                    <a href="https://docs.google.com/spreadsheets/d/14y0UGeoEYpJ34zbxQr0yLdlXa4jynyU38rCJGEa8eO4/edit?ts=5de3ff97#gid=0"
+
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={url}" b
                                        class="s_share_facebook" target="_blank">
                                         <span class="fa fa-facebook rounded shadow-sm te_t_slider_social_icon"/>
                                     </a>
@@ -5036,6 +5038,7 @@
     <template id="menu_vertical" name="Menu Vertical">
         <section class="s_rating menu_vertical_option">
             <div class="te_side_bar">
+<<<<<<< HEAD
 
                 <section class="pull-left  " dir="rtl" lang="ar">
                     <h4 style="color:red;">
@@ -5075,6 +5078,62 @@
                                 </li>
                             </t>
                         </ul>
+=======
+                <section t-field="website.website_vertical_menu_ept"/>
+                <section>
+                    <div class="te_content_text">
+                        <section>
+                            <a class="te_ver_add_ept" t-att-href="'tel: %s' %res_company.phone">
+                                <span class="fa fa-phone"/>
+                                <span t-field="res_company.phone"/>
+                            </a>
+                        </section>
+                        <section>
+                            <a class="te_ver_add_ept" t-att-href="'mailto: %s' %res_company.email">
+                                <span class="fa fa-envelope"/>
+                                <span t-field="res_company.email"/>
+                            </a>
+                        </section>
+                    </div>
+                </section>
+                <section>
+                    <div class="te_sidenav_social_icon">
+                        <p></p>
+                        <div t-attf-class="s_share te_social_icon #{_classes or ''}">
+                            <t t-if="not website">
+                                <t t-set="website" t-value="request.env['website'].search([], limit=1)"/>
+                            </t>
+                            <section>
+                                <a t-if="website.social_facebook" t-att-href="website.social_facebook"
+                                   class="btn btn-link">
+                                    <span class="fa fa-facebook"/>
+                                </a>
+                            </section>
+                            <section>
+                                <a t-if="website.social_twitter" t-att-href="website.social_twitter"
+                                   class="btn btn-link">
+                                    <span class="fa fa-twitter"/>
+                                </a>
+                            </section>
+                            <section>
+                                <a t-if="website.social_linkedin" t-att-href="website.social_linkedin"
+                                   class="btn btn-link">
+                                    <span class="fa fa-linkedin"/>
+                                </a>
+                            </section>
+                            <section>
+                                <a t-if="website.social_youtube" t-att-href="website.social_youtube"
+                                   class="btn btn-link">
+                                    <span class="fa fa-youtube-play"/>
+                                </a>
+                            </section>
+                            <section>
+                                <a t-if="website.social_github" t-att-href="website.social_github" class="btn btn-link">
+                                    <span class="fa fa-github"/>
+                                </a>
+                            </section>
+                        </div>
+
                     </div>
                 </section>
             </div>

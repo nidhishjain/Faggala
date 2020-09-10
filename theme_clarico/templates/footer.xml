@@ -85,6 +85,7 @@
                                 </div>
                             </div>
                             <!-- static Menu -->
+<<<<<<< HEAD
 
                             <section class="col-lg-6 mt0">
                                 <div class="row">
@@ -218,7 +219,6 @@
                                 </div>
                             </section>
 
-
                             <!-- Payment Methods -->
                             <div class="col-lg-3 te_language">
                                 <section class="te_newsletter">
@@ -243,6 +243,12 @@
                                                 <div class="alert alert-success d-none o_default_snippet_text"
                                                      role="status">Thanks for your subscription!
                                                 </div>
+                                                <input type="email" name="email" class="js_subscribe_email form-control" placeholder="your email..."/>
+                                                <span class="input-group-append">
+                                                    <a role="button" href="#" class="btn btn-primary js_subscribe_btn o_default_snippet_text">Subscribe</a>
+                                                    <a role="button" href="#" class="btn btn-success js_subscribed_btn d-none o_default_snippet_text" disabled="disabled">Thanks</a>
+                                                </span>
+                                                <div class="alert alert-success d-none o_default_snippet_text" role="status">Thanks for your subscription!</div>
                                             </div>
                                         </div>
                                     </div>
@@ -317,6 +323,7 @@
                     }
                     google.maps.event.addDomListener(window, 'load', initialize);
                 </script>
+
             </div>
             <div class="te_body_bg">
                 <div class="container">
@@ -343,7 +350,6 @@
         <xpath expr="//div[hasclass('o_footer_copyright')]" position="replace"></xpath>
     </template>
 
-
     <!--======================== Footer Style-2 ===========================-->
     <template id="customize_footer_style_2" inherit_id="website.footer_custom"
               active="False">
@@ -356,8 +362,11 @@
                             <!-- Company Info -->
                             <div class="te_company_info_section">
                                 <!-- Company Address -->
+
                                 <div class="te_company_detail"
                                      t-if="res_company.street or res_company.street2 or res_company.city or res_company.state_id or res_company.zip or res_company.country_id">
+
+                                <div class="te_company_detail" t-if="res_company.street or res_company.street2 or res_company.city or res_company.state_id or res_company.zip or res_company.country_id">
                                     <span>
                                         <span class="fa fa-map-marker te_ftr_info_icon"></span>
                                     </span>
@@ -667,6 +676,7 @@
                     <section>
                         <li>
                             <a href="#">Gift Cards</a>
+<<<<<<< HEAD
 
                         </li>
                     </section>
@@ -801,27 +811,31 @@
                 <ul class="te_footer_info_ept">
                     <section>
                         <li>
-                            <a href="#">تسجيل الدخول والخروج</a>
+
+                            <a href="#">About Us</a>
                         </li>
                     </section>
                     <section>
                         <li>
-                            <a href="#">عربه التسوق</a>
+
+                            <a href="#">Jobs</a>
+
                         </li>
                     </section>
                     <section>
                         <li>
-                            <a href="#">مشتريات</a>
+                    <a href="#">Affiliates</a>
                         </li>
                     </section>
                     <section>
                         <li>
-                            <a href="#">القوائم المفضلة</a>
+
+                            <a href="#">Meet The Maker</a>
                         </li>
                     </section>
                     <section>
                         <li>
-                            <a href="#">اعدادات الحساب</a>
+                            <a href="#">Contact</a>
                         </li>
                     </section>
                 </ul>
@@ -837,7 +851,6 @@
                     <section>
                         <li>
                             <a href="#">Privacy</a>
-
                         </li>
                     </section>
                     <section>
@@ -859,8 +872,6 @@
             </div>
         </div>
     </template>
-
-
     <template id="footer_snippet_style3" name="Style 3">
         <div class="s_rating row">
             <!-- Static Menu-->

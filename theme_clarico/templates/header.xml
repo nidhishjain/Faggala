@@ -1075,8 +1075,7 @@
         <a id="my_cart" href="/shop/cart" class="nav-link o_wsale_my_cart">
             <!--<i class="fa fa-shopping-cart"/>-->
             <span class="fa"><img title="العربه" src="/theme_clarico/static/src/img/shop/PinClipart.com_running-horse-clipart_1402959.png" style="width:30px;height:25px;"/> </span>
-            <sup t-attf-class="my_cart_quantity badge badge-primary" style="background:none;color:red;font-size:13px;margin-left:15px;margin-top:5px;"
-                 t-esc="website_sale_order and website_sale_order.cart_quantity or '0'"/>
+            <sup t-attf-class="my_cart_quantity badge badge-primary" style="background:none;color:red;font-size:13px;margin-left:15px;margin-top:5px;"/>
         </a>
     </template>
 
@@ -1094,7 +1093,7 @@
         <t t-if="request.website.viewref('website_sale_wishlist.add_to_wishlist').active">
             <t t-set='wishcount' t-value="len(request.env['product.wishlist'].current())"/>
             <a href="/shop/wishlist" class="nav-link te_wish_icon_head" t-att-style="not wishcount and 'display:none;'">
-                <i class="fa fa-heart" />
+                <i class="fa fa-heart"/>
                 <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-primary">
                     <t t-esc='wishcount or "0"'/>
                 </sup>
