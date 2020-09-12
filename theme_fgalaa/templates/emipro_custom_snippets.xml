@@ -5038,7 +5038,7 @@
     <template id="menu_vertical" name="Menu Vertical">
         <section class="s_rating menu_vertical_option">
             <div class="te_side_bar">
-                <section class="pull-left  " dir="rtl" lang="ar">
+                <section class="text-center  " dir="rtl" lang="ar">
                     <h4 style="color:red;">
                         أصناف المنتجات
                     </h4>

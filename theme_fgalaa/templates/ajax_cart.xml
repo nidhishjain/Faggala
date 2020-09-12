@@ -227,10 +227,10 @@
                         <h1 itemprop="name" t-field="product.name" class="te_product_name">Product Name</h1>
                     </div>
                     <div class="shopping-line">
-                        <span>You added</span>
+                        <span>لقد أضفت </span>
                         <spant t-field="product.name" class="te_product_name">Product Name</spant>
-                        <span>to your</span>
-                        <a type='button' href='/shop/cart'>shopping cart.</a>
+
+                        <a type='button' href='/shop/cart'>إلي عربة التسوق </a>
                     </div>
                     <div class="product-image-container">
                         <span class="new_span d-flex h-100 justify-content-center align-items-center">
@@ -243,7 +243,7 @@
                         <div class="te_cart_btn">
                             <a role="button" href="javascript:void(0)"
                                class="btn btn-secondary mb32 d-xl-inline-block ajax-sucess-continue">
-                                <span class="">متابعه التسوف </span>
+                                <span class="">متابعه التسوق </span>
                             </a>
                             <a role="button" class="btn btn-primary float-right d-xl-inline-block ajax-sucess-checkout"
                                href="/shop/checkout?express=1">
