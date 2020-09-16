@@ -9,9 +9,9 @@
     <template id="website_sale_customer_comment" inherit_id="website_sale.payment">     
         <xpath expr="//div[@id='payment_method']" position="before">
             <div class="mb8 row" t-if="not website.is_customer_comment_features">               
-                <div t-attf-class="form-group col-lg-6">
-                    <label class="control-label" for="customer_comment">Customer Order Comment</label>
-                    <textarea rows="3" id="customer_comment" class="form-control" placeholder="Write a comment..."></textarea>                      
+                <div t-attf-class="form-group col-lg-6" dir="rtl" lang="ar">
+                    <label class="control-label" for="customer_comment">تعليق العميل علي الطلب</label>
+                    <textarea rows="3" id="customer_comment" class="form-control" placeholder="اترك تعليقك..."></textarea>
                 </div> 
             </div>  
         </xpath>        

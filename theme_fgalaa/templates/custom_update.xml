@@ -95,7 +95,7 @@
                                 </a>
 
                             </div>
-                            <div class="small d-lg-inline-block ml0" style="margin-right:-500px;">تاريخ:
+                            <div class="small d-lg-inline-block ml0" style="margin-left:-800px;">تاريخ:
                                 <span class="text-muted" t-field="i.date" t-options="{'date_only': True}"/>
                             </div>
                             <span t-if="i.state == 'done'" class="small badge badge-success orders_label_text_align">
