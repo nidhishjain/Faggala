@@ -159,20 +159,20 @@
                                      style="margin-right:-100px;color:black;margin-left:0px;">
                                     <section>
                                         <p style="font-size:15px;">
-                                            <img src="/theme_fgalaa/static/src/img/shop/money.webp"
+                                            <img src="/theme_fgalaa/static/src/img/shop/output-onlinepngtools (2).png"
                                                   style="margin:3px;width:40px;height:40px;border-radius:50%"/>
                                             الدفع عند الاستلام
-                                            <img src="/theme_fgalaa/static/src/img/shop/return-policy.jpg"
+                                            <img src="/theme_fgalaa/static/src/img/shop/moneyback.png"
                                                  style="margin:3px;width:40px;height:40px;border-radius:50%"/>
                                             ارجاع السلع مجانا
-                                            <img src="/theme_fgalaa/static/src/img/shop/free.png"
+                                            <img src="/theme_fgalaa/static/src/img/shop/freeship.png"
                                                   style="margin:3px;width:40px;height:40px;border-radius:50%"/>
                                             مزايا الشحن المجاني
 
-                                            <img src="/theme_fgalaa/static/src/img/shop/callcenter.jpg"
+                                            <img src="/theme_fgalaa/static/src/img/shop/NicePng_open-24-hours-png_3552848.png"
                                                   style="margin:3px;width:40px;height:40px;border-radius:50%"/>
                                             خدمة العملاء
-                                            <img src="/theme_fgalaa/static/src/img/shop/offers.jpg"
+                                            <img src="/theme_fgalaa/static/src/img/shop/offers.png"
                                                   style="margin:3px;width:40px;height:40px;border-radius:50%"/>
                                             العروض
                                         </p>
@@ -229,6 +229,8 @@
                                             <div groups="base.group_public" class="te_signin"
                                                  t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                                 <a t-attf-href="/web/login" class="btn btn-link">
+                                                    <img src="/theme_fgalaa/static/src/img/shop/login.png"
+                                                  style="margin:3px;width:30px;height:30px;"/>
                                                     <span class="te_user_account_name">تسجيل الدخول</span>
                                                     <span class="te_user_account_icon">
                                                         <i class="fa fa-user" aria-hidden="true"/>
@@ -241,7 +243,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container te_header_style_2_inner">
+
+                </div>
+            </div>
+        </xpath>
+
+
+
+    <xpath expr="//header/nav[hasclass('navbar-expand-md')]" position="before">
+
+           <div class="container te_header_style_2_inner" >
                         <div class="row py-3 align-items-center">
                             <div class="col-lg-6">
                                 <t t-set="logo_show"
@@ -267,6 +278,7 @@
                                         <a href="#" class="">
                                             <i class="fa fa-search te_srch_icon"/>
                                             <i class="fa fa-times te_srch_close"/>
+
                                         </a>
                                     </div>
                                     <div class="te_search_popover" tabindex="-1">
@@ -290,9 +302,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </xpath>
+
+    </xpath>
+
+
+
         <xpath expr="//nav[hasclass('navbar-expand-md')]" position="attributes">
             <attribute name="class">navbar navbar-expand-md te_header_navbar navbar-light
             </attribute>
@@ -306,7 +320,12 @@
         <xpath expr="//li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="replace">
         </xpath>
 
+
     </template>
+
+
+
+
     <!-- ======================= Header style option 3========================= -->
     <template id="customize_header_style_3" inherit_id="portal.frontend_layout"
               active="False" name="Header style 3">

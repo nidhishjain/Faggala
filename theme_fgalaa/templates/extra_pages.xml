@@ -163,16 +163,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-control-prev" data-target="#myCarousel1574945515214"
-                             data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                            <span class="carousel-control-prev-icon"/>
-                            <span class="sr-only o_default_snippet_text">Previous</span>
-                        </div>
+
                         <div class="carousel-control-next" data-target="#myCarousel1574945515214"
                              data-slide="next" role="img" aria-label="Next" title="Next">
                             <span class="carousel-control-next-icon"/>
                             <span class="sr-only o_default_snippet_text">Next</span>
                         </div>
+
+                        <div class="carousel-control-prev" data-target="#myCarousel1574945515214"
+                             data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                            <span class="carousel-control-prev-icon"/>
+                             <span class="carousel-control-next-icon"/>
+                            <span class="sr-only o_default_snippet_text">Previous</span>
+                        </div>
+
                     </div>
                 </div>
                 <section class="s_text_image pt32 pb32" data-name="Image - Text">
@@ -760,16 +764,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-control-prev d-none" data-target="#myCarousel1574922416957"
-                             data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                            <span class="carousel-control-prev-icon"/>
-                            <span class="sr-only o_default_snippet_text">Previous</span>
-                        </div>
+
                         <div class="carousel-control-next d-none" data-target="#myCarousel1574922416957"
                              data-slide="next" role="img" aria-label="Next" title="Next">
                             <span class="carousel-control-next-icon"/>
                             <span class="sr-only o_default_snippet_text">Next</span>
                         </div>
+
+                        <div class="carousel-control-prev d-none" data-target="#myCarousel1574922416957"
+                             data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                            <span class="carousel-control-prev-icon"/>
+                            <span class="sr-only o_default_snippet_text">Previous</span>
+                        </div>
+
                     </div>
                 </div>
                 <div class="oe_structure oe_empty" data-name="Text-Two images "/>
@@ -874,18 +881,21 @@
                                     </section>
                                 </section>
                             </div>
-                            <div class="carousel-control-prev d-md-none d-flex"
-                                 data-target="#myCarousel1574922512087" data-slide="prev" role="img"
-                                 aria-label="Previous" title="Previous">
-                                <span class="carousel-control-prev-icon"/>
-                                <span class="sr-only o_default_snippet_text">Previous</span>
-                            </div>
+
                             <div class="carousel-control-next d-md-none d-flex"
                                  data-target="#myCarousel1574922512087" data-slide="next" role="img"
                                  aria-label="Next" title="Next">
                                 <span class="carousel-control-next-icon"/>
                                 <span class="sr-only o_default_snippet_text">Next</span>
                             </div>
+
+                            <div class="carousel-control-prev d-md-none d-flex"
+                                 data-target="#myCarousel1574922512087" data-slide="prev" role="img"
+                                 aria-label="Previous" title="Previous">
+                                <span class="carousel-control-prev-icon"/>
+                                <span class="sr-only o_default_snippet_text">Previous</span>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -1568,16 +1578,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-control-prev" data-target="#myCarousel1594729720828" data-slide="prev"
-                                 role="img" aria-label="Previous" title="Previous">
-                                <span class="carousel-control-prev-icon"/>
-                                <span class="sr-only o_default_snippet_text">Previous</span>
-                            </div>
+
                             <div class="carousel-control-next" data-target="#myCarousel1594729720828" data-slide="next"
                                  role="img" aria-label="Next" title="Next">
                                 <span class="carousel-control-next-icon"/>
                                 <span class="sr-only o_default_snippet_text">Next</span>
                             </div>
+
+                            <div class="carousel-control-prev" data-target="#myCarousel1594729720828" data-slide="prev"
+                                 role="img" aria-label="Previous" title="Previous">
+                                <span class="carousel-control-prev-icon"/>
+                                <span class="sr-only o_default_snippet_text">Previous</span>
+                            </div>
+
                         </div>
                     </div>
                     <section class="py-3 py-sm-5 te_space_style" data-name="Space"/>
@@ -2139,13 +2152,15 @@
                 <a class="carousel-control-prev te_team_arrow" role="button" data-slide="prev"
                    data-target="#myCarousel1574077800042">
                     <span class="te_next_prev">
-                        <span class="fa fa-angle-left"/>
+                        <!--<span class="fa fa-angle-left"/>-->
+                        <span class="fa fa-angle-right"/>
                     </span>
                 </a>
                 <a class="carousel-control-next text-faded te_team_arrow" role="button" data-slide="next"
                    data-target="#myCarousel1574077800042">
                     <span class="te_next_prev">
-                        <span class="fa fa-angle-right"/>
+                        <!--<span class="fa fa-angle-right"/>-->
+                        <span class="fa fa-angle-left"/>
                     </span>
                 </a>
             </section>
@@ -2456,13 +2471,15 @@
                 <a class="carousel-control-prev te_team_arrow" role="button" data-slide="prev"
                    data-target="#myCarousel1574081444896">
                     <span class="te_next_prev">
-                        <span class="fa fa-angle-left"/>
+                        <!--<span class="fa fa-angle-left"/>-->
+                        <span class="fa fa-angle-right"/>
                     </span>
                 </a>
                 <a class="carousel-control-next text-faded abc te_team_arrow" role="button" data-slide="next"
                    data-target="#myCarousel1574081444896">
                     <span class="te_next_prev">
-                        <span class="fa fa-angle-right"/>
+                        <!--<span class="fa fa-angle-right"/>-->
+                        <span class="fa fa-angle-left"/>
                     </span>
                 </a>
             </section>
@@ -2834,14 +2851,17 @@
                 <a class="carousel-control-prev te_team_arrow" role="button" data-slide="prev"
                    data-target="#myCarousel1573277742707">
                     <span class="te_next_prev">
-                        <span class="fa fa-angle-left"/>
+                        <!--<span class="fa fa-angle-left"/>-->
+                        <span class="fa fa-angle-right"/>
                     </span>
                 </a>
                 <a class="carousel-control-next text-faded te_team_arrow" role="button"
                    data-slide="next" data-target="#myCarousel1573277742707">
                     <span class="te_next_prev">
-                        <span class="fa fa-angle-right" data-original-title="" title=""
-                              aria-describedby="tooltip260680"/>
+                        <!--<span class="fa fa-angle-right" data-original-title="" title=""-->
+                              <!--aria-describedby="tooltip260680"/>-->
+                        <!--<span class="fa fa-angle-left" data-original-title="" title=""-->
+                              <!--aria-describedby="tooltip260680"/>-->
                     </span>
                 </a>
             </section>
@@ -2966,15 +2986,18 @@
                                    href="#myCarousel" data-slide="prev"
                                    data-target="#myCarousel1573278302157">
                                     <span class="te_next_prev">
-                                        <span class="fa fa-angle-left"/>
+                                        <!--<span class="fa fa-angle-left"/>-->
+                                        <span class="fa fa-angle-right"/>
                                     </span>
                                 </a>
                                 <a class="te_carousel-control_right carousel-control-next"
                                    href="#myCarousel" data-slide="next"
                                    data-target="#myCarousel1573278302157">
                                     <span class="te_next_prev">
-                                        <span class="fa fa-angle-right" data-original-title="" title=""
-                                              aria-describedby="tooltip69903"/>
+                                        <!--<span class="fa fa-angle-right" data-original-title="" title=""-->
+                                              <!--aria-describedby="tooltip69903"/>-->
+                                        <!--<span class="fa fa-angle-left" data-original-title="" title=""-->
+                                              <!--aria-describedby="tooltip69903"/>-->
                                     </span>
                                 </a>
                             </div>

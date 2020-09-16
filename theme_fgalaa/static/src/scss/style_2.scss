@@ -1956,26 +1956,26 @@ button:focus {
         {
             .owl-prev
             {
-                right: 0;
-                left: unset;
+                right: unset;
+                left: 0;
             }
             .owl-next
             {
-                left: 0;
-                right:unset;
+                left: unset;
+                right:0;
             }
         }
         #thumbnailSlider .owl-nav
         {
             .owl-prev
             {
-                right: -10px;
-                left: unset;
+                right:unset ;
+                left: -10px ;
             }
             .owl-next
             {
-                left: -15px;
-                right:unset;
+                left:  unset;
+                right:-15px;
             }
         }
     }
@@ -1985,7 +1985,7 @@ button:focus {
         {
             button.owl-prev
             {
-                right:20px;
+                left:20px;
                 position: absolute;
             }  
         }
