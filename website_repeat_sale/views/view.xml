@@ -2,8 +2,21 @@
 <odoo>
     <template id="website_repeat_sale_order_in_list"
               inherit_id="sale.portal_my_orders">
-        <xpath expr="//th[last()]" position="after">
-            <th class="text-right">Reorder</th>
+        <xpath expr="//thead" position="replace">
+            <thead>
+                    <tr class="active">
+                        <th>
+                            <span class='d-none d-md-inline'>Sales Order #</span>
+                            <span class='d-block d-md-none'>Ref.</span>
+                        </th>
+                        <th class="text-right">Order Date</th>
+                         <th class="text-center"> تاكيد الطلب </th>
+                        <th class="text-right">Total</th>
+                        <th class="text-right">Reorder</th>
+            <th class="text-center">الشحن</th>
+                    </tr>
+                </thead>
+
         </xpath>
         <xpath expr="//td[last()]" position="after">
             <td class="text-right">
@@ -12,14 +25,29 @@
                        style="color: black;"/>
                 </a>
             </td>
+            <td>
+                <span t-if="order.state == 'done'" class="small badge badge-success orders_label_text_align">
+                    <i class="fa fa-fw fa-truck"/>
+                    <b>Shipped</b>
+                </span>
+                <span t-if="order.state == 'cancel'" class="small badge badge-danger orders_label_text_align">
+                    <i class="fa fa-fw fa-times"/>
+                    <b>Cancelled</b>
+                </span>
+                <span t-if="order.state in ['draft', 'waiting', 'confirmed', 'assigned']"
+                      class="small badge badge-info orders_label_text_align">
+                    <i class="fa fa-fw fa-clock-o"/>
+                    <b>Preparation</b>
+                </span>
+            </td>
         </xpath>
     </template>
     <template id="website_repeat_sale_order_in_form"
               inherit_id="sale.sale_order_portal_content">
         <xpath expr="//div[@id='introduction']//h2" position="inside">
-                <a t-attf-href="/order/repeat?id=#{sale_order.id}" style="margin-left: 60%;" class="btn btn-secondary">
+            <a t-attf-href="/order/repeat?id=#{sale_order.id}" style="margin-left: 60%;" class="btn btn-secondary">
                 Reorder
-                </a>
+            </a>
         </xpath>
     </template>
 </odoo>
