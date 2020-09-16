@@ -1,0 +1,50 @@
+ body {
+
+    text-align: right;
+}
+
+ .o_livechat_button {
+
+     background-color:#de0b14 !important;
+ }
+
+ .te_ribbon-wrapper .label_div {
+    position: absolute;
+    top:97% !important;
+    left: 0px;
+
+ }
+
+ .te_product_breadcrumb .breadcrumb {
+      text-align: right !important;
+ }
+
+ #fixed_img{
+
+          width:50px  !important;
+          height:50px  !important;
+          border-radius:50%!important;}
+
+
+ @font-face {
+  font-family: helvetica;
+  src: url(/updat_to_arabic_theme/static/src/font/helvetica-neue-lt-arabic-75-bold.ttf);
+}
+
+@font-face {
+  font-family: helvetica;
+  src: url(/updat_to_arabic_theme/static/src/font/helvetica-neue-lt-arabic-75-bold.ttf);
+  font-weight: bold;
+}
+
+#map{
+display:none;
+}
+
+
+* {
+   font-family: helvetica;
+
+}
+
+
