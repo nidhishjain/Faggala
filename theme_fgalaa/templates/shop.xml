@@ -305,7 +305,7 @@
                 <t t-if="is_brand_filter_enabled">
                     <t t-if="products" t-set="brand_list" t-value="request.website.get_brand(products)"/>
                     <t t-if="brand_list">
-                        <li class="nav-item" dir="rtl" style="margin-right:-200px;'">
+                        <li class="nav-item" dir="rtl" style="margin-right:-100px;'">
                             <div>
                                 <p class="te_attr_title text-center">
                                     <i class="down-arrow fa fa-caret-right"/>
