@@ -305,22 +305,25 @@
                 <t t-if="is_brand_filter_enabled">
                     <t t-if="products" t-set="brand_list" t-value="request.website.get_brand(products)"/>
                     <t t-if="brand_list">
-                        <li class="nav-item">
+                        <li class="nav-item" dir="rtl" style="margin-right:-200px;'">
                             <div>
-                                <p class="te_attr_title">
+                                <p class="te_attr_title text-center">
                                     <i class="down-arrow fa fa-caret-right"/>
-                                    <span>Brand</span>
+                                    <span>العلامات التجارية</span>
                                     <a class="te_clear_all_variant">(Clear)</a>
                                 </p>
                             </div>
                             <ul class="nav nav-pills flex-column brand_main">
                                 <t t-foreach="brand_list" t-as="brand">
-                                    <li class="nav-item">
+                                    <li class="nav-item " dir="rtl">
                                         <label style="margin: 0 20px;"
                                                t-attf-class="nav-link#{' active' if [0,brand.id] in attrib_values else ''}">
-                                            <input type="checkbox" name="attrib" t-att-value="'0-%s' % (brand.id)"
+
+                                           <input type="checkbox" name="attrib" t-att-value="'0-%s' % (brand.id)"
                                                    t-att-checked="'checked' if [0,brand.id] in attrib_values else None"/>
                                             <span style="font-weight: normal" t-field="brand.name"/>
+
+
                                         </label>
                                     </li>
                                 </t>

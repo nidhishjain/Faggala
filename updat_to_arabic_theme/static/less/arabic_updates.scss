@@ -19,11 +19,7 @@
       text-align: right !important;
  }
 
- #fixed_img{
 
-          width:50px  !important;
-          height:50px  !important;
-          border-radius:50%!important;}
 
 
  @font-face {
@@ -45,6 +41,10 @@ display:none;
 * {
    font-family: helvetica;
 
+}
+
+.my_cart_quantity{
+margin-right:17px;
 }
 
 

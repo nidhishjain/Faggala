@@ -849,16 +849,18 @@
                     </div>
                 </div>
                 <!-- Controls -->
-                <div class="carousel-control-prev d-none" data-target="#myCarousel"
-                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                    <span class="carousel-control-prev-icon"/>
-                    <span class="sr-only">Previous</span>
-                </div>
                 <div class="carousel-control-next d-none" data-target="#myCarousel"
                      data-slide="next" role="img" aria-label="Next" title="Next">
                     <span class="carousel-control-next-icon"/>
                     <span class="sr-only">Next</span>
                 </div>
+
+                <div class="carousel-control-prev d-none" data-target="#myCarousel"
+                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only">Previous</span>
+                </div>
+
             </div>
         </div>
     </template>
@@ -959,16 +961,18 @@
                     </div>
                 </div>
                 <!-- Controls -->
-                <div class="carousel-control-prev" data-target="#myCarousel"
-                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                    <span class="carousel-control-prev-icon"/>
-                    <span class="sr-only">Previous</span>
-                </div>
                 <div class="carousel-control-next" data-target="#myCarousel"
                      data-slide="next" role="img" aria-label="Next" title="Next">
                     <span class="carousel-control-next-icon"/>
                     <span class="sr-only">Next</span>
                 </div>
+
+                <div class="carousel-control-prev" data-target="#myCarousel"
+                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only">Previous</span>
+                </div>
+
             </div>
         </div>
     </template>
@@ -988,16 +992,18 @@
                          src="/theme_fgalaa/static/src/img/snippets/slider_styles/style_3/1920_800.jpg"/>
                 </div>
                 <!-- Controls -->
-                <div class="carousel-control-prev d-none" data-target="#myCarousel"
-                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                    <span class="carousel-control-prev-icon"/>
-                    <span class="sr-only">Previous</span>
-                </div>
                 <div class="carousel-control-next d-none" data-target="#myCarousel"
                      data-slide="next" role="img" aria-label="Next" title="Next">
                     <span class="carousel-control-next-icon"/>
                     <span class="sr-only">Next</span>
                 </div>
+
+                <div class="carousel-control-prev d-none" data-target="#myCarousel"
+                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only">Previous</span>
+                </div>
+
             </div>
         </div>
     </template>
@@ -1070,16 +1076,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-control-prev hidden" data-target="#myCarousel1541078701728"
-                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                    <span class="carousel-control-prev-icon"/>
-                    <span class="sr-only o_default_snippet_text">Previous</span>
-                </div>
+
                 <div class="carousel-control-next hidden" data-target="#myCarousel1541078701728"
                      data-slide="next" role="img" aria-label="Next" title="Next">
                     <span class="carousel-control-next-icon"/>
                     <span class="sr-only o_default_snippet_text">Next</span>
                 </div>
+                <div class="carousel-control-prev hidden" data-target="#myCarousel1541078701728"
+                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only o_default_snippet_text">Previous</span>
+                </div>
+
             </div>
         </div>
     </template>
@@ -1229,16 +1237,18 @@
                 </section>
 
                 <!-- Controls -->
-                <div class="carousel-control-prev" data-target="#myCarousel"
-                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                    <span class="carousel-control-prev-icon"/>
-                    <span class="sr-only">Previous</span>
-                </div>
                 <div class="carousel-control-next" data-target="#myCarousel"
                      data-slide="next" role="img" aria-label="Next" title="Next">
                     <span class="carousel-control-next-icon"/>
                     <span class="sr-only">Next</span>
                 </div>
+
+                <div class="carousel-control-prev" data-target="#myCarousel"
+                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only">Previous</span>
+                </div>
+
             </div>
         </div>
     </template>
@@ -1328,16 +1338,19 @@
                     </div>
                 </div>
                 <!-- Controls -->
-                <div class="carousel-control-prev" data-target="#myCarousel"
-                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                    <span class="carousel-control-prev-icon"/>
-                    <span class="sr-only">Previous</span>
-                </div>
+
                 <div class="carousel-control-next" data-target="#myCarousel"
                      data-slide="next" role="img" aria-label="Next" title="Next">
                     <span class="carousel-control-next-icon"/>
                     <span class="sr-only">Next</span>
                 </div>
+
+                <div class="carousel-control-prev" data-target="#myCarousel"
+                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only">Previous</span>
+                </div>
+
             </div>
         </div>
     </template>
@@ -1389,16 +1402,18 @@
                     </div>
                 </div>
                 <!-- Controls -->
-                <div class="carousel-control-prev" data-target="#myCarousel"
-                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                    <span class="carousel-control-prev-icon"/>
-                    <span class="sr-only">Previous</span>
-                </div>
                 <div class="carousel-control-next" data-target="#myCarousel"
                      data-slide="next" role="img" aria-label="Next" title="Next">
                     <span class="carousel-control-next-icon"/>
                     <span class="sr-only">Next</span>
                 </div>
+
+                <div class="carousel-control-prev" data-target="#myCarousel"
+                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only">Previous</span>
+                </div>
+
             </div>
         </div>
     </template>
@@ -1432,16 +1447,18 @@
                         </section>
                     </div>
                     <!-- Controls -->
-                    <div class="carousel-control-prev d-md-none d-flex" data-target="#myCarousel"
-                         data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                        <span class="carousel-control-prev-icon"/>
-                        <span class="sr-only">Previous</span>
-                    </div>
                     <div class="carousel-control-next d-md-none d-flex" data-target="#myCarousel"
                          data-slide="next" role="img" aria-label="Next" title="Next">
                         <span class="carousel-control-next-icon"/>
                         <span class="sr-only">Next</span>
                     </div>
+
+                    <div class="carousel-control-prev d-md-none d-flex" data-target="#myCarousel"
+                         data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                        <span class="carousel-control-prev-icon"/>
+                        <span class="sr-only">Previous</span>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -2700,13 +2717,15 @@
             <a class="carousel-control-prev te_team_arrow" role="button" data-slide="prev"
                data-target="#carouselTeam_1">
                 <span class="te_next_prev">
-                    <span class="fa fa-angle-left"/>
+                    <!--<span class="fa fa-angle-left"/>-->
+                    <span class="fa fa-angle-right"/>
                 </span>
             </a>
             <a class="carousel-control-next text-faded te_team_arrow" role="button" data-slide="next"
                data-target="#carouselTeam_1">
                 <span class="te_next_prev">
-                    <span class="fa fa-angle-right"/>
+                    <!--<span class="fa fa-angle-right"/>-->
+                    <span class="fa fa-angle-left"/>
                 </span>
             </a>
         </section>
@@ -2956,13 +2975,15 @@
             <a class="carousel-control-prev te_team_arrow" role="button" data-slide="prev"
                data-target="#carousel_carousel_2">
                 <span class="te_next_prev">
-                    <span class="fa fa-angle-left"/>
+                    <!--<span class="fa fa-angle-left"/>-->
+                   <span class="fa fa-angle-right"/>
                 </span>
             </a>
             <a class="carousel-control-next text-faded te_team_arrow" role="button" data-slide="next"
                data-target="#carousel_carousel_2">
                 <span class="te_next_prev">
-                    <span class="fa fa-angle-right"/>
+                    <!--<span class="fa fa-angle-right"/>-->
+                    <span class="fa fa-angle-left"/>
                 </span>
             </a>
         </section>
@@ -3223,12 +3244,14 @@
             <a class="carousel-control-prev te_team_arrow" role="button" data-slide="prev"
                data-target="#carouselcarousel_3">
                 <span class="te_next_prev">
-                    <span class="fa fa-angle-left"/>
+                    <!--<span class="fa fa-angle-left"/>-->
+                   <span class="fa fa-angle-right"/>
                 </span>
             </a>
             <a class="carousel-control-next text-faded te_team_arrow" role="button" data-slide="next"
                data-target="#carouselcarousel_3">
                 <span class="te_next_prev">
+                    <!--<span class="fa fa-angle-right"/>-->
                     <span class="fa fa-angle-right"/>
                 </span>
             </a>
@@ -3901,13 +3924,15 @@
             <a class="carousel-control-prev te_team_arrow" role="button" data-slide="prev"
                data-target="#carouselExample">
                 <span class="te_next_prev">
-                    <span class="fa fa-angle-left"/>
+                    <!--<span class="fa fa-angle-left"/>-->
+                    <span class="fa fa-angle-right"/>
                 </span>
             </a>
             <a class="carousel-control-next text-faded abc te_team_arrow" role="button"
                data-slide="next" data-target="#carouselExample">
                 <span class="te_next_prev">
-                    <span class="fa fa-angle-right"/>
+                    <!--<span class="fa fa-angle-right"/>-->
+                    <span class="fa fa-angle-left"/>
                 </span>
             </a>
         </section>
@@ -3923,13 +3948,15 @@
                             <a class="te_carousel-control_left carousel-control-prev d-none" href="#myCarousel"
                                data-slide="prev" data-target="#myCarousel">
                                 <span class="te_next_prev">
-                                    <span class="fa fa-angle-left"/>
+                                    <!--<span class="fa fa-angle-left"/>-->
+                                    <span class="fa fa-angle-right"/>
                                 </span>
                             </a>
                             <a class="te_carousel-control_right carousel-control-next d-none" href="#myCarousel"
                                data-slide="next" data-target="#myCarousel">
                                 <span class="te_next_prev">
-                                    <span class="fa fa-angle-right"/>
+                                    <!--<span class="fa fa-angle-right"/>-->
+                                    <span class="fa fa-angle-left"/>
                                 </span>
                             </a>
                         </div>
@@ -5077,7 +5104,7 @@
                             </t>
                         </ul>
 
-            </div>
+                    </div>
                 </section>
             </div>
         </section>
@@ -5661,16 +5688,18 @@
                     </div>
                 </div>
                 <!-- Controls -->
-                <div class="carousel-control-prev" data-target="#myCarousel"
-                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
-                    <span class="carousel-control-prev-icon"/>
-                    <span class="sr-only">Previous</span>
-                </div>
                 <div class="carousel-control-next" data-target="#myCarousel"
                      data-slide="next" role="img" aria-label="Next" title="Next">
                     <span class="carousel-control-next-icon"/>
                     <span class="sr-only">Next</span>
                 </div>
+
+                <div class="carousel-control-prev" data-target="#myCarousel"
+                     data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only">Previous</span>
+                </div>
+
             </div>
         </div>
     </template>

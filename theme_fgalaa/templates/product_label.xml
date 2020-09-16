@@ -53,7 +53,7 @@
                                 <div class="p-1 te_label_name te_label_name" style="display:inline;margin:0px;padding:0px;">
                                      <strong>%</strong>
                                     <span t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
-                                          t-esc="'%.1f'%((combination_info['price']/combination_info['list_price'])*100)"/>
+                                          t-esc="'%.1f'%(100-(combination_info['price']/combination_info['list_price'])*100)"/>
                                 </div>
                             </div>
                         </div>

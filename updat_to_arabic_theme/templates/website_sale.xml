@@ -50,7 +50,7 @@
                                         0
                                     </span>
                                     <span t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
-                                          t-esc="'%.2f'%((combination_info['price']/combination_info['list_price'])*100)"/>
+                                          t-esc="'%.2f'%(100-(combination_info['price']/combination_info['list_price'])*100)"/>
                                 </span>
                                 <form action="/shop/cart/update" method="post" class="text-center">
                                     <input name="product_id" t-att-value="product.id" type="hidden"/>
