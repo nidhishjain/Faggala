@@ -44,9 +44,12 @@
     </template>
     <template id="website_repeat_sale_order_in_form"
               inherit_id="sale.sale_order_portal_content">
-        <xpath expr="//div[@id='introduction']//h2" position="inside">
-            <a t-attf-href="/order/repeat?id=#{sale_order.id}" style="margin-left: 60%;" class="btn btn-secondary">
+        <xpath expr="//div[@id='introduction']//h2" position="after">
+            <a t-attf-href="/order/repeat?id=#{sale_order.id}"  class="btn btn-secondary">
                 Reorder
+            </a>
+             <a  style="background:red;color:white;margin:3px;" class="btn btn-secondary">
+                Cancel
             </a>
         </xpath>
     </template>

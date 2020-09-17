@@ -55,12 +55,12 @@
 
 	<!-- inherit_id="sale.portal_order_page" -->
     <template id="orders_followup_return_product" name="Sale order product return" priority="28" inherit_id="sale.sale_order_portal_content">
-        <xpath expr="//div[@id='introduction']" position="before">
+        <xpath expr="//div[@id='introduction']//h2" position="after">
             <form action="/my/return" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                 <br/>
 <!--                <a t-if="sale_order.state != 'sent'" id="add_to_cart" class="btn btn-primary float-right" data-placement="top" data-id = "ol" data-html="true" data-toggle="modal" data-target="#get_so">Return</a>-->
-                <a t-if="sale_order.state != 'sent'" id="add_to_cart" class="btn btn-primary float-right mr-3" 
+                <a style="margin:3px;" t-if="sale_order.state != 'sent'" id="add_to_cart" class="btn btn-primary float-right mr-3"
                 data-placement="top" data-id = "ol" data-html="true" data-toggle="modal" data-target="#get_so"><font color="white">
                 Return</font></a>
             </form>
