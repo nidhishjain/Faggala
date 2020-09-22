@@ -83,6 +83,48 @@
                                     </a>
 
                                 </div>
+
+
+                                <section class="te_newsletter" style="text-align:center">
+                                    <div class="d-inline-block te_newsletter_title pr-3">
+                                        <h4>Newsletter Signup :</h4>
+                                    </div>
+                                    <div class="te_newsletter_content">
+                                        <div class="d-inline-block">
+                                            <div class="input-group js_subscribe" data-list-id="1" data-subscribe="off">
+                                                <input type="email" name="email" class="js_subscribe_email form-control"
+                                                       placeholder="your email..."/>
+                                                <span class="input-group-append">
+                                                    <a role="button" href="#"
+                                                       class="btn btn-primary js_subscribe_btn o_default_snippet_text">
+                                                        Subscribe
+                                                    </a>
+                                                    <a role="button" href="#"
+                                                       class="btn btn-success js_subscribed_btn d-none o_default_snippet_text"
+                                                       disabled="disabled">Thanks
+                                                    </a>
+                                                </span>
+                                                <div class="alert alert-success d-none o_default_snippet_text"
+                                                     role="status">Thanks for your subscription!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="te_footer_text_img">
+                                    <section class="te_payment_list">
+                                        <t t-set="icons"
+                                           t-value="request.env['payment.acquirer'].sudo().search([('state', 'in', ['enabled', 'test']), ('website_id','in',(False,website.id))]).mapped('payment_icon_ids')"></t>
+                                        <h4 t-if="icons">Payment Methods</h4>
+                                        <t t-foreach="icons" t-as="icon">
+                                            <span t-field="icon.image"
+                                                  t-options="{'widget': 'image', 'alt-field': 'name'}"/>
+                                        </t>
+                                    </section>
+                                </section>
+                                <section class="col-lg-6 " style="float:right" t-field="website.footer_style_1_content_ept"/>
+
+
                             </div>
                             <!-- static Menu -->
 
@@ -184,7 +226,7 @@
                                         <ul class="te_footer_info_ept">
                                             <section>
                                                 <li>
-                                                   حسابي
+                                                    حسابي
 
                                                 </li>
                                             </section>
@@ -220,104 +262,67 @@
 
                             <!-- Payment Methods -->
                             <div class="col-lg-3 te_language">
-                                <section class="te_newsletter">
-                                    <div class="d-inline-block te_newsletter_title pr-3">
-                                        <h4>Newsletter Signup :</h4>
-                                    </div>
-                                    <div class="te_newsletter_content">
-                                        <div class="d-inline-block">
-                                            <div class="input-group js_subscribe" data-list-id="1" data-subscribe="off">
-                                                <input type="email" name="email" class="js_subscribe_email form-control"
-                                                       placeholder="your email..."/>
-                                                <span class="input-group-append">
-                                                    <a role="button" href="#"
-                                                       class="btn btn-primary js_subscribe_btn o_default_snippet_text">
-                                                        Subscribe
-                                                    </a>
-                                                    <a role="button" href="#"
-                                                       class="btn btn-success js_subscribed_btn d-none o_default_snippet_text"
-                                                       disabled="disabled">Thanks
-                                                    </a>
-                                                </span>
-                                                <div class="alert alert-success d-none o_default_snippet_text"
-                                                     role="status">Thanks for your subscription!
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                                <section class="te_footer_text_img">
-                                    <section class="te_payment_list">
-                                        <t t-set="icons"
-                                           t-value="request.env['payment.acquirer'].sudo().search([('state', 'in', ['enabled', 'test']), ('website_id','in',(False,website.id))]).mapped('payment_icon_ids')"></t>
-                                        <h4 t-if="icons">Payment Methods</h4>
-                                        <t t-foreach="icons" t-as="icon">
-                                            <span t-field="icon.image"
-                                                  t-options="{'widget': 'image', 'alt-field': 'name'}"/>
-                                        </t>
-                                    </section>
-                                </section>
-                                <!-- Multiple Language Selected-->
-                                <t t-call="website.language_selector"></t>
+                                <div class="te_footer_map">
 
+
+                                    <div id="googleMap" style="height:300px;width:300px;"/>
+                                    <style>
+                                        .te_footer_map{position:relative;height:300px;width:300px;margin:auto;}.googleMap
+                                        {overflow:hidden;background:none!important;height:100%;width:100%;}
+                                    </style>
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX4h-wsdQWfb8ySY_NUpPLK_0xtwT5GRQ"/>
+                                    <script>
+                                        var map;
+                                        var marker;
+                                        function initialize() {
+                                        var mapProp = {
+                                        center:new
+                                        google.maps.LatLng(29.9476256,30.9040458),zoom:17,mapTypeId:google.maps.MapTypeId.ROADMAP
+                                        };
+                                        map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                                        marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(29.9476256,30.9040458),
+                                        map: map,
+                                        title: "Al Fgalaa"
+                                        });
+
+                                        }
+
+                                        function changeMarkerPos(no){
+                                        if (no==1){
+                                        lat=document.getElementById('lat1').innerHTML;
+                                        long=document.getElementById('long1').innerHTML;
+                                        } else if(no==2){
+                                        lat=document.getElementById('lat2').innerHTML;
+                                        long=document.getElementById('long2').innerHTML;
+                                        } else if(no==3){
+                                        lat=document.getElementById('lat3').innerHTML;
+                                        long=document.getElementById('long3').innerHTML;
+                                        } else if(no==4){
+                                        lat=document.getElementById('lat4').innerHTML;
+                                        long=document.getElementById('long4').innerHTML;
+                                        } else {
+                                        lat=29.9476256;
+                                        long=30.9040458;}
+
+                                        myLatLng = new google.maps.LatLng(lat, long)
+                                        marker.setPosition(myLatLng);
+                                        map.panTo(myLatLng);
+                                        }
+                                        google.maps.event.addDomListener(window, 'load', initialize);
+                                    </script>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
             </div>
             <br/>
-            <section class="col-lg-6 text-center" style="margin:auto;" t-field="website.footer_style_1_content_ept"/>
-            <div class="te_footer_map">
+            <!-- Multiple Language Selected-->
+            <t t-call="website.language_selector"></t>
 
 
-                <div id="googleMap" style="height:300px;width:500px;"/>
-                <style>
-                    .te_footer_map{position:relative;text-align:center;height:300px;width:500px;margin:auto;}.googleMap
-                    {overflow:hidden;background:none!important;height:100%;width:100%;}
-                </style>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX4h-wsdQWfb8ySY_NUpPLK_0xtwT5GRQ"/>
-                <script>
-                    var map;
-                    var marker;
-                    function initialize() {
-                    var mapProp = {
-                    center:new google.maps.LatLng(29.9476256,30.9040458),zoom:17,mapTypeId:google.maps.MapTypeId.ROADMAP
-                    };
-                    map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-                    marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(29.9476256,30.9040458),
-                    map: map,
-                    title: "Al Fgalaa"
-                    });
-
-                    }
-
-                    function changeMarkerPos(no){
-                    if (no==1){
-                    lat=document.getElementById('lat1').innerHTML;
-                    long=document.getElementById('long1').innerHTML;
-                    } else if(no==2){
-                    lat=document.getElementById('lat2').innerHTML;
-                    long=document.getElementById('long2').innerHTML;
-                    } else if(no==3){
-                    lat=document.getElementById('lat3').innerHTML;
-                    long=document.getElementById('long3').innerHTML;
-                    } else if(no==4){
-                    lat=document.getElementById('lat4').innerHTML;
-                    long=document.getElementById('long4').innerHTML;
-                    } else {
-                    lat=29.9476256;
-                    long=30.9040458;}
-
-                    myLatLng = new google.maps.LatLng(lat, long)
-                    marker.setPosition(myLatLng);
-                    map.panTo(myLatLng);
-                    }
-                    google.maps.event.addDomListener(window, 'load', initialize);
-                </script>
-
-            </div>
             <div class="te_body_bg">
                 <div class="container">
                     <section t-field="website.website_footer_extra_links"/>
@@ -359,94 +364,96 @@
                                 <div class="te_company_detail"
                                      t-if="res_company.street or res_company.street2 or res_company.city or res_company.state_id or res_company.zip or res_company.country_id">
 
-                                <div class="te_company_detail" t-if="res_company.street or res_company.street2 or res_company.city or res_company.state_id or res_company.zip or res_company.country_id">
-                                    <span>
-                                        <span class="fa fa-map-marker te_ftr_info_icon"></span>
-                                    </span>
-                                    <p class="te_ftr_add_ept">
-                                        <span t-field="res_company.street"/>
-                                        <span t-field="res_company.street2"/>
-                                        <span t-field="res_company.city"/>
-                                        <span t-field="res_company.state_id"/>
-                                        <span t-field="res_company.zip"/>
-                                        <span t-field="res_company.country_id"/>
-                                    </p>
-                                </div>
-                                <!-- Company Email -->
-                                <div class="te_company_detail" t-if="res_company.email">
-                                    <span class="ftr_add_tel_email_ept">
-                                        <span class="fa fa-envelope te_ftr_info_icon"></span>
-                                    </span>
-                                    <a t-att-href="'mailto: %s' %res_company.email">
-                                        <p class="te_ftr_add_ept" t-field="res_company.email"/>
-                                    </a>
-                                </div>
-                                <!-- Company Number -->
-                                <div class="te_company_detail" t-if="res_company.phone">
-                                    <span class="ftr_add_tel_email_ept">
-                                        <span class="fa fa-phone te_ftr_info_icon"></span>
-                                    </span>
-                                    <a t-att-href="'tel: %s' %res_company.phone">
-                                        <p class="te_ftr_add_ept" t-field="res_company.phone"/>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="te_footer_language_title_style_2 w-100"></div>
-                            <div class="te_footer_menu_social_icon">
-                                <!-- Website Logo -->
-                                <a href="/" class="te_footer_logo logo">
-                                    <span t-field="website.logo" class="te_footer_logo_img"
-                                          t-options="{'widget': 'image'}" role="img"
-                                          t-att-aria-label="'Logo of %s' % website.name" t-att-title="website.name"/>
-                                </a>
-                                <!-- Static Menu-->
-                                <section t-field="website.website_footer_extra_links"/>
-                                <!-- Multiple Language Selected-->
-                                <div class="te_f2_lang_social">
-                                    <div class="te_t_footer_lang">
-                                        <t t-call="website.language_selector"/>
+                                    <div class="te_company_detail"
+                                         t-if="res_company.street or res_company.street2 or res_company.city or res_company.state_id or res_company.zip or res_company.country_id">
+                                        <span>
+                                            <span class="fa fa-map-marker te_ftr_info_icon"></span>
+                                        </span>
+                                        <p class="te_ftr_add_ept">
+                                            <span t-field="res_company.street"/>
+                                            <span t-field="res_company.street2"/>
+                                            <span t-field="res_company.city"/>
+                                            <span t-field="res_company.state_id"/>
+                                            <span t-field="res_company.zip"/>
+                                            <span t-field="res_company.country_id"/>
+                                        </p>
                                     </div>
-                                    <!-- Social Icon -->
-                                    <div class="te_footer_social_icon">
-                                        <a t-if="website.social_facebook" t-att-href="website.social_facebook"
-                                           class="btn btn-sm btn-link">
-                                            <span class="fa fa-facebook-square"/>
+                                    <!-- Company Email -->
+                                    <div class="te_company_detail" t-if="res_company.email">
+                                        <span class="ftr_add_tel_email_ept">
+                                            <span class="fa fa-envelope te_ftr_info_icon"></span>
+                                        </span>
+                                        <a t-att-href="'mailto: %s' %res_company.email">
+                                            <p class="te_ftr_add_ept" t-field="res_company.email"/>
                                         </a>
-                                        <a t-if="website.social_twitter" t-att-href="website.social_twitter"
-                                           class="btn btn-sm btn-link">
-                                            <span class="fa fa-twitter"/>
+                                    </div>
+                                    <!-- Company Number -->
+                                    <div class="te_company_detail" t-if="res_company.phone">
+                                        <span class="ftr_add_tel_email_ept">
+                                            <span class="fa fa-phone te_ftr_info_icon"></span>
+                                        </span>
+                                        <a t-att-href="'tel: %s' %res_company.phone">
+                                            <p class="te_ftr_add_ept" t-field="res_company.phone"/>
                                         </a>
-                                        <a t-if="website.social_linkedin" t-att-href="website.social_linkedin"
-                                           class="btn btn-sm btn-link">
-                                            <span class="fa fa-linkedin"/>
-                                        </a>
-                                        <a t-if="website.social_youtube" t-att-href="website.social_youtube"
-                                           class="btn btn-sm btn-link">
-                                            <span class="fa fa-youtube-play"/>
-                                        </a>
-                                        <a t-if="website.social_github" t-att-href="website.social_github"
-                                           class="btn btn-sm btn-link">
-                                            <span class="fa fa-github"/>
-                                        </a>
-                                        <a t-if="website.social_instagram" t-att-href="website.social_instagram"
-                                           class="btn btn-sm btn-link">
-                                            <span class="fa fa-instagram"/>
-                                        </a>
+                                    </div>
+                                </div>
+                                <div class="te_footer_language_title_style_2 w-100"></div>
+                                <div class="te_footer_menu_social_icon">
+                                    <!-- Website Logo -->
+                                    <a href="/" class="te_footer_logo logo">
+                                        <span t-field="website.logo" class="te_footer_logo_img"
+                                              t-options="{'widget': 'image'}" role="img"
+                                              t-att-aria-label="'Logo of %s' % website.name"
+                                              t-att-title="website.name"/>
+                                    </a>
+                                    <!-- Static Menu-->
+                                    <section t-field="website.website_footer_extra_links"/>
+                                    <!-- Multiple Language Selected-->
+                                    <div class="te_f2_lang_social">
+                                        <div class="te_t_footer_lang">
+                                            <t t-call="website.language_selector"/>
+                                        </div>
+                                        <!-- Social Icon -->
+                                        <div class="te_footer_social_icon">
+                                            <a t-if="website.social_facebook" t-att-href="website.social_facebook"
+                                               class="btn btn-sm btn-link">
+                                                <span class="fa fa-facebook-square"/>
+                                            </a>
+                                            <a t-if="website.social_twitter" t-att-href="website.social_twitter"
+                                               class="btn btn-sm btn-link">
+                                                <span class="fa fa-twitter"/>
+                                            </a>
+                                            <a t-if="website.social_linkedin" t-att-href="website.social_linkedin"
+                                               class="btn btn-sm btn-link">
+                                                <span class="fa fa-linkedin"/>
+                                            </a>
+                                            <a t-if="website.social_youtube" t-att-href="website.social_youtube"
+                                               class="btn btn-sm btn-link">
+                                                <span class="fa fa-youtube-play"/>
+                                            </a>
+                                            <a t-if="website.social_github" t-att-href="website.social_github"
+                                               class="btn btn-sm btn-link">
+                                                <span class="fa fa-github"/>
+                                            </a>
+                                            <a t-if="website.social_instagram" t-att-href="website.social_instagram"
+                                               class="btn btn-sm btn-link">
+                                                <span class="fa fa-instagram"/>
+                                            </a>
 
+                                        </div>
                                     </div>
+                                    <section class="te_newsletter_margin mt-3">
+                                        <p></p>
+                                    </section>
                                 </div>
-                                <section class="te_newsletter_margin mt-3">
-                                    <p></p>
-                                </section>
-                            </div>
-                            <!-- Scroll Up Icon -->
-                            <div class="scrollup-div text-center">
-                                <a href="#" class="scrollup-a">
-                                    <span class="fa fa-angle-up scrollup-i text-center"></span>
-                                </a>
+                                <!-- Scroll Up Icon -->
+                                <div class="scrollup-div text-center">
+                                    <a href="#" class="scrollup-a">
+                                        <span class="fa fa-angle-up scrollup-i text-center"></span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </section>
             </div>
@@ -817,7 +824,7 @@
                     </section>
                     <section>
                         <li>
-                    <a href="#">Affiliates</a>
+                            <a href="#">Affiliates</a>
                         </li>
                     </section>
                     <section>

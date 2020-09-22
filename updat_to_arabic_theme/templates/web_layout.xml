@@ -11,10 +11,13 @@
 
     <template id="affix_top_menu_logo" inherit_id="website.layout_logo_show" name="Fixed Top logo">
         <xpath expr="//header//a[hasclass('navbar-brand')]" position="attributes">
-
             <attribute name="id" add="fixed_img"/>
-            <attribute name="style" add="display:none"/>
+            <attribute name="t-attf-class" add="#{'o_affix_enabled'}" separator=" "/>
         </xpath>
+
+
+
+
 
     </template>
 

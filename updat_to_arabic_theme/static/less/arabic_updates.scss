@@ -12,9 +12,7 @@
 
  }
 
-.navbar-light{
-margin-top:-45px;
-}
+
 
  .te_ribbon-wrapper .label_div {
     position: absolute;
@@ -56,3 +54,47 @@ margin-right:17px;
 }
 
 
+#fixed_img{
+position:absolute;
+left:0px;
+top:1px;
+width:150px;
+height:150px;
+background:white;
+z-index:7;
+border-bottom:1px solid red;
+}
+
+.empty{
+position:absolute;
+left:0px;
+top:1px;
+width:100%;
+height:150px;
+background:white;
+z-index:-1;
+border-bottom:1px solid red;
+}
+
+.search_nav{
+position:absolute;
+left:100px;
+top:2px;
+width:100%;
+background:white;
+
+}
+.navbar-expand-md{
+background:black;
+height:155px;
+
+}
+
+#top_menu{
+position:absolute;
+left:170px;
+top:90px;
+width:100%;
+background:white;
+
+}

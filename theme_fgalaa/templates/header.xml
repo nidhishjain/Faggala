@@ -156,24 +156,24 @@
                         <div class="container">
                             <div class="row ">
                                 <div class="te_offer_left col-lg-9 pull-right"
-                                     style="margin-right:-100px;color:black;margin-left:0px;">
+                                     style="margin-right:-70px;color:black;margin-left:0px;">
                                     <section>
                                         <p style="font-size:15px;">
                                             <img src="/theme_fgalaa/static/src/img/shop/output-onlinepngtools (2).png"
-                                                  style="margin:3px;width:40px;height:40px;border-radius:50%"/>
+                                                 style="margin:2px;width:20px;height:20px;border-radius:50%"/>
                                             الدفع عند الاستلام
                                             <img src="/theme_fgalaa/static/src/img/shop/moneyback.png"
-                                                 style="margin:3px;width:40px;height:40px;border-radius:50%"/>
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             ارجاع السلع مجانا
                                             <img src="/theme_fgalaa/static/src/img/shop/freeship.png"
-                                                  style="margin:3px;width:40px;height:40px;border-radius:50%"/>
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             مزايا الشحن المجاني
 
                                             <img src="/theme_fgalaa/static/src/img/shop/NicePng_open-24-hours-png_3552848.png"
-                                                  style="margin:3px;width:40px;height:40px;border-radius:50%"/>
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             خدمة العملاء
                                             <img src="/theme_fgalaa/static/src/img/shop/offers.png"
-                                                  style="margin:3px;width:40px;height:40px;border-radius:50%"/>
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             العروض
                                         </p>
                                         <!--<section t-field="website.website_header_offer_ept"/>-->
@@ -230,7 +230,7 @@
                                                  t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                                 <a t-attf-href="/web/login" class="btn btn-link">
                                                     <img src="/theme_fgalaa/static/src/img/shop/login.png"
-                                                  style="margin:3px;width:30px;height:30px;"/>
+                                                         style="margin:3px;width:30px;height:30px;"/>
                                                     <span class="te_user_account_name">تسجيل الدخول</span>
                                                     <span class="te_user_account_icon">
                                                         <i class="fa fa-user" aria-hidden="true"/>
@@ -249,70 +249,52 @@
         </xpath>
 
 
+        <xpath expr="//nav[hasclass('navbar-expand-md')]/div[hasclass('container')]"
+               position="attributes">
+            <attribute name="class">
+            </attribute>
+        </xpath>
 
-    <xpath expr="//header/nav[hasclass('navbar-expand-md')]" position="before">
+        <xpath expr="//nav[hasclass('navbar-expand-md')]" position="inside">
+            <div class="row py-3 align-items-center search_nav">
 
-           <div class="container te_header_style_2_inner" >
-                        <div class="row py-3 align-items-center">
-                            <div class="col-lg-6">
-                                <t t-set="logo_show"
-                                   t-value="request.website.viewref('website.layout_logo_show').active"/>
-                                <t t-if="logo_show">
-                                    <a href="/" class=" navbar-brand logo te_header_before_logo ">
-                                        <span t-field="website.logo"
-                                              t-options="{'widget': 'image'}" role="img"
-                                              t-att-aria-label="'Logo of %s' % website.name"
-                                              t-att-title="website.name"/>
-                                    </a>
-                                </t>
-
-                                <t t-else="">
-                                    <a class="te_header_before_logo navbar-brand" href="/" t-if="website"
-                                       t-field="website.name">My Website
-                                    </a>
-                                </t>
-                            </div>
-                            <div class="col-lg-6 te_header_style_2_right">
-                                <div class="te_header_search">
-                                    <div class="te_srch_icon_header">
-                                        <a href="#" class="">
-                                            <i class="fa fa-search te_srch_icon"/>
-                                            <i class="fa fa-times te_srch_close"/>
-
-                                        </a>
-                                    </div>
-                                    <div class="te_search_popover" tabindex="-1">
-                                        <t t-call="theme_fgalaa.header_search_ept"></t>
-                                    </div>
-                                </div>
-                                <t t-set="website_vertical_menu"
-                                   t-value="request.website.viewref('theme_fgalaa.menu_vertical').active"/>
-                                <div class="te_bar_icon" t-if="website_vertical_menu">
-                                    <a href="#" class="">
-                                        <i class="fa fa-sliders"/>
-                                    </a>
-                                </div>
-                                <div class="te_cart_icon_head">
-                                    <t t-call="theme_fgalaa.header_cart"></t>
-                                </div>
-                                <div class="te_wish_icon_head"
-                                     t-if="request.website.viewref('website_sale_wishlist.add_to_wishlist').active">
-                                    <t t-call="theme_fgalaa.header_wishlist"></t>
-                                </div>
-                            </div>
+                <div class="col-lg-8 te_header_style_2_right">
+                    <div class="te_header_search">
+                        <div class="te_srch_icon_header">
+                            <a href="#" class="">
+                                <i class="fa fa-search te_srch_icon"/>
+                                <i class="fa fa-times te_srch_close"/>
+                            </a>
+                        </div>
+                        <div class="te_search_popover" tabindex="-1">
+                            <t t-call="theme_fgalaa.header_search_ept"></t>
                         </div>
                     </div>
+                    <t t-set="website_vertical_menu"
+                       t-value="request.website.viewref('theme_fgalaa.menu_vertical').active"/>
+                    <div class="te_bar_icon" t-if="website_vertical_menu">
+                        <a href="#" class="">
+                            <i class="fa fa-sliders"/>
+                        </a>
+                    </div>
+                    <div class="te_cart_icon_head">
+                        <t t-call="theme_fgalaa.header_cart"></t>
+                    </div>
+                    <div class="te_wish_icon_head"
+                         t-if="request.website.viewref('website_sale_wishlist.add_to_wishlist').active">
+                        <t t-call="theme_fgalaa.header_wishlist"></t>
+                    </div>
 
-    </xpath>
+                </div>
+            </div>
+            <div class="empty"></div>
 
+        </xpath>
 
 
         <xpath expr="//nav[hasclass('navbar-expand-md')]" position="attributes">
             <attribute name="class">navbar navbar-expand-md te_header_navbar navbar-light
             </attribute>
-        </xpath>
-        <xpath expr="//ul[@id='top_menu']/li[hasclass('divider')][last()]"
-               position="replace">
         </xpath>
         <xpath expr="//ul[@id='top_menu']/li[hasclass('dropdown')]"
                position="replace">
@@ -322,8 +304,6 @@
 
 
     </template>
-
-
 
 
     <!-- ======================= Header style option 3========================= -->
@@ -1093,7 +1073,11 @@
         <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
         <a id="my_cart" href="/shop/cart" class="nav-link o_wsale_my_cart">
             <!--<i class="fa fa-shopping-cart"/>-->
-            <span class="fa"><img title="العربه" src="/theme_fgalaa/static/src/img/shop/PinClipart.com_running-horse-clipart_1402959.png" style="width:30px;height:25px;"/> </span>
+            <span class="fa">
+                <img title="العربه"
+                     src="/theme_fgalaa/static/src/img/shop/PinClipart.com_running-horse-clipart_1402959.png"
+                     style="width:30px;height:25px;"/>
+            </span>
             <sup t-attf-class="my_cart_quantity badge badge-primary"
                  t-esc="website_sale_order and website_sale_order.cart_quantity or '0'"
                  style="background:none;color:red;font-size:13px;margin-left:15px;margin-top:5px;"/>
@@ -1115,7 +1099,10 @@
             <t t-set='wishcount' t-value="len(request.env['product.wishlist'].current())"/>
             <a href="/shop/wishlist" class="nav-link te_wish_icon_head" t-att-style="not wishcount and 'display:none;'">
                 <!--<i class="fa fa-heart"/>-->
-                <span class="fa"><img title="العربه" src="/theme_fgalaa/static/src/img/shop/blackheart.png" style="width:30px;height:25px;"/> </span>
+                <span class="fa">
+                    <img title="العربه" src="/theme_fgalaa/static/src/img/shop/blackheart.png"
+                         style="width:30px;height:25px;"/>
+                </span>
                 <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-primary">
                     <t t-esc='wishcount or "0"'/>
                 </sup>
