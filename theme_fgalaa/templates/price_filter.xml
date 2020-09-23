@@ -55,7 +55,7 @@
 
                         </div>
                         <span class="ept_price_slider_error"/>
-                        <span class="w-100 btn btn-primary mt16 rounded py-1" id="price_slider_filter">Apply
+                        <span class="w-100 btn btn-primary mt16 rounded py-1 "  id="price_slider_filter">Apply
                             Filter
                         </span>
                     </div>

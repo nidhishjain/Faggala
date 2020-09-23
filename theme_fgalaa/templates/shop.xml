@@ -305,7 +305,7 @@
                 <t t-if="is_brand_filter_enabled">
                     <t t-if="products" t-set="brand_list" t-value="request.website.get_brand(products)"/>
                     <t t-if="brand_list">
-                        <li class="nav-item" dir="rtl" style="margin-right:-100px;'">
+                        <li class="nav-item" dir="rtl" style="">
                             <div>
                                 <p class="te_attr_title text-center">
                                     <i class="down-arrow fa fa-caret-right"/>
@@ -523,14 +523,14 @@
     <template id="products_categories_ept" inherit_id="website_sale.products_categories"
               name="Ecommerce Categories">
         <xpath expr="//div[@id='wsale_products_categories_collapse']/ul[hasclass('flex-column')]" position="before">
-            <h4 class="te_ctg_h4 d-none d-lg-block pull-right"  dir="rtl" lang="ar">
+            <h4 class="te_ctg_h4 d-none d-lg-block text-center"  dir="rtl" lang="ar">
                 أصناف المنتجات
             </h4>
         </xpath>
         <xpath expr="//div[@id='wsale_products_categories_collapse']/ul[hasclass('flex-column')]"
                position="attributes">
             <attribute name="class">nav nav-pills flex-column mt16
-                te_shop_ctg_list
+                te_shop_ctg_list text-center
             </attribute>
         </xpath>
         <xpath expr="//button[@data-target='#wsale_products_categories_collapse']" position="attributes">

@@ -99,6 +99,20 @@ height:35px;
     color: black;
 }
 
+.collapse:not(.show) {
+
+    margin-right:-300px;
+}
+
+.price_slider_filter{
+ text-align: center;
+}
+
+.product_share a{
+width:50px !important;
+height:50px !important;
+text-align:center;
+}
 
 
 #top_menu{
