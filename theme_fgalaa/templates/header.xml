@@ -189,11 +189,11 @@
                                         </div>
                                         <div class="te_header_lang"
                                              t-att-style="'text-align:right' if website_sale_pricelists and len(website_sale_pricelists)&gt;1 else 'text-align:left'">
-                                            <div class="px-2">
+                                            <div class="">
                                                 <t t-call="theme_fgalaa.header_language_ept"></t>
                                             </div>
                                         </div>
-                                        <div class="px-2">
+                                        <div class="">
                                             <div class="dropdown te_user_account" t-ignore="true"
                                                  t-if="not user_id._is_public()">
                                                 <a href="#" class="dropdown-toggle btn btn-link"
