@@ -156,24 +156,24 @@
                         <div class="container">
                             <div class="row ">
                                 <div class="te_offer_left col-lg-9 pull-right"
-                                     style="margin-right:-70px;color:black;margin-left:0px;">
+                                     style="margin-right:-70px;color:white;margin-left:0px;">
                                     <section>
-                                        <p style="font-size:15px;">
+                                        <p style="font-size:14px;">
                                             <img src="/theme_fgalaa/static/src/img/shop/output-onlinepngtools (2).png"
-                                                 style="margin:2px;width:20px;height:20px;border-radius:50%"/>
+                                                 style="margin:2px;width:30px;height:30px;border-radius:50%"/>
                                             الدفع عند الاستلام
                                             <img src="/theme_fgalaa/static/src/img/shop/moneyback.png"
-                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
+                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
                                             ارجاع السلع مجانا
                                             <img src="/theme_fgalaa/static/src/img/shop/freeship.png"
-                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
+                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
                                             مزايا الشحن المجاني
 
                                             <img src="/theme_fgalaa/static/src/img/shop/NicePng_open-24-hours-png_3552848.png"
-                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
+                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
                                             خدمة العملاء
                                             <img src="/theme_fgalaa/static/src/img/shop/offers.png"
-                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
+                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
                                             العروض
                                         </p>
                                         <!--<section t-field="website.website_header_offer_ept"/>-->
