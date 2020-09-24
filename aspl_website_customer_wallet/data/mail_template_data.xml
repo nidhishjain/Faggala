@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="added_email_customer_template" model="mail.template">
+            <field name="name">Added amount in wallet</field>
+            <field name="subject">Added Amount In Wallet</field>
+            <field name="model_id" ref="aspl_website_customer_wallet.model_customer_wallet" />
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+            <p>Dear ${object.partner_id.name},<br/>
+            <p>You are added successfully <strong>${format_amount(object.amount, object.company_id.currency_id)}</strong> amount in your wallet.</p>
+            <p>your current balance is <strong>${format_amount(object.partner_id.wallet_bal, object.company_id.currency_id)}</strong>.</p>
+            <p>Thank you,</p>
+        ]]></field>
+        </record>
+
+        <record id="used_email_customer_template" model="mail.template">
+            <field name="name">Amount used from wallet</field>
+            <field name="subject">Used Wallet Amount</field>
+            <field name="model_id" ref="aspl_website_customer_wallet.model_customer_wallet" />
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+            <p>Dear ${object.partner_id.name},<br/>
+            <p>You are used <strong>${format_amount(abs(object.amount), object.company_id.currency_id)}</strong> from your wallet balance.</p>
+            % if object.order_id.name:
+                <p>you are used this amount for paid ${object.order_id.name} order.</p>
+            % endif
+            % if object.invoice_id.number:
+                <p>you are used this amount for paid ${object.invoice_id.number} invoice.</p>
+            % endif
+            <p>your remaining balance is <strong>${format_amount(object.partner_id.wallet_bal, object.company_id.currency_id)}</strong>.</p>
+            <p>Thank you,</p>
+        ]]></field>
+        </record>
+
+        <record id="change_pin_email_customer_template" model="mail.template">
+            <field name="name">Change wallet pin</field>
+            <field name="subject">Wallet Change Pin</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="email_to">${object.email}</field>
+            <field name="body_html"><![CDATA[
+            <p>Dear ${object.partner_id.name},<br/>
+            <p>You Have successfully Changed Your Wallet PIN.</p>
+            <p>Thank you,</p>
+        ]]></field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+    </data>
+</odoo>

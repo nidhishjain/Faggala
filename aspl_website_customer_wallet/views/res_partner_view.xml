@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_customer_wallet_view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.wallet.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='container_row_2']/group[3]" position="after">
+                <group string="Wallet Balance" name="wallet_bal">
+                    <field name="wallet_bal"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

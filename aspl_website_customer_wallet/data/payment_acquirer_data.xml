@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="payment_acquirer_wallet" model="payment.acquirer">
+            <field name="name">Wallet</field>
+            <field name="provider">transfer</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="view_template_id" ref="payment_transfer.transfer_form"/>
+            <field name="state">test</field>
+            <field name="wallet_acquirer" eval="True"/>
+<!--            <field name="website_published" eval="True"/>-->
+        </record>
+    </data>
+</odoo>

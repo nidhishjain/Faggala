@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Payment Method List Inherit -->
+    <template id="wallet_payment_tokens_list" inherit_id="payment.payment_tokens_list">
+        <xpath expr="//t[@t-foreach='acquirers']/div[1]/label" position="replace">
+            <label>
+                <t t-set="order_amount" t-value="website_sale_order and website_sale_order.amount_total or invoice and invoice.amount_residual_signed"/>
+                <t t-set="wallet_amount" t-value="website_sale_order and website_sale_order.partner_id.wallet_bal or invoice and invoice.partner_id.wallet_bal or 0.0"/>
+                <input type="radio" t-att-data-acquirer-id="acq.id"
+                       t-att-data-form-payment="true"
+                       t-att-data-provider="acq.provider"
+                       t-att-class="'hidden' if (acquirers_count==1 and pms_count==0) else ''"
+                       t-att-checked="acquirers_count==1 and pms_count==0"
+                       name="pm_id" t-attf-value="form_{{acq.id}}"
+                       t-att-disabled="acq.wallet_acquirer and wallet_amount &lt; order_amount or None"
+                />
+                <span class="payment_icon_name" t-esc="acq.name"/>
+                <span t-if="acq.wallet_acquirer" class="badge" t-esc="wallet_amount" t-options="{'widget': 'monetary', 'from_currency': website.company_id.currency_id, 'display_currency': website.currency_id}"/>
+                <span t-if="acq.wallet_acquirer and wallet_amount &lt; order_amount" class="text-muted"><small>You have not sufficient balance in your wallet</small></span>
+            </label>
+        </xpath>
+    </template>
+
+<!--    <template id="confirm" inherit_id="payment.confirm">-->
+<!--        <xpath expr="//t/div/div[1]/div[1]/div[1]/div[1]/div[8]" position="attributes">-->
+<!--            <attribute name="class">col-md-6 text-muted mt16</attribute>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+    <template id="website_sale.payment" name="Payment">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Shop - Select Payment Acquirer</t>
+            <t t-set="no_footer">1</t>
+
+            <div id="wrap">
+                <div class="container oe_website_sale py-2">
+                    <div class="row">
+                        <div class='col-12'>
+                            <t t-call="website_sale.wizard_checkout">
+                                <t t-set="step" t-value="40" />
+                            </t>
+                        </div>
+                        <div class="col-12" t-if="errors">
+                            <t t-foreach="errors" t-as="error">
+                                <div class="alert alert-danger" t-if="error" role="alert">
+                                    <h4>
+                                        <t t-esc="error[0]" />
+                                    </h4>
+                                    <t t-esc="error[1]" />
+                                </div>
+                            </t>
+                        </div>
+                        <div class="col-12 col-xl-auto order-xl-2">
+                            <t t-call="website_sale.cart_summary"/>
+                        </div>
+                        <div class="col-12 col-xl order-xl-1 oe_cart">
+                            <div class="card">
+                                <div class="card-body" id="shipping_and_billing">
+                                    <a class='float-right no-decoration' href='/shop/checkout'><i class="fa fa-edit"/> Edit</a>
+                                    <t t-set="same_shipping" t-value="bool(order.partner_shipping_id==order.partner_id or only_services)" />
+                                    <div><b>Billing<t t-if="same_shipping and not only_services"> &amp; Shipping</t>: </b><span t-esc='order.partner_id' t-options="dict(widget='contact', fields=['address'], no_marker=True, separator=', ')" class="address-inline"/></div>
+                                    <div t-if="not same_shipping and not only_services" groups="sale.group_delivery_invoice_address"><b>Shipping: </b><span t-esc='order.partner_shipping_id' t-options="dict(widget='contact', fields=['address'], no_marker=True, separator=', ')"  class="address-inline"/></div>
+                                </div>
+                            </div>
+
+                            <div class="oe_structure clearfix mt-3" id="oe_structure_website_sale_payment_1"/>
+                            <div id="payment_method" class="mt-3" t-if="(acquirers or tokens) and website_sale_order.amount_total">
+                                <h3 class="mb24">Pay with </h3>
+                                <t t-if="website_sale_order.partner_id.wallet_bal &lt; website_sale_order.amount_total and website_sale_order.partner_id.wallet_bal &gt; 0">
+                                    <td class="text-right">
+                                        <label class="switch">
+                                            <input type="checkbox" id="used_wallet" name="used_wallet"/>
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <label for="used_wallet"><b>Use You Current Wallet Amount.</b></label>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="wallet_amount" disabled="disabled" t-att-value="website_sale_order.partner_id.wallet_bal"
+                                               t-att-data-max="website_sale_order.amount_total" name="wallet_amount" style="width: 60px; display: none;"
+                                        />
+                                        <span t-field="website_sale_order.partner_id.wallet_bal" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}" />
+                                    </td>
+                                </t>
+
+                                <t t-call="payment.payment_tokens_list">
+                                    <t t-set="mode" t-value="'payment'"/>
+                                    <t t-set="submit_txt">Pay Now</t>
+                                    <t t-set="icon_right" t-value="1"/>
+                                    <t t-set="icon_class" t-value="'fa-chevron-right'"/>
+                                    <t t-set="submit_class" t-value="'btn btn-primary'"/>
+                                    <t t-set="pms" t-value="tokens"/>
+                                    <t t-set="form_action" t-value="'/shop/payment/token'"/>
+                                    <t t-set="prepare_tx_url" t-value="'/shop/payment/transaction/'"/>
+                                    <t t-set="partner_id" t-value="partner"/>
+
+                                    <t t-set="back_button_icon_class" t-value="'fa-chevron-left'"/>
+                                    <t t-set="back_button_txt">Return to Cart</t>
+                                    <t t-set="back_button_class" t-value="'btn btn-secondary'"/>
+                                    <t t-set="back_button_link" t-value="'/shop/cart'"/>
+                                </t>
+                            </div>
+
+                            <div t-if="not acquirers" class="mt-2">
+                                <a role="button" class="btn-link"
+                                   groups="base.group_system"
+                                   t-attf-href="/web#return_label=Website&amp;action=#{payment_action_id}">
+                                    <i class="fa fa-arrow-right"></i> Add payment acquirers
+                                </a>
+                            </div>
+                            <div class="js_payment mt-3" t-if="not website_sale_order.amount_total" id="payment_method">
+                                <form target="_self" action="/shop/payment/validate" method="post" class="float-right">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                    <a role="button" class="btn btn-primary a-submit" href="#">
+                                        <span t-if="order.amount_total &gt; 0">Pay Now <span class="fa fa-chevron-right"></span></span>
+                                        <span t-if="order.amount_total == 0">Confirm Order <span class="fa fa-chevron-right"></span></span>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_website_sale_payment_2"/>
+            </div>
+        </t>
+    </template>
+    <template id="account_payment.portal_invoice_payment" name="Invoice Payment">
+        <div class="row" t-if="invoice.state == 'posted' and invoice.amount_total" id="portal_pay">
+            <div class="modal fade" id="pay_with" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Pay with</h3>
+                            <button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+                        </div>
+                        <table class="table">
+                            <t t-if="invoice.partner_id.wallet_bal &lt; invoice.amount_residual_signed and invoice.partner_id.wallet_bal &gt; 0">
+                                <input type="hidden" t-att-value="invoice.amount_residual" id="invoice_residual"/>
+                                <input type="hidden" t-att-value="invoice.id" id="invoice_id"/>
+                                <td>
+                                    <label class="switch">
+                                        <input type="checkbox" id="used_wallet_invoice" name="used_wallet_invoice"/>
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <label for="used_wallet"><b>Use You Current Wallet Amount.</b></label>
+                                    <input type="text" id="wallet_invoice_amount" disabled="disabled" t-att-value="invoice.partner_id.wallet_bal"
+                                           t-att-data-max="invoice.amount_residual" name="wallet_invoice_amount" style="width: 60px; display: none;"
+                                    />
+                                    <span t-field="invoice.partner_id.wallet_bal" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': invoice.currency_id}" />
+                                </td>
+                            </t>
+                        </table>
+
+                        <div class="modal-body">
+                            <div t-if="pms or acquirers" id="payment_method" class="text-left col-md-13">
+                                <t t-call="payment.payment_tokens_list">
+                                    <t t-set="mode" t-value="'payment'"/>
+                                    <t t-set="partner_id" t-value="invoice.partner_id.id if request.env.user._is_public() else request.env.user.partner_id.id"/>
+                                    <t t-set="success_url" t-value="invoice.get_portal_url()"/>
+                                    <t t-set="error_url" t-value="invoice.get_portal_url()"/>
+                                    <t t-set="access_token" t-value="access_token or ''"/>
+                                    <t t-set="callback_method" t-value="''"/>
+                                    <t t-set="form_action" t-value="'/invoice/pay/' + str(invoice.id) + '/s2s_token_tx/'"/>
+                                    <t t-set="prepare_tx_url" t-value="'/invoice/pay/' + str(invoice.id) + '/form_tx/'"/>
+                                    <t t-set="submit_txt">Pay Now</t>
+                                    <t t-set="icon_class" t-value="'fa-lock'"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="confirmation_inherit_form_view" name="Used Wallet Amount In Payment" inherit_id="website_sale.confirmation">
+        <xpath expr="//table[@class='table']" position="replace">
+            <table class="table">
+                <tbody>
+                    <t t-if="order.partial_pay_amount != 0.0">
+                        <tr>
+                            <td colspan="2">
+                                <t t-esc="order.get_portal_last_transaction().acquirer_id.name" />
+                            </td>
+                            <td class="text-right" width="100">
+                                <strong>Paid Total:</strong>
+                            </td>
+                            <td class="text-right" width="100">
+                                <t t-set="amount" t-value="order.amount_total - order.partial_pay_amount"/>
+                                <strong t-esc="amount" t-options="{'widget': 'monetary', 'display_currency': order.pricelist_id.currency_id}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span>Wallet</span>
+                            </td>
+                            <td class="text-right" width="100">
+                                <strong>Wallet Paid Amount:</strong>
+                            </td>
+                            <td class="text-right" width="100">
+                                <t t-set="amount" t-value="order.partial_pay_amount"/>
+                                <strong t-esc="amount" t-options="{'widget': 'monetary', 'display_currency': order.pricelist_id.currency_id}" />
+                            </td>
+                        </tr>
+                    </t>
+                    <t t-else="">
+                        <tr>
+                            <td colspan="2">
+                                <t t-esc="order.get_portal_last_transaction().acquirer_id.name" />
+                            </td>
+                            <td class="text-right" width="100">
+                                <strong>Total:</strong>
+                            </td>
+                            <td class="text-right" width="100">
+                                <strong t-field="order.amount_total" t-options="{'widget': 'monetary', 'display_currency': order.pricelist_id.currency_id}" />
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,32 @@
+.image-holder>img{
+                height: 100px;
+                border-radius: 100%;
+                width:100px;
+                }
+
+.balance{
+    flex-direction: column;
+}
+
+.section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.tmp{
+    flex-direction: row;
+}
+.tmp>*{
+    margin: 10px;
+}
+#balance{
+    font-size:24px;
+    font-weight:500;
+
+}
+
+.btn.btn-default.dropdown-toggle.toggleborder {
+    display: none;
+}

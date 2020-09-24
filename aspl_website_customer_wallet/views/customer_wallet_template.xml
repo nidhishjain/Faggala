@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend" name="im_livechat assets frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/aspl_website_customer_wallet/static/src/css/footable.bootstrap.min.css"></link>
+            <link rel="stylesheet" type="text/css" href="/aspl_website_customer_wallet/static/src/css/main.css"></link>
+        </xpath>
+
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/aspl_website_customer_wallet/static/src/js/footable.min.js"></script>
+            <script type="text/javascript" src="/aspl_website_customer_wallet/static/src/js/main.js"></script>
+            <script type="text/javascript" src="/aspl_website_customer_wallet/static/src/js/payment.js"></script>
+        </xpath>
+    </template>
+
+    <template id="my_account_link" name="Link to frontend portal" inherit_id="portal.frontend_layout">
+        <xpath expr="//a[@id='o_logout']" position="before">
+            <t t-set="wallet" t-value="request.env['ir.config_parameter'].sudo().get_param('aspl_website_customer_wallet.customer_wallet')"></t>
+            <a href="/login/wallet" role="menuitem" class="dropdown-item" t-if="wallet">Wallet</a>
+        </xpath>
+    </template>
+
+    <template id="customer_wallet_logging" name="Customer Wallet Log In">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 offset-lg-4">
+                        <div class="card text-center" style="box-shadow: 0 2px 12px 0 rgba(32, 33, 36, .28); margin:50px 0px;">
+                            <div class="card-body">
+                                <form action="/my/wallet">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <fieldset>
+                                        <legend><h4>Login</h4></legend>
+                                        <div class="form-group text-left">
+                                            <label for="pin">Pin</label>
+                                            <input type="password" class="form-control" name="pin" placeholder="Enter pin" id="pin" required="required"/>
+                                        </div>
+                                        <button type="submit" id="submitpin" name="pin" class="btn btn-primary btn-block" style="margin-top:10px; background-color:#00A09D; color:#FFFFFF;">Login</button>
+
+                                        <t t-if="error and error == '1' ">
+                                            <p class="text-danger" >Wrong Pin</p>
+                                        </t>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="customer_wallet" name="Customer Wallet">
+        <t t-call="website.layout">
+            <div class="container-fluid" style="background-color:#eee; padding:20px 0px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div style="background-color:white; box-shadow:0 2px 12px 0 rgba(32, 33, 36, .28); padding:25px 15px; width:90% !impotant; height:100%;">
+                                <div class="row">
+                                    <div class="col-lg-2 offset-lg-1 center" style="display: block; margin-left: 30%;">
+                                        <t t-if="image">
+                                            <span t-esc="image" t-options='{"widget": "image", "preview_image": "image_128", "class": "d-block mx-auto mb16"}' class="image-holder" />
+                                        </t>
+                                        <t t-else="">
+                                            <span t-options='{"widget": "image", "preview_image": "image_128", "class": "d-block mx-auto mb16"}' class="image-holder" />
+                                        </t>
+
+                                        <div class="col-lg-6 offset-lg-2" style="white-space:nowrap; margin-right: 10px; float:right;">
+                                            <span><t t-esc="name"/></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:5px;">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="border-top: 3px solid rgb(230, 230, 230);">
+                                        <strong>Wallet Balance </strong> <br/>
+                                        <span t-field="partner.wallet_bal" t-options="{'widget': 'monetary', 'from_currency': request.env.user.partner_id.currency_id, 'display_currency': request.env.user.partner_id.currency_id}"/>
+                                    </div>
+                                </div>
+                                <div class="row" style="border-top: 3px solid rgb(230, 230, 230); margin-top:2px; padding-top:15px;">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="padding:0;">
+                                        <button type="button" class="btn btn-outline-primary my_passbook" style="background-color:#00A09D; color:#FFFFFF; width: 104px; height: 40px;" onclick="location.reload();">Passbook</button> <br/>
+                                        <button type="button" class="btn btn-outline-primary add_my_wallet" style="margin-top:5px; background-color:#00A09D; color:#FFFFFF; width: 104px; height: 40px;">Add Money</button> <br/>
+                                        <button type="button" class="btn btn-outline-primary change_password" style="margin-top:5px; background-color:#00A09D; color:#FFFFFF; width: 104px; height: 40px;">Change Pin</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="wallet_body" class="col-lg-8" style="background-color:white; box-shadow:0 2px 12px 0 rgba(32, 33, 36, .28); padding:10px 10px;">
+                            <t t-if="addwallet">
+                                <t t-call="aspl_website_customer_wallet.add_money_template"/>
+                            </t>
+                            <t t-if="newpassword">
+                                <t t-call="aspl_website_customer_wallet.change_pin_template"/>
+                            </t>
+                            <t t-if="not addwallet and not newpassword and not passbook">
+                                <t t-call="aspl_website_customer_wallet.passbook_template"/>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="passbook_template" name="Passbook Template">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-2 offset-lg-5">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="form-group">
+                            <select class="form-control transaction" name="t_type" id="transaction">
+                                <option value="all" selected="selected">All</option>
+                                <option value="credit">Added</option>
+                                <option value="debit">Used</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 filter-form-here">
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+
+            <div class="col-lg-12" style="margin-top:10px; padding:5px">
+                <table class="table table-hover my-table" id="foo-table" data-filter-container=".filter-form-here" data-paging="true" data-paging-size="5" data-filtering="true">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                Date
+                            </th>
+                            <th class="text-center">
+                                Amount
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="last_transactions" t-as="last_rec">
+                            <tr class="text-center">
+                                <td>
+                                    <t t-esc="last_rec.date"/>
+                                </td>
+                                <td>
+                                    <t t-if="last_rec.transaction_type == 'credit'">
+                                        <span class="fa fa-plus" t-esc="'%.2f' % (last_rec.amount)" t-options="{'widget': 'monetary', 'display_currency': last_rec.currency}"></span>
+                                    </t>
+                                    <t t-else="last_rec.transaction_type == 'debit'">
+                                        <span class="fa fa-minus" t-esc="'%.2f' % (last_rec.amount)" t-options="{'widget': 'monetary', 'display_currency': last_rec.currency}"></span>
+                                    </t>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <style>.filter-form-here .input-group-btn>.btn.btn-default.dropdown-toggle.toggleborder{display:date;}</style>
+        </div>
+    </template>
+    <template id="change_pin_template" name="Change Pin">
+        <script>
+            odoo.define('aspl_website_customer_wallet.change_pin', function(require) {
+            "use strict";
+            var core = require('web.core')
+            var qweb = core.qweb;
+            var rpc = require('web.rpc');
+            var ajax = require('web.ajax');
+            var session = require('web.session');
+            $("#set_pin").attr("disabled", true);
+            var $btn = $('#set_pin');
+            $(document).ready(function(e) {
+                $('#newpin').on("change", function(){
+                    var old_pin = $("#oldpin").val();
+                    var new_pin = $("#newpin").val();
+                    if (old_pin != '' &amp;&amp; new_pin != '') {
+                        $btn.removeAttr('disabled');
+                    } else {
+                        $btn.prop('disabled', true);
+                    }
+                });
+
+                $("#oldpin").on("change", function(){
+                    var old_pin = $("#oldpin").val();
+                    var new_pin = $("#newpin").val();
+                    if (old_pin != '' &amp;&amp; new_pin != '') {
+                        $btn.removeAttr('disabled');
+                    } else {
+                        $btn.prop('disabled', true);
+                    }
+                });
+                $('.setpin').click(function() {
+                var old_pin = $("#oldpin").val();
+                var new_pin = $("#newpin").val();
+                var user = session.user_id;
+                rpc.query({
+                        model: 'res.users',
+                        method: 'read',
+                        args: [
+                            [user],
+                            ['customer_password']
+                        ],
+                    })
+                    .then(function(result) {
+                        var old_pwd = result[0]['customer_password']
+                        if (old_pin == old_pwd) {
+                            ajax.jsonRpc("/change/pin/process", 'call', {
+                                    'oldpin': old_pin,
+                                    'newpin': new_pin
+                                })
+                                .then(function(result) {
+                                    $('#wallet_body').html('')
+                                    $('body').html(result['data'])
+                                })
+                        } else {
+                            ajax.jsonRpc("/change/pin/process", 'call', {
+                                    'oldpin': old_pin,
+                                    'newpin': new_pin
+                                })
+                                .then(function(result) {
+                                    $('#wallet_body').html('')
+                                    $('#wallet_body').html(result['data'])
+                                })
+                        }
+                    })
+                })
+            });
+            });
+        </script>
+        <form action="/change/pin/process">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <h4 style="text-align: center; margin-top:90px; margin-bottom: 15px">Change Pin</h4>
+            <div class="form-group row">
+                <div class="col-lg-4 text-right" style="padding-top:8px;">
+                    <label for="oldpin">Old Pin</label>
+                </div>
+                <div class="col-lg-6">
+                    <input type="password" class="form-control" name="oldpin" id="oldpin" placeholder="Old Pin" required="required"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-lg-4 text-right" style="padding-top:8px;">
+                    <label for="newpin">New Pin</label>
+                </div>
+                <div class="col-lg-6">
+                    <input type="password" class="form-control" name="newpin" id="newpin" placeholder="New Pin" required="required"/>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <button type="button"  id='set_pin' class="btn btn-outline-primary setpin" style="margin-top:5px; background-color:#00A09D; color:#FFFFFF; width: 104px; height: 40px;">Change Pin</button>
+            </div>
+            <t t-if="error and error == '1' ">
+                <h6 class="text-danger" style="text-align: center">Old Pin is incorrect</h6>
+            </t>
+        </form>
+    </template>
+
+    <template id="add_money_template" name="Add Money">
+        <script>
+            odoo.define('aspl_website_customer_wallet.add_payment', function(require) {
+            "use strict";
+            var core = require('web.core')
+            var qweb = core.qweb;
+            var rpc = require('web.rpc');
+            var ajax = require('web.ajax');
+            var session = require('web.session');
+            $("#add_money").keypress(function(e) {
+            if (e.which != 8 &amp;&amp; e.which != 0 &amp;&amp; e.which != 46 &amp;&amp; (e.which &lt; 48 || e.which &gt; 57)) {
+                return false;
+            }
+        });
+            });
+        </script>
+        <form action="/add/payment">
+            <h4 style="margin-top:110px; text-align: center">Add Money to Wallet</h4>
+            <div class="col-lg-6 offset-lg-3 balance section">
+                <div class="row">
+                    <div class="col-lg-1 offset-lg-2">
+                        <label style="font-size:20px; margin-left:15px;"> <t t-esc="request.env.user.partner_id.currency_id.symbol"/></label>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" id="add_money" class="form-control " name="addwallet" placeholder="Add Money" required="required" style="border:0; outline:0; border-bottom:2px solid black; margin-bottom: 8px"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <button type="submit" id="addmoney" name="addmoney" class="btn btn-primary d-none d-xl-inline-block" style="margin-top:10px; margin-top:5px; background-color: #00A09D;">Proceed</button>
+            </div>
+        </form>
+    </template>
+</odoo>

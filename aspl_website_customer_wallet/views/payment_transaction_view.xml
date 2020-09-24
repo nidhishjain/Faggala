@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_customer_wallet_transaction_form" model="ir.ui.view">
+        <field name="name">payment.transaction.form.wallet</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.transaction_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="wallet_transaction" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
