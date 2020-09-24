@@ -8,7 +8,7 @@
             <t t-if="range_values">
                 <input type="hidden" id="price_slider_min" t-att-value="range_values[2]"/>
                 <input type="hidden" id="price_slider_max" t-att-value="range_values[3]"/>
-                <div class="ept_price_slider_block pull-left">
+                <div class="ept_price_slider_block text-center">
                     <div class="price_filter_head">
                         <i class="te_price_icon fa fa-caret-right"/>
                         <span class="m-0 te_pricerange_title">السعر</span>
@@ -55,7 +55,7 @@
 
                         </div>
                         <span class="ept_price_slider_error"/>
-                        <span class="w-100 btn btn-primary mt16 rounded py-1" id="price_slider_filter">Apply
+                        <span class="w-100 btn btn-primary mt16 rounded py-1 "  id="price_slider_filter">Apply
                             Filter
                         </span>
                     </div>

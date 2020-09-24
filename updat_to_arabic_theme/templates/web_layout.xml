@@ -11,12 +11,37 @@
 
     <template id="affix_top_menu_logo" inherit_id="website.layout_logo_show" name="Fixed Top logo">
         <xpath expr="//header//a[hasclass('navbar-brand')]" position="attributes">
-
             <attribute name="id" add="fixed_img"/>
-            <attribute name="style" add="display:none"/>
+            <attribute name="t-attf-class" add="#{'o_affix_enabled'}" separator=" "/>
         </xpath>
 
     </template>
+
+  <template id="ad_bannars" inherit_id="website_sale.products_categories"
+              name="Ad Banners">
+        <xpath expr="//div[@id='wsale_products_categories_collapse']" position="after">
+          <div class="oe_structure" style="background:red;height: 380px;width:200px;position:absolute;right:70px;top:2px">
+              <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
+                                         style="height: 380px;width:200px;"
+                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+
+          </div>
+             <div class="oe_structure" style="background:black;height: 1800px;width:300px;position:absolute;right:-50px;top:600px">
+              <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
+                                         style="height: 1000px;width:300px;"
+                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+                <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
+                                         style="height: 800px;width:300px;margin-top:5px;"
+                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+
+          </div>
+      </xpath>
+
+  </template>
+
+
+
+
 
 
     <!--<template id="next_prev_buttons" inherit_id="website.homepage1" primary="True">-->

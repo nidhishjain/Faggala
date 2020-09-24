@@ -6,7 +6,13 @@
  .o_livechat_button {
 
      background-color:#de0b14 !important;
+      position: fixed;
+    bottom: 2px;
+    right: 92%;
+
  }
+
+
 
  .te_ribbon-wrapper .label_div {
     position: absolute;
@@ -48,3 +54,72 @@ margin-right:17px;
 }
 
 
+#fixed_img{
+position:absolute;
+right:0px;
+top:1px;
+width:150px;
+height:150px;
+background:white;
+z-index:7;
+border-bottom:1px solid red;
+}
+
+.empty{
+position:absolute;
+right:0px;
+top:1px;
+width:100%;
+height:150px;
+background:white;
+z-index:-1;
+border-bottom:1px solid red;
+}
+
+.search_nav{
+position:absolute;
+right:210px;
+top:2px;
+width:100%;
+background:white;
+
+}
+.navbar-expand-md{
+background:black;
+height:155px;
+
+}
+
+
+.te_ftr_before_bg{
+height:35px;
+}
+
+#o_shop_collapse_category .nav-item a {
+    color: black;
+}
+
+.collapse:not(.show) {
+
+    margin-right:-300px;
+}
+
+.price_slider_filter{
+ text-align: center;
+}
+
+.product_share a{
+width:50px !important;
+height:50px !important;
+text-align:center;
+}
+
+
+#top_menu{
+position:absolute;
+right:170px;
+top:90px;
+width:100%;
+background:white;
+
+}
