@@ -226,7 +226,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div groups="base.group_public" class="te_signin"
+                                            <div groups="base.group_public" class="te_signin" style="margin-top:-10px;"
                                                  t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                                 <a t-attf-href="/web/login" class="btn btn-link">
                                                     <img src="/theme_fgalaa/static/src/img/shop/login.png"
@@ -248,7 +248,7 @@
             </div>
         </xpath>
 
-
+1
         <xpath expr="//nav[hasclass('navbar-expand-md')]/div[hasclass('container')]"
                position="attributes">
             <attribute name="class">

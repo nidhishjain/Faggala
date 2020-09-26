@@ -78,7 +78,7 @@ border-bottom:1px solid red;
 
 .search_nav{
 position:absolute;
-right:210px;
+right:200px;
 top:2px;
 width:100%;
 background:white;
@@ -90,9 +90,18 @@ height:155px;
 
 }
 
+#top_menu{
+position:absolute;
+right:170px;
+top:90px;
+width:100%;
+background:white;
+
+}
+
 
 .te_ftr_before_bg{
-height:35px;
+height:38px;
 }
 
 #o_shop_collapse_category .nav-item a {
@@ -101,7 +110,7 @@ height:35px;
 
 .collapse:not(.show) {
 
-    margin-right:-300px;
+    margin-left:100px;
 }
 
 .price_slider_filter{
@@ -114,12 +123,14 @@ height:50px !important;
 text-align:center;
 }
 
-
-#top_menu{
-position:absolute;
-right:170px;
-top:90px;
-width:100%;
-background:white;
+.header_rating h1,
+.header_rating hr,
+.header_rating p,
+.header_rating table,
+.header_rating .o_portal_chatter_composer,
+.header_rating .o_portal_chatter_messages,
+.header_rating .o_message_counter
+{
+display:none;
 
 }
