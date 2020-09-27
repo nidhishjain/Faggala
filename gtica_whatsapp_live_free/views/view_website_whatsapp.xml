@@ -31,13 +31,14 @@
                 </symbol>
             </svg>
             <div class="whatsappapi-header whatsappapi--right whatsappapi--webp whatsappapi--dark-auto whatsappapi--show"
-                 style="position:absolute;left:90px;right:none;top:-1px;bottom:70px;z-index:100;font-size:15px;text-align:center;">
+                 style="position:absolute;right:90px;right:none;top:-1px;bottom:70px;z-index:100;font-size:20px;text-align:center;">
                 <a t-attf-href="https://wa.me/#{website.whatsapp_number}" target="_blank" title="Whatsapp Send">
                     <div class="whatsappapi__button whatsappapi--show--header">
                         <svg class="whatsappapi__button__open">
                             <!--<use href="#whatsappapi_svg__logo"></use>-->
-                            <img src="/gtica_whatsapp_live_free/static/src/img/PNGHunt.com (1).png" style="width:100px;height:70px;margin-left:-55px;padding-bottom:10px"/>
-                            <span t-esc="website.whatsapp_number" style="margin:auto;padding-right:7px;"></span>
+                            <img src="/gtica_whatsapp_live_free/static/src/img/output-onlinepngtools (3).png" style="width:70px;height:60px;margin-left:-55px;"/>
+                            <span t-esc="website.whatsapp_number" style="margin:auto;margin-left:-10px;padding-right:10px;padding-bottom:10px;"></span>
+                            <span style="display:block;margin:auto;margin-left:-110px;margin-right:50px;margin-top:30px;"><small>Call US</small></span>
 
                         </svg>
                     </div>

@@ -22,7 +22,7 @@
             <td class="text-right">
                 <a t-attf-href="/order/repeat?id=#{order.id}">
                     <i class="fa  fa-shopping-cart" role="img" aria-label="Repeat" title="Repeat"
-                       style="color: black;"/>
+                       style="color: blue;"/>
                 </a>
             </td>
             <td>
