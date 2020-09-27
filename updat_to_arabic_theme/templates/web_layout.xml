@@ -20,13 +20,13 @@
   <template id="ad_bannars" inherit_id="website_sale.products_categories"
               name="Ad Banners">
         <xpath expr="//div[@id='wsale_products_categories_collapse']" position="after">
-          <div class="oe_structure" style="height: 580px;width:130px;position:absolute;right:-30px;top:2px">
+          <div class="oe_structure" style="height: 380px;width:110px;position:absolute;right:-50px;top:2px">
               <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
-                                         style="height: 580px;width:130px;"
+                                         style="height: 380px;width:110px;"
                                          src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
 
           </div>
-             <div class="oe_structure" style="height: 1800px;width:300px;position:absolute;right:-50px;top:600px">
+             <div class="oe_structure" style="height: 1800px;width:300px;position:absolute;right:-50px;top:595px;z-index:700">
               <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
                                          style="height: 1000px;width:300px;"
                                          src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>

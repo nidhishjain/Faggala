@@ -90,7 +90,7 @@
     position: relative;
     padding: 7px 0;
     left: 38px;
-    top: -8px;
+    top: -4px;
     width: 120px;
     background-color: #ea181e;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#ea181e), to(#b90005));
