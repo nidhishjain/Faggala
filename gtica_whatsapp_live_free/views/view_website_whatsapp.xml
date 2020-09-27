@@ -31,7 +31,7 @@
                 </symbol>
             </svg>
             <div class="whatsappapi-header whatsappapi--right whatsappapi--webp whatsappapi--dark-auto whatsappapi--show"
-                 style="position:absolute;right:910px;top:-1px;bottom:70px;z-index:100;font-size:20px;text-align:center;">
+                 style="position:absolute;left:8px;top:-1px;bottom:70px;z-index:100;font-size:20px;text-align:center;">
                 <a t-attf-href="https://wa.me/#{website.whatsapp_number}" target="_blank" title="Whatsapp Send">
                     <div class="whatsappapi__button whatsappapi--show--header">
                         <svg class="whatsappapi__button__open">
