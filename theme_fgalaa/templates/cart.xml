@@ -15,7 +15,7 @@
         <xpath expr="//div[hasclass('js_cart_lines')]" position="replace">
             <div t-if="not website_sale_order or not website_sale_order.website_order_line"
                  class="js_cart_lines te_empty_cart mb32 text-center">
-                <img style="height:300px;width:200px" src="/elfgala/theme_fgalaa/static/src/img/shop/FAVPNG_shopping-cart_YHd8eAJm.png"/>
+                <img style="height:300px;width:200px text-center" src="/theme_fgalaa/static/src/img/shop/FAVPNG_shopping-cart_YHd8eAJm.png"/>
             </div>
         </xpath>
         <xpath expr="//table[@id='cart_products']" position="attributes">
@@ -212,9 +212,13 @@
     <!--======================= Cart Popover ==========================-->
     <template id="cart_popover_ept" inherit_id="website_sale.cart_popover" priority="17">
 
- <xpath expr="//div[hasclass('alert-info')]" position="replace">
+ <xpath expr="//div[hasclass('alert-info')]" position="inside">
             <img style="height:300px;width:200px text-center" src="/theme_fgalaa/static/src/img/shop/FAVPNG_shopping-cart_YHd8eAJm.png"/>
-        </xpath>
+
+  <!--<div t-if="not website_sale_order or not website_sale_order.website_order_line" class="alert alert-info">-->
+         <!--<img style="height:300px;width:200px text-center" src="/theme_fgalaa/static/src/img/shop/FAVPNG_shopping-cart_YHd8eAJm.png"/>-->
+        <!--</div>-->
+ </xpath>
 
 
         <xpath expr="//div[hasclass('col-9')]" position="replace">

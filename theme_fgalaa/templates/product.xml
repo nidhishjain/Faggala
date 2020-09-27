@@ -364,16 +364,30 @@
                         <div class="bg-white">
                             <div class="product-header">
                                 <ul id="te_product_tabs" class="nav nav-tabs product-header-tabs" role="tablist">
+
+                                    <t t-if="request.website.viewref('website_sale.product_comment').active">
+                                        <li class="nav-item">
+                                            <a class="nav-link active show"
+                                               id="nav_tabs_link_3"
+                                               data-toggle="tab"
+                                               href="#nav_tabs_content_3"
+                                               role="tab"
+                                               aria-controls="nav_tabs_content_3"
+                                               aria-selected="true">التقيمات والمراجعات
+                                            </a>
+                                        </li>
+                                    </t>
+
                                     <li class="nav-item"
                                         t-if="product.website_description or request.env.user._is_admin()">
-                                        <a class="nav-link active show"
+                                        <a class="nav-link "
                                            id="nav_tabs_link_1"
                                            data-toggle="tab"
                                            itemprop="description"
                                            href="#nav_tabs_content_1"
                                            role="tab"
                                            aria-controls="nav_tabs_content_1"
-                                           aria-selected="true">Description
+                                           aria-selected="false">Description
                                         </a>
                                     </li>
                                     <t t-set="categories"
@@ -402,22 +416,32 @@
                                             </a>
                                         </li>
                                     </t>
-                                    <t t-if="request.website.viewref('website_sale.product_comment').active">
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                               id="nav_tabs_link_3"
-                                               data-toggle="tab"
-                                               href="#nav_tabs_content_3"
-                                               role="tab"
-                                               aria-controls="nav_tabs_content_3"
-                                               aria-selected="false">التقيمات والمراجعات
-                                            </a>
-                                        </li>
-                                    </t>
+
                                 </ul>
                             </div>
                             <div class="product-body tab-content">
-                                <div class="tab-pane fade show active py-3"
+
+                                <t t-if="request.website.viewref('website_sale.product_comment').active">
+                                    <div class="tab-pane fade  show active o_not_editable py-3"
+                                         id="nav_tabs_content_3"
+                                         role="tabpanel"
+                                         aria-labelledby="nav_tabs_link_3">
+                                        <div class="o_shop_discussion_rating te_product_tab oe_overlay_options o_not_editable">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-12 mt16">
+                                                        <t t-call="portal.message_thread">
+                                                            <t t-set="object" t-value="product"/>
+                                                            <t t-set="display_rating" t-value="True"/>
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <div class="tab-pane fade  py-3"
                                      id="nav_tabs_content_1"
                                      role="tabpanel"
                                      aria-labelledby="nav_tabs_link_1">
@@ -521,25 +545,7 @@
                                         </div>
                                     </t>
                                 </div>
-                                <t t-if="request.website.viewref('website_sale.product_comment').active">
-                                    <div class="tab-pane fade o_not_editable py-3"
-                                         id="nav_tabs_content_3"
-                                         role="tabpanel"
-                                         aria-labelledby="nav_tabs_link_3">
-                                        <div class="o_shop_discussion_rating te_product_tab oe_overlay_options o_not_editable">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-lg-12 mt16">
-                                                        <t t-call="portal.message_thread">
-                                                            <t t-set="object" t-value="product"/>
-                                                            <t t-set="display_rating" t-value="True"/>
-                                                        </t>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </t>
+
                             </div>
                         </div>
                     </div>
