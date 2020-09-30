@@ -13,9 +13,10 @@
     <!--==================== Cart Lines =====================-->
     <template id="cart_lines_ept" inherit_id="website_sale.cart_lines">
         <xpath expr="//div[hasclass('js_cart_lines')]" position="replace">
-            <div t-if="not website_sale_order or not website_sale_order.website_order_line"
+             <div t-if="not website_sale_order or not website_sale_order.website_order_line"
                  class="js_cart_lines te_empty_cart mb32 text-center">
-                <img style="height:300px;width:200px text-center" src="/theme_fgalaa/static/src/img/shop/FAVPNG_shopping-cart_YHd8eAJm.png"/>
+                Your cart is empty!
+             <img style="height:300px;width:200px text-center" src="/theme_fgalaa/static/src/img/shop/FAVPNG_shopping-cart_YHd8eAJm.png"/>
             </div>
         </xpath>
         <xpath expr="//table[@id='cart_products']" position="attributes">
@@ -196,7 +197,7 @@
     </template>
     <!--====================== Order Confirmation =======================-->
     <template id="confirmation_ept" inherit_id="website_sale.confirmation">
-        <xpath expr="//p[hasclass('alert-info')]" position="replace">
+        <xpath expr="//p[hasclass('alert-info')]" position="attributes">
             <attribute name="class">alert alert-info mt-3 te_alert_info
             </attribute>
         </xpath>
@@ -307,8 +308,8 @@
     </template>
     <!--=============================== Product Configurator Configure Optional Products ========================-->
     <template id="wizard_checkout_ept" inherit_id="website_sale.wizard_checkout">
-        <xpath expr="//div[hasclass('col-xl')]" position="attributes">
-            <attribute name="class">col-xl text-lg-right text-md-right te_cart_wizard_main</attribute>
-        </xpath>
+        <!--<xpath expr="//div[hasclass('col-xl')]" position="attributes">-->
+            <!--<attribute name="class"> te_cart_wizard_main</attribute>-->
+        <!--</xpath>-->
     </template>
 </odoo>

@@ -171,4 +171,76 @@
     </template>
 
 
+
+    <template id="wizard_x" inherit_id="website_sale.wizard_checkout" name="Wizard Checkout Arabic">
+        <xpath expr="//div[hasclass('col-xl')]"  position="replace">
+
+                     <div class=" te_cart_wizard_main" >
+                <div class="wizard" >
+                    <div class="progress-wizard">
+
+                        <a class="no-decoration"   t-att-href="step&gt;=40 and '/shop/payment' or '#'">
+                          <div id="wizard-step40" style="width:400px" t-att-class="'progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
+                            <div class="progress-wizard-bar d-none d-md-block"/>
+                            <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                            <div class="text-center progress-wizard-steplabel">تأكيد الامر</div>
+                          </div>
+                        </a>
+                        <a class="no-decoration" t-att-href="step&gt;=20 and '/shop/checkout' or '#'">
+                          <div id="wizard-step20"  style="width:400px" t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
+                            <div class="progress-wizard-bar d-none d-md-block"/>
+                            <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                            <div class="text-center progress-wizard-steplabel">العنوان</div>
+                          </div>
+                        </a>
+
+                        <a class="no-decoration" t-att-href="step&gt;=10 and '/shop/cart' or '#'">
+                          <div id="wizard-step10"  style="width:400px" t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
+                            <div class="progress-wizard-bar d-none d-md-block"/>
+                            <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                            <div class="text-center progress-wizard-steplabel">مراجعة الأمر</div>
+                          </div>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </xpath>
+    </template>
+
+    <template id="sep products" inherit_id="website_sale.products_item">
+        <xpath expr="//a[@t-att-href='product_href']" position="before">
+
+
+           <div class= "vertical_sep " ></div>
+             <style>
+        .vertical_sep {
+            border-left: 3px solid #ced4da;
+            height: 150px;
+                 z-index:200;
+                 margin-right:20px;
+                 margin-left:20px;
+                  position:absolute;
+            left: 79%;
+                 top:4%;
+                 display:none
+
+        }
+                 .o_wsale_layout_list .vertical_sep{
+                    display:block !important;
+                 }
+
+    </style>
+                    </xpath>
+
+         <xpath expr="//h6" position="after">
+            <a t-esc="product.categ_id.name"></a>
+         </xpath>
+
+    </template>
+
+
+
 </odoo>

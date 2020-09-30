@@ -7,10 +7,12 @@
                 <t t-call="theme_fgalaa.website_dynamic_category"/>
             </t>
         </xpath>
+
         <xpath expr="//li[@t-if='has_visible_submenu']//a" position="replace">
             <a t-attf-class="#{link_class or ''} dropdown-toggle #{submenu.is_mega_menu and 'o_mega_menu_toggle'}" data-toggle="dropdown" t-att-href="submenu.url or '#'">
                 <span t-field="submenu.name"/>
             </a>
+
         </xpath>
     </template>
     <template id="website_dynamic_category">

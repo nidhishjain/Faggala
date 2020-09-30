@@ -10,13 +10,16 @@
 
         <template id="portal_my_return" name="Portal My return: project entries" inherit_id="portal.portal_my_home" priority="40">
             <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
-                <t t-if="return_count" t-call="portal.portal_docs_entry">
+                <t t-if="return_count" id="return-portal-home" t-call="portal.portal_docs_entry">
                     <t t-set="title">Your Returns</t>
                     <t t-set="url" t-value="'/my/returns'"/>
                     <t t-set="count" t-value="return_count"/>
                 </t>
+
             </xpath>
         </template>
+
+
 
     <template id="display_returns" name="Display Returns">
         <t t-call="portal.portal_layout">
@@ -95,8 +98,8 @@
                                         <div class="form-group" id="product">
                                             <label class="col-form-label" for="name">Product to Return</label>
                                             <div>
-                                                <select name="line_id" class="form-control" required="required">
-                                                    <option value="">Select Product...</option>
+                                                <select name="line_id"  class="form-control" required="required">
+                                                    <option value="">اختر المنتج...</option>
                                                     <t t-foreach="sale_order.order_line or []" t-as="line">
                                                         <option t-att-value="line.id">
                                                             <t t-esc="line.product_id.name" />

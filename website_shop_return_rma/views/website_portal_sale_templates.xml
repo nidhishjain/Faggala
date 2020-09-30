@@ -85,23 +85,23 @@
                                 <main class="modal-body">
                                     <section>
                                         <div class="row">
-                                            <div class="form-group col-xl-6">
+                                            <div class="form-group col-xl-12">
                                                 <label class="col-form-label" for="name">Customer</label>
                                                 <input type="text" name="partner_name" class="form-control" 
                                                     t-attf-value="#{sale_order.partner_id.name}"
                                                     readonly="True" required="True"/>
                                             </div>
-                                            <div class="form-group col-xl-6">
+                                            <div class="form-group col-xl-12">
                                                 <label class="col-form-label" for="name">Sale Order</label>
                                                 <input type="text" name="order" class="form-control" 
                                                     t-attf-value="#{sale_order.name}"
                                                     readonly="True" required="True"/>
                                             </div>
-                                            <div class="form-group col-xl-6" id="product">
+                                            <div class="form-group col-xl-12"  id="product">
                                                 <label class="col-form-label" for="name">Product to Return</label>
                                                 <div>
-                                                    <select name="line_id" class="form-control" required="required">
-                                                        <option value="">Select Product...</option>
+                                                    <select name="line_id" class="form-control" style="padding: 0.3rem 1rem;" required="required">
+                                                        <option value="">اختر المنتج...</option>
                                                         <t t-foreach="sale_order.order_line or []" t-as="line">
                                                             <option t-att-value="line.id">
                                                                 <t t-esc="line.product_id.name" />
@@ -110,7 +110,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-xl-6">
+                                            <div class="form-group col-xl-4">
                                                 <label class="col-form-label" for="name">Return Quantity</label>
                                                 <input type="number" class="form-control" name="quantity" required="True"/>
                                             </div>
@@ -124,7 +124,7 @@
                                     </section>
                                 </main>
                                 <footer class="modal-footer">
-                                    <button class="btn btn-success">Submit</button>
+                                    <button class="btn btn-success">Submit</button> <div style="visibility:hidden">sssss</div>
                                     <button type="button" class="btn btn-link" data-dismiss="modal" style="padding: 0">Cancel</button>
                             </footer>
                             </div>

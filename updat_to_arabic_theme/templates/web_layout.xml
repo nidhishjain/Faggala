@@ -41,15 +41,4 @@
 
 
 
-
-
-
-    <!--<template id="next_prev_buttons" inherit_id="website.homepage1" primary="True">-->
-        <!--<xpath expr="div[hasclass('carousel-control-prev')]" position="replace">-->
-            <!--<span>hiiiiii</span>-->
-        <!--</xpath>-->
-    <!--</template>-->
-
-
-
 </odoo>

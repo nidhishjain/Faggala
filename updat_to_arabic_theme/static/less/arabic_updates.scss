@@ -137,3 +137,16 @@ display:none;
 .ribbon-red span{
 margin-right: -1px !important;
 }
+
+.o_portal_details .form-control {
+    padding: inherit;
+    }
+
+
+.o_portal_docs a:last-child{
+background:red;
+}
+
+.o_portal_docs a:first-child{
+background:green;
+}
