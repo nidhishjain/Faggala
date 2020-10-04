@@ -1,25 +1,36 @@
-# -*- coding: utf-8 -*-
-# Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
-##############################################################################
+import json
+import logging
+import base64
+import json
+import math
+import time
+import datetime
 
-from odoo import http
-from odoo.http import request
-from odoo.addons.website_sale.controllers.main import WebsiteSale
-          
-class deleteProduct(WebsiteSale):
+from werkzeug import urls
 
-    @http.route([
-        '/delete',
-    ], type='http', auth="public", website=True)
-    def shop(self, page=0, category=None, search='', ppg=False, **post):
+from odoo import fields as odoo_fields, http, tools, _, SUPERUSER_ID
+from odoo.exceptions import ValidationError, AccessError, MissingError, UserError
+from odoo.http import content_disposition, Controller, request, route
+from odoo.tools import consteq
 
-        res=super(ProductBundle, self).shop(page, category, search, **post)
+class Website_sale_update(http.Controller):
+    @route(['/shop/payment/date'], type='http', auth='user', website=True)
+    def update_date(self, redirect=None, **post):
+        print("-11111111111111111111111111111111111111111111")
+        order = request.website.sale_get_order()
 
-        product_pack =request.env['product.template'].sudo().search([('is_pack','=',True)])
-        
-        for pack_record in product_pack:
-            pack_record.sudo().website_style_ids = [[6,0,[1]]]
+        if post and request.httprequest.method == 'POST':
+            print("-----------------------------------------------")
+            date=post['input_date'][:len(post['input_date'])-3]
+            print(date)
+            date = datetime.datetime.strptime(date, '%m/%d/%Y %H:%M')
 
-        return res
+            # date_from = datetime.datetime.strptime(date, '%m-%d-%Y %H:%M').strftime('%Y-%m-%d %H:%M:%S')
+            print(date)
+            order.update({
+                'commitment_date':date
+            })
+            return request.redirect('/shop/payment')
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+
+
