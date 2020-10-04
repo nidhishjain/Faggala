@@ -17,7 +17,7 @@
 
     </template>
 
-  <template id="ad_bannars" inherit_id="website_sale.products_categories"
+    <template id="ad_bannars" inherit_id="website_sale.products_categories"
               name="Ad Banners">
         <xpath expr="//div[@id='wsale_products_categories_collapse']" position="after">
           <div class="oe_structure" style="height: 380px;width:110px;position:absolute;right:-50px;top:2px">

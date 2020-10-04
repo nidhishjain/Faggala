@@ -142,66 +142,53 @@
     <template id="rating_widget_stars_static_header" name="Rating: button static star widget"
               inherit_id="website_sale.product">
         <xpath expr="//div[@id='product_details']/h1" position="after">
-            <!--<t t-set="rating_avg" t-value="round(rating_avg * 100) / 100 / 2"/>-->
-            <!--<t t-set="val_decimal" t-value="round(rating_avg % 1, 1)"/>-->
-            <!--<t t-set="val_integer" t-value="int(rating_avg)"/>-->
-            <!--<t t-set="empty_star" t-value="5 - (val_integer+1) if val_decimal else 5 - val_integer"/>-->
-            <!--<div class="o_website_rating_static" t-att-style="inline_mode and 'display:inline'"-->
-            <!--t-att-title="rating_avg">-->
-            <!--<t t-foreach="range(0, val_integer)" t-as="num">-->
-            <!--<i class="fa fa-star" role="img"></i>-->
-            <!--</t>-->
-            <!--<t t-if="val_decimal">-->
-            <!--<i class="fa fa-star-half-o" role="img"></i>-->
-            <!--</t>-->
-            <!--<t t-foreach="range(0, empty_star)" t-as="num">-->
-            <!--<i class="fa fa-star text-black-25" role="img"></i>-->
-            <!--</t>-->
-            <!--(<t t-esc="rating_count"/>)-->
-            <!--</div>-->
-            <div class="header_rating" >
-                <a href="#add_to_cart">
-                <t t-call="portal.message_thread">
-                    <t t-set="object" t-value="product"/>
-                    <t t-set="display_rating" t-value="True"/>
-                </t>
+
+            <div class="header_rating">
+                <a href="#nav_tabs_content_3">
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="product"/>
+                        <t t-set="display_rating" t-value="True"/>
+                    </t>
                 </a>
             </div>
+
         </xpath>
     </template>
 
 
-
     <template id="wizard_x" inherit_id="website_sale.wizard_checkout" name="Wizard Checkout Arabic">
-        <xpath expr="//div[hasclass('col-xl')]"  position="replace">
+        <xpath expr="//div[hasclass('col-xl')]" position="replace">
 
-                     <div class=" te_cart_wizard_main" >
-                <div class="wizard" >
+            <div class=" te_cart_wizard_main">
+                <div class="wizard">
                     <div class="progress-wizard">
 
                         <a class="no-decoration" t-att-href="step&gt;=10 and '/shop/cart' or '#'">
-                          <div id="wizard-step10"  style="width:400px" t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
-                            <div class="progress-wizard-bar d-none d-md-block"/>
-                            <span class="progress-wizard-dot d-none d-md-inline-block"></span>
-                            <div class="text-center progress-wizard-steplabel">مراجعة الأمر</div>
-                          </div>
+                            <div id="wizard-step10" style="width:400px"
+                                 t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-none d-md-block"/>
+                                <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">مراجعة الأمر</div>
+                            </div>
                         </a>
 
                         <a class="no-decoration" t-att-href="step&gt;=20 and '/shop/checkout' or '#'">
-                          <div id="wizard-step20"  style="width:400px" t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
-                            <div class="progress-wizard-bar d-none d-md-block"/>
-                            <span class="progress-wizard-dot d-none d-md-inline-block"></span>
-                            <div class="text-center progress-wizard-steplabel">العنوان</div>
-                          </div>
+                            <div id="wizard-step20" style="width:400px"
+                                 t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-none d-md-block"/>
+                                <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">العنوان</div>
+                            </div>
                         </a>
 
 
-                         <a class="no-decoration"   t-att-href="step&gt;=40 and '/shop/payment' or '#'">
-                          <div id="wizard-step40" style="width:400px" t-att-class="'progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
-                            <div class="progress-wizard-bar d-none d-md-block"/>
-                            <span class="progress-wizard-dot d-none d-md-inline-block"></span>
-                            <div class="text-center progress-wizard-steplabel">تأكيد الامر</div>
-                          </div>
+                        <a class="no-decoration" t-att-href="step&gt;=40 and '/shop/payment' or '#'">
+                            <div id="wizard-step40" style="width:400px"
+                                 t-att-class="'progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-none d-md-block"/>
+                                <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">تأكيد الامر</div>
+                            </div>
                         </a>
                     </div>
 
@@ -216,32 +203,42 @@
         <xpath expr="//a[@t-att-href='product_href']" position="before">
 
 
-           <div class= "vertical_sep " ></div>
-             <style>
-        .vertical_sep {
-    border-left: 3px solid #ced4da;
-    height: 250px;
-    z-index: 200;
-    margin-right: 20px;
-    margin-left: 20px;
-    position: absolute;
-    left: 50%;
-    top: 3%;
-    display: none;
-}
-                 .o_wsale_layout_list .vertical_sep{
-                    display:block !important;
-                 }
+            <div class="vertical_sep "></div>
+            <style>
+                .vertical_sep {
+                border-left: 3px solid #ced4da;
+                height: 250px;
+                z-index: 200;
+                margin-right: 20px;
+                margin-left: 20px;
+                position: absolute;
+                left: 50%;
+                top: 3%;
+                display: none;
+                }
+                .o_wsale_layout_list .vertical_sep{
+                display:block !important;
+                }
 
-    </style>
-                    </xpath>
+            </style>
+        </xpath>
 
-         <xpath expr="//h6" position="after">
-            <a t-esc="product.categ_id.name"></a>
-         </xpath>
+        <xpath expr="//h6" position="after">
+            <a t-att-href="'/shop/category/%s' %product.categ_id.id"
+               t-attf-class="nav-link #{' active' if product.categ_id.id == int(category or 0) else ''}"
+               t-esc="product.categ_id.name"/>
+
+        </xpath>
 
     </template>
 
+    <template id="report_delivery_document_inherit_sale_stock_name" inherit_id="stock.report_delivery_document">
+        <xpath expr="//h2" position="replace">
+            <h2>
+                <span t-field="o.name"/> <span> :أمـر تــسليـم</span>
+            </h2>
+        </xpath>
+    </template>
 
 
 </odoo>

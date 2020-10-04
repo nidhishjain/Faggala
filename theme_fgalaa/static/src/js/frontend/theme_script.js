@@ -475,6 +475,11 @@ odoo.define('theme_fgalaa.theme_script', function(require) {
                             $(".mycart-popover").removeClass("te_open");
                             $("#wrapwrap").removeClass("te_overlay");
                         });
+                        $(".delete_div").click(function() {
+                           console.log($(ev.currentTarget).closest('tr').find('.js_quantity').val(0))
+                               ev.preventDefault();
+                                 $(ev.currentTarget).closest('tr').find('.js_quantity').val(0).trigger('change');
+                        });
                     });
                 }, 100);
             }
