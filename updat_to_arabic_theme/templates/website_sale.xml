@@ -248,11 +248,11 @@
             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                       <div class="input-group date col-lg-10 mt16" id="date_container" data-target-input="nearest">
                           <label style="margin:auto;margin-left:5px;"> تـاريـخ التـوصيـل :</label>
-                            <t t-set='date_formatted'>
+                            <t t-if="website_sale_order.commitment_date == ''" t-set='date_formatted'>
                                 <t t-options='{"widget": "date"}' t-esc="website_sale_order.expected_date"/>
                             </t>
-                            <t t-set='date_expected'>
-                                <t t-options='{"widget": "date"}' t-esc="website_sale_order.expected_date"/>
+                            <t t-if="website_sale_order.commitment_date != ''" t-set='date_formatted'>
+                                <t t-options='{"widget": "date"}' t-esc="website_sale_order.commitment_date"/>
                             </t>
                             <input type="text" name="input_date" class="form-control datetimepicker-input"  t-att-value="date_formatted" data-target="#date_container" id="date_delivery"/>
                             <div class="input-group-append" data-target="#date_container" data-toggle="datetimepicker">
