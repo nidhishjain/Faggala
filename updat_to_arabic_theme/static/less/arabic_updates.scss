@@ -156,3 +156,9 @@ background:green;
 #o_portal_navbar_content .btn-group button {
     margin-right: 20px;
 }
+
+
+.js_attributes [type="checkbox"]:not(:checked) + span, .js_attributes [type="checkbox"]:checked + span {
+
+    float: right;
+}

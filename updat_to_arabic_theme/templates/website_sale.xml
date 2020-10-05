@@ -224,7 +224,7 @@
         </xpath>
 
         <xpath expr="//h6" position="after">
-            <a t-att-href="'/shop/category/%s' %product.categ_id.id"
+            <a t-att-href="'/shop/category/%s' %(product.categ_id.id-4)"
                t-attf-class="nav-link #{' active' if product.categ_id.id == int(category or 0) else ''}"
                t-esc="product.categ_id.name"/>
 
@@ -246,10 +246,13 @@
          <form action="/shop/payment/date"
             method="POST" name="delivery_date_form">
             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                      <div class="input-group date col-lg-8 mt16" id="date_container" data-target-input="nearest">
+                      <div class="input-group date col-lg-10 mt16" id="date_container" data-target-input="nearest">
                           <label style="margin:auto;margin-left:5px;"> تـاريـخ التـوصيـل :</label>
                             <t t-set='date_formatted'>
-                                <t t-options='{"widget": "date"}' t-esc="website_sale_order.commitment_date"/>
+                                <t t-options='{"widget": "date"}' t-esc="website_sale_order.expected_date"/>
+                            </t>
+                            <t t-set='date_expected'>
+                                <t t-options='{"widget": "date"}' t-esc="website_sale_order.expected_date"/>
                             </t>
                             <input type="text" name="input_date" class="form-control datetimepicker-input"  t-att-value="date_formatted" data-target="#date_container" id="date_delivery"/>
                             <div class="input-group-append" data-target="#date_container" data-toggle="datetimepicker">
