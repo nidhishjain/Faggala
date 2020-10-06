@@ -45,12 +45,33 @@
     <template id="website_repeat_sale_order_in_form"
               inherit_id="sale.sale_order_portal_content">
         <xpath expr="//div[@id='introduction']//h2" position="after">
-            <a t-attf-href="/order/repeat?id=#{sale_order.id}"  class="btn btn-secondary">
+            <a t-attf-href="/order/repeat?id=#{sale_order.id}"  class="btn btn-secondary" >
                 Reorder
             </a>
-             <a  style="background:red;color:white;margin:3px;" class="btn btn-secondary">
+             <a   t-if="sale_order.state in ['sent']" style="background:red;color:white;margin:3px;" onclick="make_sure_on()" class="btn btn-secondary">
                 Cancel
             </a>
+
+            <div  class="text-center" id="make_sure" style="font-size:18px;bor;
+  position: absolute;
+  top: 5%;
+  right: 0%;background:antiquewhite;width:55%;height:65px;text-align:right;margin:auto;display:none;">
+                <span class="align-middle" style="font-size:17px;padding:5px;margin-top:auto;">هـل  حـقـا تـريـد تـاكيد رفـض الـطلـب ؟</span>
+                <a  onclick="make_sure_off()" style="background:red;color:white;width:100px;margin:3px;" class="align-middle btn btn-secondary">
+                إلـغـاء
+                </a>
+                 <a t-attf-href="/delete?id=#{sale_order.id}" style="background:green;color:white;width:100px;margin:3px" class="align-middle btn btn-secondary">
+                رفـض
+                </a>
+            </div>
+            <script>
+                function make_sure_on() {
+                document.getElementById("make_sure").style.display="block";
+                }
+                 function make_sure_off() {
+                document.getElementById("make_sure").style.display="none";
+                }
+            </script>
         </xpath>
     </template>
 </odoo>
