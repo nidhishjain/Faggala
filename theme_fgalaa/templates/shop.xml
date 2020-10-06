@@ -315,7 +315,7 @@
                             </div>
                             <ul class="nav nav-pills flex-column brand_main">
                                 <t t-foreach="brand_list" t-as="brand">
-                                    <li class="nav-item " dir="ltr">
+                                    <li class="nav-item ">
                                         <label style="margin: 0 20px;"
                                                t-attf-class="nav-link#{' active' if [0,brand.id] in attrib_values else ''}">
 

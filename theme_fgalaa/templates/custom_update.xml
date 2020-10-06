@@ -120,5 +120,11 @@
         </xpath>
     </template>
 
+     <template id="country_product" name="publish country product"
+              inherit_id="website_sale.product">
+         <xpath expr="//div[hasclass('header_rating')]" position="after">
+                         <h5 t-field="product.country_id.name"></h5>
+         </xpath></template>
+
 
 </odoo>

@@ -279,14 +279,14 @@
                             </h6>
                         </div>
 
-                        <div >
-                            <t t-call="theme_fgalaa.cart_line_delete">
-                                <i class='fa fa-trash-o'></i>
-                            </t>
+                        <!--<div >-->
+                            <!--<t t-call="theme_fgalaa.cart_line_delete">-->
+                                <!--<i class='fa fa-trash-o'></i>-->
+                            <!--</t>-->
 
 
 
-                        </div>
+                        <!--</div>-->
 
                     </div>
                 </div>
@@ -304,12 +304,12 @@
             <attribute name="class">text-center cart_subtotal</attribute>
         </xpath>
 
-        <xpath expr="//div[hasclass('cart_subtotal')]/span" position="before">
-            <a class=" pull-right row mr8 py-3 s_delete_product no-decoration">
-                <i class='fa fa-trash-o'></i>
-                Delete all
-            </a>
-        </xpath>
+        <!--<xpath expr="//div[hasclass('cart_subtotal')]/span" position="before">-->
+            <!--<a class=" pull-right row mr8 py-3 s_delete_product no-decoration">-->
+                <!--<i class='fa fa-trash-o'></i>-->
+                <!--Delete all-->
+            <!--</a>-->
+        <!--</xpath>-->
 
         <xpath expr="//div[hasclass('cart_line')]" position="attributes">
             <attribute name="class">row py-4 cart_line</attribute>

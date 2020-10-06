@@ -11,7 +11,7 @@
         <template id="portal_my_return" name="Portal My return: project entries" inherit_id="portal.portal_my_home" priority="40">
             <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
                 <t t-if="return_count" id="return-portal-home" t-call="portal.portal_docs_entry">
-                    <t t-set="title">Your Returns</t>
+                    <t t-set="title">الـمـرتـجـعات</t>
                     <t t-set="url" t-value="'/my/returns'"/>
                     <t t-set="count" t-value="return_count"/>
                 </t>
