@@ -258,7 +258,7 @@
         <xpath expr="//nav[hasclass('navbar-expand-md')]" position="inside">
             <div class="row py-3 align-items-center search_nav">
 
-                <div class="col-lg-11 te_header_style_2_right">
+                <div class="col-lg-10 te_header_style_2_right">
                     <div class="te_header_search">
                         <div class="te_srch_icon_header">
                             <a href="#" class="">
