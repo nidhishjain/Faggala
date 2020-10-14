@@ -179,7 +179,7 @@
                                         <!--<section t-field="website.website_header_offer_ept"/>-->
                                     </section>
                                 </div>
-                                <div class="te_login_right col-lg-3 pull-left" style="margin-left:-0px;margin-top:-12px;">
+                                <div class="te_login_right col-lg-3 pull-left" style="margin-left:-0px;margin-top:-10px;">
                                     <div class="text-right">
                                         <t t-set="website_sale_pricelists"
                                            t-value="website.get_pricelist_available(show_visible=True)"/>
@@ -258,7 +258,7 @@
         <xpath expr="//nav[hasclass('navbar-expand-md')]" position="inside">
             <div class="row py-3 align-items-center search_nav">
 
-                <div class="col-lg-8 te_header_style_2_right">
+                <div class="col-lg-11 te_header_style_2_right">
                     <div class="te_header_search">
                         <div class="te_srch_icon_header">
                             <a href="#" class="">
