@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_brand_ept_id']" position="after">
                 <field name="country_id" />
+                <field name="Website_name" />
             </xpath>
         </field>
     </record>

@@ -5,3 +5,4 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     country_id = fields.Many2one('res.country', string='Country')
+    Website_name = fields.Char(string='Website Product Name')

@@ -158,28 +158,28 @@
                                 <div class="te_offer_left col-lg-9 pull-right"
                                      style="margin-right:-70px;color:white;margin-left:0px;">
                                     <section>
-                                        <p style="font-size:14px;">
-                                            <img src="/theme_fgalaa/static/src/img/shop/output-onlinepngtools (2).png"
-                                                 style="margin:2px;width:30px;height:30px;border-radius:50%"/>
+                                        <p style="font-size:13px;">
+                                            <img src="/theme_fgalaa/static/src/img/shop/icon re.png"
+                                                 style="margin:2px;width:20px;height:20px;border-radius:50%"/>
                                             الدفع عند الاستلام
                                             <img src="/theme_fgalaa/static/src/img/shop/moneyback.png"
-                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             ارجاع السلع مجانا
-                                            <img src="/theme_fgalaa/static/src/img/shop/freeship.png"
-                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
+                                            <img src="/theme_fgalaa/static/src/img/shop/Delivery-Icon.png"
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             مزايا الشحن المجاني
 
                                             <img src="/theme_fgalaa/static/src/img/shop/NicePng_open-24-hours-png_3552848.png"
-                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             خدمة العملاء
-                                            <img src="/theme_fgalaa/static/src/img/shop/offers.png"
-                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
+                                            <img src="/theme_fgalaa/static/src/img/shop/order.png"
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             العروض
                                         </p>
                                         <!--<section t-field="website.website_header_offer_ept"/>-->
                                     </section>
                                 </div>
-                                <div class="te_login_right col-lg-3 pull-left" style="margin-left:-0px;">
+                                <div class="te_login_right col-lg-3 pull-left" style="margin-left:-0px;margin-top:-12px;">
                                     <div class="text-right">
                                         <t t-set="website_sale_pricelists"
                                            t-value="website.get_pricelist_available(show_visible=True)"/>
@@ -195,7 +195,7 @@
                                         </div>
                                         <div class="">
                                             <div class="dropdown te_user_account"  t-ignore="true"
-                                                 t-if="not user_id._is_public()">
+                                                 t-if="not user_id._is_public()" >
                                                 <a href="#"  style="color:white;" class="dropdown-toggle btn btn-link"
                                                    data-toggle="dropdown">
                                                     <span style="color:white;" class="te_user_account_name"
@@ -226,11 +226,11 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div groups="base.group_public" class="te_signin" style="margin-top:-10px;color:white;"
+                                            <div groups="base.group_public" class="te_signin" style="color:white;"
                                                  t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                                 <a t-attf-href="/web/login" class="btn btn-link">
                                                     <img src="/theme_fgalaa/static/src/img/shop/login.png"
-                                                         style="margin:3px;width:30px;height:30px;"/>
+                                                         style="margin:3px;width:25px;height:25px;"/>
                                                     <span class="te_user_account_name" style="color:white;">تسجيل الدخول</span>
                                                     <span class="te_user_account_icon">
                                                         <i class="fa fa-user" aria-hidden="true"/>

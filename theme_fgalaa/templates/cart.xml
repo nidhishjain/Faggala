@@ -240,7 +240,7 @@
             <div class="col-8">
                 <div>
                     <t t-call="website_sale.cart_line_product_link">
-                        <span class="h6 te_cart_popover_p_name" t-esc="line.product_id.name"/>
+                        <span class="h6 te_cart_popover_p_name" t-esc="line.product_id.Website_name"/>
                     </t>
 
                 </div>

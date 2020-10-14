@@ -12,6 +12,9 @@
                       class="new_span dd_shop_prod_bg d-flex h-100 justify-content-center align-items-center"/>
             </a>
         </xpath>
+         <xpath expr="//h6[hasclass('o_wsale_products_item_title')]/a" position="replace">
+             <a itemprop="name" t-att-href="product_href" t-att-content="product.Website_name" t-field="product.Website_name" />
+         </xpath>
         <xpath expr="//h6[hasclass('o_wsale_products_item_title')]/a" position="attributes">
             <attribute name="t-attf-class">
                 product_name
@@ -125,6 +128,7 @@
                 <span class="te_filter_icon_close">x</span>
             </div>
         </xpath>
+
         <xpath expr="//t[@t-if='td_product']/td" position="attributes">
             <attribute name="t-attf-class">oe_product #{td_product['class']} te_shop_grid
             </attribute>

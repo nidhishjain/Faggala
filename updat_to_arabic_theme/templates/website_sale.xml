@@ -23,10 +23,11 @@
                         <td t-foreach="products" t-as="product" class="border-top-0">
                             <t t-set="combination_info" t-value="product._get_combination_info_variant()"/>
                             <div class="product_summary">
-                                <a class="o_product_comparison_table" t-att-href="product.website_url">
-                                    <span t-esc="combination_info['display_name']"/>
+                                <a  class="o_product_comparison_table" t-att-href="product.website_url">
+                                    <span t-field="product.Website_name"/>
                                     <br/>
                                 </a>
+
                                 <span>
                                     <strong>السعر:</strong>
                                     <del t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
@@ -92,6 +93,13 @@
                 </tbody>
             </table>
         </xpath>
+
+    </template>
+    <template id="product_product_updated" inherit_id="website_sale_comparison.product_product" name="Comparator - Product row in comparator popover2">
+        <xpath expr="//h6/a" position="replace">
+                 <a t-att-href="product.website_url"><span t-field="product.Website_name" /></a><br/>
+        </xpath>
+
     </template>
 
 

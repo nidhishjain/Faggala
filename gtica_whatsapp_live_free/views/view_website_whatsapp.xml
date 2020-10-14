@@ -36,9 +36,9 @@
                     <div class="whatsappapi__button whatsappapi--show--header">
                         <svg class="whatsappapi__button__open">
                             <!--<use href="#whatsappapi_svg__logo"></use>-->
-                            <img src="/gtica_whatsapp_live_free/static/src/img/output-onlinepngtools (3).png" style="width:70px;height:60px;margin-left:-55px;"/>
-                            <span t-esc="website.whatsapp_number" style="margin:auto;margin-left:-10px;padding-right:10px;padding-bottom:10px;"></span>
-                            <span style="display:block;margin:auto;margin-left:-110px;margin-right:50px;margin-top:30px;"><small>Call US</small></span>
+                            <img src="/gtica_whatsapp_live_free/static/src/img/kindpng_3519850.png" style="width:60px;height:50px;margin-left:-45px;margin-top:6px;"/>
+                            <span t-esc="website.whatsapp_number" style="margin:auto;margin-right:-10px;padding-right:10px;padding-bottom:10px;"></span>
+                            <span style="display:block;margin:auto;margin-left:-110px;margin-right:50px;margin-top:25px;margin-bottom:5px"><small>اتصل بنـا الان</small></span>
 
                         </svg>
                     </div>

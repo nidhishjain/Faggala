@@ -32,13 +32,16 @@
         <xpath expr="//div[@id='product_details']" position="attributes">
             <attribute name="class">col-lg-6 offset-xl-0</attribute>
         </xpath>
+        <xpath expr="//div[@id='product_details']/h1" position="replace">
+            <h1 t-field="product.Website_name" />
+        </xpath>
         <xpath expr="//div[@id='product_details']/h1" position="attributes">
             <attribute name="class">te_product_name</attribute>
         </xpath>
         <xpath expr="//div[@id='product_details']/h1" position="after">
             <span id="te_rect_cnt" class="d-none" t-esc="website.number_of_product_line"/>
         </xpath>
-        <xpath expr="//h1[@t-field='product.name']" position="after">
+        <xpath expr="//h1[@t-field='product.Website_name']" position="after">
             <div class="o_not_editable">
                 <p t-field="product.description_sale" class="te_prod_desc"/>
             </div>
@@ -194,7 +197,7 @@
                                             <a class="product_name"
                                                t-attf-href="/shop/product/#{ slug(alt_product) }">
                                                 <h6>
-                                                    <span t-att-title="alt_product.name" t-field="alt_product.name"
+                                                    <span t-att-title="alt_product.Website_name" t-field="alt_product.Website_name"
                                                           t-attf-class="alt_prod_name #{'te_2_line' if (website.number_of_product_line == '2') else 'te_3_line' if (website.number_of_product_line == '3') else ''}"/>
                                                 </h6>
                                             </a>
@@ -232,7 +235,7 @@
                                         <a class="product_name"
                                            t-attf-href="/shop/product/#{ slug(alt_product.product_tmpl_id) }">
                                             <h6>
-                                                <span t-att-title="alt_product.name" t-field="alt_product.name"
+                                                <span t-att-title="alt_product.Website_name" t-field="alt_product.Website_name"
                                                       t-attf-class="alt_prod_name #{'te_2_line' if (website.number_of_product_line == '2') else 'te_3_line' if (website.number_of_product_line == '3') else ''}"/>
                                             </h6>
                                         </a>
