@@ -63,10 +63,10 @@ class InheritCSVExport(CSVExport):
         writer = pycompat.csv_writer(fp, quoting=1)
 
         for f in fields:
-            if f.find('/Name') != -1:
+            if f.find('/الاسم') != -1:
                 no = fields.index(f)
-                fields[no]= '\n Pricelist Items Id \n'
-                fields.insert(no + 1, '\n Product Items Name \n')
+                fields[no]= '\n تسلسل عناصر قائمة الاسعار  \n'
+                fields.insert(no + 1, '\n اسماء عناصر قائمة الاسعار \n')
                 print(f)
 
 

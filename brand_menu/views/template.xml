@@ -9,6 +9,18 @@
         action="website_sale.product_public_category_action"
         parent="stock.menu_product_in_config_stock" sequence="1"/>
 
+		  <menuitem
+            name="Product Brands"
+            id="menu_product_brand_ept_sale"
+            action="emipro_theme_brand.action_product_brand_ept"
+            parent="sale.prod_config_main"/>
+
+		  <menuitem
+            name="Product Brands"
+            id="menu_product_brand_ept_stock"
+            action="emipro_theme_brand.action_product_brand_ept"
+            parent="stock.menu_product_in_config_stock"/>
+
 	 </data>
 </odoo>
 
