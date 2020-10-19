@@ -192,7 +192,8 @@
                                             <t t-if="res_company.place5_lat">
                                                 <span id="lat5" t-field="res_company.place5_lat"/>
                                                 <span id="long5" t-field="res_company.place5_long"/>
-                                            <!--</t><t t-if="res_company.place6_lat">-->
+                                            </t>
+                                            <!--<t t-if="res_company.place6_lat">-->
                                                 <!--<span id="lat6" t-field="res_company.place6_lat"/>-->
                                                 <!--<span id="long6" t-field="res_company.place6_long"/>-->
                                             <!--</t>-->
