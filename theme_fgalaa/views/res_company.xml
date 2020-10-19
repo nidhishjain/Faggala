@@ -37,6 +37,26 @@
                             <field name="place5_long"/>
                         </group>
 
+                         <group>
+                            <field name="branch_name6" placeholder="اسم الفرع"/>
+                            <field name="place6_lat"/>
+                            <field name="place6_long"/>
+                        </group>
+
+                         <group>
+                            <field name="branch_name7" placeholder="اسم الفرع"/>
+                            <field name="place7_lat"/>
+                            <field name="place7_long"/>
+                        </group>
+
+                         <group>
+                            <field name="branch_name8" placeholder="اسم الفرع"/>
+                            <field name="place8_lat"/>
+                            <field name="place8_long"/>
+                        </group>
+
+
+
                     </group>
                 </page>
             </xpath>

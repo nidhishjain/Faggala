@@ -85,32 +85,7 @@
                                 </div>
 
 
-                                <section class="te_newsletter" style="text-align:center">
-                                    <div class="d-inline-block te_newsletter_title pr-3">
-                                        <h4>Newsletter Signup :</h4>
-                                    </div>
-                                    <div class="te_newsletter_content">
-                                        <div class="d-inline-block">
-                                            <div class="input-group js_subscribe" data-list-id="1" data-subscribe="off">
-                                                <input type="email" name="email" class="js_subscribe_email form-control"
-                                                       placeholder="your email..."/>
-                                                <span class="input-group-append">
-                                                    <a role="button" href="#"
-                                                       class="btn btn-primary js_subscribe_btn o_default_snippet_text">
-                                                        Subscribe
-                                                    </a>
-                                                    <a role="button" href="#"
-                                                       class="btn btn-success js_subscribed_btn d-none o_default_snippet_text"
-                                                       disabled="disabled">Thanks
-                                                    </a>
-                                                </span>
-                                                <div class="alert alert-success d-none o_default_snippet_text"
-                                                     role="status">Thanks for your subscription!
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
+
                                 <section class="te_footer_text_img">
                                     <section class="te_payment_list">
                                         <t t-set="icons"
@@ -128,10 +103,38 @@
                             </div>
                             <!-- static Menu -->
 
-                            <section class="col-lg-6 mt0">
+                            <section class="col-lg-6 mt0 ">
                                 <div class="row">
+                                     <div class="col-lg-5 col-md-5 col-6 mr0">
+                                      <section class="te_newsletter" style="text-align:center">
+                                    <div class="d-inline-block te_newsletter_title ">
+                                        <h5>Newsletter Signup :</h5>
+                                    </div>
+                                    <div class="te_newsletter_content">
+                                        <div class="d-inline-block">
+                                            <div class="input-group js_subscribe" data-list-id="1" data-subscribe="off">
+                                                <input type="email" name="email" class="js_subscribe_email form-control"
+                                                       placeholder="your email..."/>
+                                                <span class="input-group-append">
+                                                    <a role="button" href="#" style="font-size:13px;padding:auto;"
+                                                       class="btn btn-primary js_subscribe_btn o_default_snippet_text">
+                                                        Subscribe
+                                                    </a>
+                                                    <a role="button" href="#"
+                                                       class="btn btn-success js_subscribed_btn d-none o_default_snippet_text"
+                                                       disabled="disabled">Thanks
+                                                    </a>
+                                                </span>
+                                                <div class="alert alert-success d-none o_default_snippet_text"
+                                                     role="status">Thanks for your subscription!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                    </div>
 
-                                    <div class="col-lg-4 col-md-4 col-6">
+                                    <div class="col-lg-3 col-md-3 col-5 mr0 ml0">
                                         <ul class="te_footer_info_ept">
                                             <section>
                                                 <li>
@@ -167,7 +170,7 @@
                                             </section>
                                         </ul>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-6">
+                                    <div class="col-lg-3 col-md-3 col-5 mr0 ml0">
                                         <!--set long and lat for branches-->
                                         <div style="display:none">
                                             <t t-if="res_company.place1_lat">
@@ -185,6 +188,21 @@
                                             <t t-if="res_company.place4_lat">
                                                 <span id="lat4" t-field="res_company.place4_lat"/>
                                                 <span id="long4" t-field="res_company.place4_long"/>
+                                            </t>
+                                            <t t-if="res_company.place5_lat">
+                                                <span id="lat5" t-field="res_company.place5_lat"/>
+                                                <span id="long5" t-field="res_company.place5_long"/>
+                                            </t><t t-if="res_company.place6_lat">
+                                                <span id="lat6" t-field="res_company.place6_lat"/>
+                                                <span id="long6" t-field="res_company.place6_long"/>
+                                            </t>
+                                            <t t-if="res_company.place7_lat">
+                                                <span id="lat7" t-field="res_company.place7_lat"/>
+                                                <span id="long7" t-field="res_company.place7_long"/>
+                                            </t>
+                                            <t t-if="res_company.place8_lat">
+                                                <span id="lat8" t-field="res_company.place8_lat"/>
+                                                <span id="long8" t-field="res_company.place8_long"/>
                                             </t>
                                         </div>
                                         <ul class="te_footer_info_ept" style="color:red;">
@@ -220,43 +238,29 @@
                                                     <a onclick="changeMarkerPos(4)" t-field="res_company.branch_name4"/>
                                                 </li>
                                             </section>
+                                             <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(5)" t-field="res_company.branch_name5"/>
+                                                </li>
+                                            </section>
+                                             <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(6)" t-field="res_company.branch_name6"/>
+                                                </li>
+                                            </section>
+                                             <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(7)" t-field="res_company.branch_name7"/>
+                                                </li>
+                                            </section>
+                                             <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(8)" t-field="res_company.branch_name8"/>
+                                                </li>
+                                            </section>
                                         </ul>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-6">
-                                        <ul class="te_footer_info_ept">
-                                            <section>
-                                                <li>
-                                                    حسابي
 
-                                                </li>
-                                            </section>
-                                            <section>
-                                                <li>
-                                                    <a href="#">ابدأ البيع</a>
-                                                </li>
-                                            </section>
-                                            <section>
-                                                <li>
-                                                    <a href="#">كيفية البيع</a>
-                                                </li>
-                                            </section>
-                                            <section>
-                                                <li>
-                                                    <a href="#">سياسة البيع</a>
-                                                </li>
-                                            </section>
-                                            <section>
-                                                <li>
-                                                    <a href="#">شروط وأحكام البائع</a>
-                                                </li>
-                                            </section>
-                                            <section>
-                                                <li>
-                                                    <a href="#">الأسئلةالشائعة</a>
-                                                </li>
-                                            </section>
-                                        </ul>
-                                    </div>
                                 </div>
                             </section>
 
@@ -301,6 +305,18 @@
                                         } else if(no==4){
                                         lat=document.getElementById('lat4').innerHTML;
                                         long=document.getElementById('long4').innerHTML;
+                                        } else if(no==5){
+                                        lat=document.getElementById('lat5').innerHTML;
+                                        long=document.getElementById('long5').innerHTML;
+                                        } else if(no==6){
+                                        lat=document.getElementById('lat6').innerHTML;
+                                        long=document.getElementById('long6').innerHTML;
+                                        } else if(no==7){
+                                        lat=document.getElementById('lat7').innerHTML;
+                                        long=document.getElementById('long7').innerHTML;
+                                        } else if(no==8){
+                                        lat=document.getElementById('lat8').innerHTML;
+                                        long=document.getElementById('long8').innerHTML;
                                         } else {
                                         lat=29.9476256;
                                         long=30.9040458;}
