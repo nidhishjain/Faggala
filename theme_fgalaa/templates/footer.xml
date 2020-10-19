@@ -219,45 +219,45 @@
                                             </section>
                                             <section>
 
-                                                <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(1)" t-field="res_company.branch_name1"/>-->
-                                                <!--</li>-->
-                                            <!--</section>-->
-                                            <!--<section>-->
-                                                <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(2)" t-field="res_company.branch_name2"/>-->
-                                                <!--</li>-->
-                                            <!--</section>-->
-                                            <!--<section>-->
-                                                <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(3)" t-field="res_company.branch_name3"/>-->
-                                                <!--</li>-->
-                                            <!--</section>-->
-                                            <!--<section>-->
-                                                <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(4)" t-field="res_company.branch_name4"/>-->
-                                                <!--</li>-->
-                                            <!--</section>-->
-                                             <!--<section>-->
-                                                <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(5)" t-field="res_company.branch_name5"/>-->
-                                                <!--</li>-->
-                                            <!--</section>-->
-                                             <!--<section>-->
-                                                <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(6)" t-field="res_company.branch_name6"/>-->
-                                                <!--</li>-->
-                                            <!--</section>-->
-                                             <!--<section>-->
-                                                <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(7)" t-field="res_company.branch_name7"/>-->
-                                                <!--</li>-->
-                                            <!--</section>-->
-                                             <!--<section>-->
-                                                <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(8)" t-field="res_company.branch_name8"/>-->
-                                                <!--</li>-->
-                                            <!--</section>-->
+                                                <li>
+                                                    <a onclick="changeMarkerPos(1)" t-field="res_company.branch_name1"/>
+                                                </li>
+                                            </section>
+                                            <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(2)" t-field="res_company.branch_name2"/>
+                                                </li>
+                                            </section>
+                                            <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(3)" t-field="res_company.branch_name3"/>
+                                                </li>
+                                            </section>
+                                            <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(4)" t-field="res_company.branch_name4"/>
+                                                </li>
+                                            </section>
+                                             <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(5)" t-field="res_company.branch_name5"/>
+                                                </li>
+                                            </section>
+                                             <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(6)" t-field="res_company.branch_name6"/>
+                                                </li>
+                                            </section>
+                                             <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(7)" t-field="res_company.branch_name7"/>
+                                                </li>
+                                            </section>
+                                             <section>
+                                                <li>
+                                                    <a onclick="changeMarkerPos(8)" t-field="res_company.branch_name8"/>
+                                                </li>
+                                            </section>
                                         </ul>
                                     </div>
 
@@ -305,18 +305,6 @@
                                         } else if(no==4){
                                         lat=document.getElementById('lat4').innerHTML;
                                         long=document.getElementById('long4').innerHTML;
-                                        } else if(no==5){
-                                        lat=document.getElementById('lat5').innerHTML;
-                                        long=document.getElementById('long5').innerHTML;
-                                        } else if(no==6){
-                                        lat=document.getElementById('lat6').innerHTML;
-                                        long=document.getElementById('long6').innerHTML;
-                                        } else if(no==7){
-                                        lat=document.getElementById('lat7').innerHTML;
-                                        long=document.getElementById('long7').innerHTML;
-                                        } else if(no==8){
-                                        lat=document.getElementById('lat8').innerHTML;
-                                        long=document.getElementById('long8').innerHTML;
                                         } else {
                                         lat=29.9476256;
                                         long=30.9040458;}
