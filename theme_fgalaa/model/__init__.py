@@ -1,2 +1,2 @@
 
-from . import theme_fgalaa,  product_template
+from . import theme_fgalaa, res_company, product_template
