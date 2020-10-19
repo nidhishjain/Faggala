@@ -192,18 +192,18 @@
                                             <t t-if="res_company.place5_lat">
                                                 <span id="lat5" t-field="res_company.place5_lat"/>
                                                 <span id="long5" t-field="res_company.place5_long"/>
-                                            </t><t t-if="res_company.place6_lat">
-                                                <span id="lat6" t-field="res_company.place6_lat"/>
-                                                <span id="long6" t-field="res_company.place6_long"/>
-                                            </t>
-                                            <t t-if="res_company.place7_lat">
-                                                <span id="lat7" t-field="res_company.place7_lat"/>
-                                                <span id="long7" t-field="res_company.place7_long"/>
-                                            </t>
-                                            <t t-if="res_company.place8_lat">
-                                                <span id="lat8" t-field="res_company.place8_lat"/>
-                                                <span id="long8" t-field="res_company.place8_long"/>
-                                            </t>
+                                            <!--</t><t t-if="res_company.place6_lat">-->
+                                                <!--<span id="lat6" t-field="res_company.place6_lat"/>-->
+                                                <!--<span id="long6" t-field="res_company.place6_long"/>-->
+                                            <!--</t>-->
+                                            <!--<t t-if="res_company.place7_lat">-->
+                                                <!--<span id="lat7" t-field="res_company.place7_lat"/>-->
+                                                <!--<span id="long7" t-field="res_company.place7_long"/>-->
+                                            <!--</t>-->
+                                            <!--<t t-if="res_company.place8_lat">-->
+                                                <!--<span id="lat8" t-field="res_company.place8_lat"/>-->
+                                                <!--<span id="long8" t-field="res_company.place8_long"/>-->
+                                            <!--</t>-->
                                         </div>
                                         <ul class="te_footer_info_ept" style="color:red;">
                                             <section style="color:black;">
