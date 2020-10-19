@@ -25,14 +25,14 @@ class ResCompany(models.Model):
     place5_lat=  fields.Char(string='Fifth branch Latitude')
     place5_long = fields.Char(string='Fifth branch Longitude')
 
-    branch_name6 = fields.Char(string='6th branch name')
-    place6_lat = fields.Char(string='6th branch Latitude')
-    place6_long = fields.Char(string='6th branch Longitude')
-
-    branch_name7 = fields.Char(string='7th branch name')
-    place7_lat = fields.Char(string='7th branch Latitude')
-    place7_long = fields.Char(string='7th branch Longitude')
-
-    branch_name8 = fields.Char(string='8th branch name')
-    place8_lat = fields.Char(string='8th branch Latitude')
-    place8_long = fields.Char(string='8th branch Longitude')
+    # branch_name6 = fields.Char(string='6th branch name')
+    # place6_lat = fields.Char(string='6th branch Latitude')
+    # place6_long = fields.Char(string='6th branch Longitude')
+    #
+    # branch_name7 = fields.Char(string='7th branch name')
+    # place7_lat = fields.Char(string='7th branch Latitude')
+    # place7_long = fields.Char(string='7th branch Longitude')
+    #
+    # branch_name8 = fields.Char(string='8th branch name')
+    # place8_lat = fields.Char(string='8th branch Latitude')
+    # place8_long = fields.Char(string='8th branch Longitude')
