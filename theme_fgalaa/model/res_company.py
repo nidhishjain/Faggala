@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 class ResCompany(models.Model):
     _inherit = 'res.company'
 
-    branch_name7 = fields.Char(string='7th branch name')
+    branch7 = fields.Char(string='7th branch name')
     place7_lat = fields.Char(string='7th branch Latitude')
     place7_long = fields.Char(string='7th branch Longitude')
 
