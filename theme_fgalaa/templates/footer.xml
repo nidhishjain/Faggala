@@ -246,7 +246,7 @@
                                             <!--</section>-->
                                              <!--<section>-->
                                                 <!--<li>-->
-                                                    <!--<a onclick="changeMarkerPos(6)" t-field="res_company.branch_name66"/>-->
+                                                    <!--<a onclick="changeMarkerPos(6)" t-field="res_company.branch_name6"/>-->
                                                 <!--</li>-->
                                             <!--</section>-->
                                              <!--<section>-->
