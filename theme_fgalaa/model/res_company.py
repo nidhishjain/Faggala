@@ -25,7 +25,7 @@ class ResCompany(models.Model):
     place5_lat=  fields.Char(string='Fifth branch Latitude')
     place5_long = fields.Char(string='Fifth branch Longitude')
 
-    branch_name6 = fields.Char(string='6th branch name')
+    branch_name66 = fields.Char(string='6th branch name')
     place6_lat = fields.Char(string='6th branch Latitude')
     place6_long = fields.Char(string='6th branch Longitude')
 
