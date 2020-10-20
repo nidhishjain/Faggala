@@ -114,9 +114,9 @@ class InhertExcelExport(ExcelExport):
                         rows[row_index].insert(cell_index + 1, cell_value.split('[')[1].split(']')[1])
                         cell_value = cell_value.split('[')[1].split(']')[0]
 
-                    # if isinstance(cell_value, str) and cell_value.find('[') != -1 and cell_value.split('[')[1].split(']')[0].isnumeric():
-                    #     rows[row_index].insert(cell_index+1,cell_value.split('[')[1].split(']')[1])
-                    #     cell_value = cell_value.split('[')[1].split(']')[0]
+                    if isinstance(cell_value, str) and cell_value.find('[') != -1 and cell_value.split('[')[1].split(']')[0].isnumeric():
+                        rows[row_index].insert(cell_index+1,cell_value.split('[')[1].split(']')[1])
+                        cell_value = cell_value.split('[')[1].split(']')[0]
 
                     xlsx_writer.write_cell(row_index + 1, cell_index, cell_value)
 
