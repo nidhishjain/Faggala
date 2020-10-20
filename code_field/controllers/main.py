@@ -54,6 +54,7 @@ from odoo.service import db, security
 from odoo import http
 from odoo.http import request
 from odoo.addons.web.controllers.main import CSVExport
+from odoo.addons.web.controllers.main import ExportFormat , ExcelExport, ExportXlsxWriter
 
 
 class InheritCSVExport(CSVExport):
@@ -87,3 +88,36 @@ class InheritCSVExport(CSVExport):
             writer.writerow(row)
 
         return fp.getvalue()
+
+
+class InhertExcelExport(ExcelExport):
+
+    def from_data(self, fields, rows):
+        for f in fields:
+            if f.find('/الاسم') != -1:
+                no = fields.index(f)
+                fields[no] = ' تسلسل عناصر قائمة الاسعار  '
+                fields.insert(no + 1, 'اسماء عناصر قائمة الاسعار ')
+
+            if f.find('المنتج') != -1:
+                no = fields.index(f)
+                fields[no] = ' تسلسل المنتج  '
+                fields.insert(no + 1, 'اسم المنتج ')
+
+        with ExportXlsxWriter(fields, len(rows)) as xlsx_writer:
+            for row_index, row in enumerate(rows):
+                for cell_index, cell_value in enumerate(row):
+                    if isinstance(cell_value, (list, tuple)):
+                        cell_value = pycompat.to_text(cell_value)
+
+                    if isinstance(cell_value, str) and cell_value.find('Product: [') != -1:
+                        rows[row_index][cell_index + 1] = cell_value.split('[')[1].split(']')[1]
+                        cell_value = cell_value.split('[')[1].split(']')[0]
+
+                    if isinstance(cell_value, str) and cell_value.find('[') != -1 and cell_value.split('[')[1].split(']')[0].isnumeric():
+                        rows[row_index].insert(cell_index+1,cell_value.split('[')[1].split(']')[1])
+                        cell_value = cell_value.split('[')[1].split(']')[0]
+
+                    xlsx_writer.write_cell(row_index + 1, cell_index, cell_value)
+
+        return xlsx_writer.value
