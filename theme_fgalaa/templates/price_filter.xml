@@ -60,6 +60,17 @@
                         </span>
                     </div>
                 </div>
+
+                <!--AD bannares-->
+                 <div class="oe_structure" style="height: 5000px;width:300px;z-index:700;margin-right:-20px;">
+              <img class="img img-responsive img-fluid mx-auto d-block " alt="Ad Banner"
+                                         style="height: 2500px;width:300px;margin-top:7px;"
+                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+                <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
+                                         style="height: 2500px;width:300px;margin-top:5px;"
+                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+
+          </div>
             </t>
         </xpath>
     </template>
