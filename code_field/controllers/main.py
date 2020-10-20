@@ -111,12 +111,12 @@ class InhertExcelExport(ExcelExport):
                         cell_value = pycompat.to_text(cell_value)
 
                     if isinstance(cell_value, str) and cell_value.find('Product: [') != -1:
-                        rows[row_index][cell_index + 1] = cell_value.split('[')[1].split(']')[1]
+                        rows[row_index].insert(cell_index + 1, cell_value.split('[')[1].split(']')[1])
                         cell_value = cell_value.split('[')[1].split(']')[0]
 
-                    if isinstance(cell_value, str) and cell_value.find('[') != -1 and cell_value.split('[')[1].split(']')[0].isnumeric():
-                        rows[row_index].insert(cell_index+1,cell_value.split('[')[1].split(']')[1])
-                        cell_value = cell_value.split('[')[1].split(']')[0]
+                    # if isinstance(cell_value, str) and cell_value.find('[') != -1 and cell_value.split('[')[1].split(']')[0].isnumeric():
+                    #     rows[row_index].insert(cell_index+1,cell_value.split('[')[1].split(']')[1])
+                    #     cell_value = cell_value.split('[')[1].split(']')[0]
 
                     xlsx_writer.write_cell(row_index + 1, cell_index, cell_value)
 
