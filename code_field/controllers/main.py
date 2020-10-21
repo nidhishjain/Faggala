@@ -93,16 +93,20 @@ class InheritCSVExport(CSVExport):
 class InhertExcelExport(ExcelExport):
 
     def from_data(self, fields, rows):
-        # for f in fields:
-        #     if f.find('/الاسم') != -1:
-        #         no = fields.index(f)
-        #         fields[no] = ' تسلسل عناصر قائمة الاسعار  '
-        #         fields.insert(no + 1, 'اسماء عناصر قائمة الاسعار ')
-        #
-        #     if f.find('المنتج') != -1:
-        #         no = fields.index(f)
-        #         fields[no] = ' تسلسل المنتج  '
-        #         fields.insert(no + 1, 'اسم المنتج ')
+
+        try:
+            no = fields.index('المنتج')
+            fields[no] = ' تسلسل المنتج  '
+            fields.insert(no + 1, 'اسم المنتج ')
+        except:
+            print("not product")
+
+        try:
+            no = fields.index('عناصر قائمة الأسعار/الاسم')
+            fields[no] = ' تسلسل عناصر قائمة الاسعار  '
+            fields.insert(no + 1, 'اسماء عناصر قائمة الاسعار ')
+        except:
+             print("not name")
 
         with ExportXlsxWriter(fields, len(rows)) as xlsx_writer:
             for row_index, row in enumerate(rows):
