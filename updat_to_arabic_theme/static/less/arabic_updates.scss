@@ -110,26 +110,6 @@ background:white;
 
 
 
-.whatsappapi--show--header{
-@media  (max-width: 480px) {
-    position: absolute;
-    bottom: 27px;
-    right: 70px;
-    height: 30px;
-    min-width: 40px;
-    max-width: 95vw;
-    background-color: white;
-    color: red;
-    border-radius: 10px;
-    /* border-radius: 0px; */
-    dow: 0px 0px 0px 0px;
-    cursor: pointer;
-    transition: background-color 0.2s linear;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-
-}
 
 .whatsappapi-header {
 @media  (max-width: 767.98px){
@@ -141,7 +121,7 @@ span{
 @media  (max-width: 767.98px){
  font-size:2.5vw !important;
  padding-right:11px !important;
-
+ color:black;
 
  }
 
@@ -172,6 +152,23 @@ img{
 		        }
 }
 }
+
+
+.whatsappapi--show--header{
+
+
+@media  (max-width: 767.98px){
+
+    bottom: 27px !important;
+    right: 70px !important;
+    height: 30px !important;
+    min-width: 40px !important;
+    border-radius: 10px !important;
+}
+
+}
+
+
 
 
 
@@ -279,6 +276,6 @@ background:green;
 
  @media screen and (max-width: 575.98px){
 .te_ts_style_7_inner .oe_custom_bg {
-    height: 50vh !important;
+    height: 65vh !important;
 }
 }
