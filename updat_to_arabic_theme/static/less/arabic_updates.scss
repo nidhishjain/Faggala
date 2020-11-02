@@ -117,6 +117,23 @@ background:white;
 right:70% !important;
 }
 
+@media  (max-width: 480px) {
+    position: absolute;
+    bottom: 27px;
+    right: 70px;
+    height: 30px;
+    min-width: 40px;
+    max-width: 95vw;
+    background-color: white;
+    color: red;
+    border-radius: 10px;
+    /* border-radius: 0px; */
+    dow: 0px 0px 0px 0px;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 span{
 @media  (max-width: 767.98px){
  font-size:2.5vw !important;
@@ -124,6 +141,8 @@ span{
 
 
  }
+
+
 
   @media  (max-width: 480px){
  display:none !important;
@@ -163,7 +182,7 @@ img{
     @media (max-width: 767.98px){
     width:80% !important;
     right:0 !important;
-    top:0 !important;;
+    top:50% !important;;
   }
 }
 
