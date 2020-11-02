@@ -124,6 +124,11 @@ span{
 
 
  }
+
+  @media  (max-width: 480px){
+ display:none !important;
+ }
+
  }
 
 
@@ -150,7 +155,15 @@ img{
 
 .o_affix_enabled .navbar-collapse #top_menu, .o_header_affix .navbar-collapse #top_menu {
     @media (max-width: 767.98px){
-    text-align: left !important;
+    text-align: center !important;
+  }
+}
+
+#top_menu {
+    @media (max-width: 767.98px){
+    width:80% !important;
+    right:0 !important;
+    top:0 !important;;
   }
 }
 
@@ -238,4 +251,12 @@ background:green;
 .js_attributes [type="checkbox"]:not(:checked) + span, .js_attributes [type="checkbox"]:checked + span {
 
     float: left;
+}
+
+
+
+ @media screen and (max-width: 575.98px){
+.te_ts_style_7_inner .oe_custom_bg {
+    height: 50vh !important;
+}
 }
