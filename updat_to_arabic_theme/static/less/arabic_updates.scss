@@ -110,13 +110,7 @@ background:white;
 
 
 
-
-
-.whatsappapi-header {
-@media  (max-width: 767.98px){
-right:70% !important;
-}
-
+.whatsappapi--show--header{
 @media  (max-width: 480px) {
     position: absolute;
     bottom: 27px;
@@ -133,6 +127,15 @@ right:70% !important;
     transition: background-color 0.2s linear;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+
+}
+
+.whatsappapi-header {
+@media  (max-width: 767.98px){
+right:70% !important;
+}
+
 
 span{
 @media  (max-width: 767.98px){
