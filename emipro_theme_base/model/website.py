@@ -15,7 +15,7 @@ from odoo import fields, models, http
 from odoo.addons.auth_oauth.controllers.main import OAuthLogin
 from odoo.addons.website_sale_wishlist.controllers.main import WebsiteSale
 from odoo.addons.website_sale_wishlist.controllers.main import WebsiteSaleWishlist
-
+PUBLIC_USER_ID = 4
 
 class Website(models.Model):
     _inherit = "website"
@@ -79,7 +79,103 @@ class Website(models.Model):
         """
 
     def _get_default_footer_content(self):
-        pass
+        return """
+            <p></p>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-6">
+                    <ul class="te_footer_info_ept">
+                        <section>
+                            <li>
+                                <a href="#">Help</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Gift Cards</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Order Status</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Free Shipping</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Returns Exchanges</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">International</a>
+                            </li>
+                        </section>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-6">
+                    <ul class="te_footer_info_ept">
+                        <section>
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Jobs</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Affiliates</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Meet The Maker</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                        </section>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-6">
+                    <ul class="te_footer_info_ept">
+                        <section>
+                            <li>
+                                <a href="#">Security</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Text Messaging</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Legal</a>
+                            </li>
+                        </section>
+                        <section>
+                            <li>
+                                <a href="#">Supply Chain</a>
+                            </li>
+                        </section>
+                    </ul>
+                </div>
+            </div>
+        """
 
     def _get_footer_style_3_content(self):
         return """
@@ -1038,3 +1134,10 @@ class Website(models.Model):
         all_products = self.env['product.template'].sudo().search(domain)
         allowed_value_ids = all_products.attribute_line_ids.value_ids.ids
         return allowed_value_ids
+
+    def get_pricelist_available(self, show_visible=False):
+        # This is a quick fix till @salah_elqady decides which permissions
+        # will be given to the public user
+        if self.env.user.id == PUBLIC_USER_ID:
+            return []
+        return super().get_pricelist_available(show_visible=show_visible)
