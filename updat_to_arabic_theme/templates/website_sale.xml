@@ -164,6 +164,8 @@
                 </a>
             </div>
 
+            <h5 t-field="product.country_id.name"></h5>
+
         </xpath>
     </template>
 
