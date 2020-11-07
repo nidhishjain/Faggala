@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_installment,access_sale_installment,model_sale_installment,,1,1,1,1
+access_sale_maintenance,access_sale_maintenance,model_sale_maintenance,,1,1,1,1
