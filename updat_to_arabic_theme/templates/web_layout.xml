@@ -125,18 +125,20 @@
 
     </template>
 
-    <!--<template id="translate_menu_option" inherit_id="website_sale.products_attributes">-->
+    <template id="contact_us_bannar" inherit_id="website.contactus">
 
-        <!--<xpath expr="//button" position="replace">-->
+        <xpath expr="//section" position="inside">
 
-            <!--<button type="button" class="btn btn-link d-lg-none te_show_option" data-target="#wsale_products_attributes_collapse"-->
-                    <!--data-toggle="collapse">-->
-               <!--عــرض الاخـتـيـارات-->
-            <!--</button>-->
+             <!--AD bannares-->
+                 <div class="oe_structure" style="height: 100%;width:450px;z-index:700;float:left;">
+              <img class="img img-responsive img-fluid mx-auto d-block " alt="Ad Banner"
+                                         style="height: 100%;width:450px;margin-top:20px;"
+                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+                 </div>
 
-        <!--</xpath>-->
+        </xpath>
 
-    <!--</template>-->
+    </template>
 
 
 </odoo>
