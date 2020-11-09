@@ -211,3 +211,14 @@ class SaleOrder(models.Model):
 
         for item in new_installment_vals:
             created_installments = self.env['sale.installment'].sudo().create(item)
+
+
+class SaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'
+
+    @api.onchange('product_uom', 'product_uom_qty')
+    def product_uom_change(self):
+        if self.product_id and self.product_id.full_unit_price:
+            self.price_unit = self.product_id.full_unit_price
+        else:
+            return super(SaleOrderLine, self).product_uom_change()

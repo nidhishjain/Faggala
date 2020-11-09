@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="payment_plan_report"
+                model="sale.order"
+                report_type="qweb-pdf"
+                string="Installment Report"
+                name="print_payment_plan.payment_plan_tmp_report"
+                file="print_payment_plan.payment_plan_tmp_report"
+                menu="False"
+        />
+
+
+        <template id="payment_plan_tmp_report_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+
+                        <h2>
+
+                            <span>Payment Plan #</span>
+                            <span t-field="doc.name"/>
+                        </h2>
+                    </div>
+                    <div class="row">
+                        <span>Customer :</span>
+                        <span t-field="doc.partner_id"/>
+                    </div>
+
+                    <div class="row">
+                        <div class="row mt32 ml8 mb32" id="informations">
+                            <div t-if="doc.full_unit_price" class="col-xs-3 ml8">
+                                <strong>Full Unit Price:</strong>
+                                <p t-field="doc.full_unit_price"/>
+
+                            </div>
+                            <div t-if="doc.deposit_amount" class="col-xs-3 ml8">
+                                <strong>Deposit Amount:</strong>
+                                <p t-field="doc.deposit_amount"/>
+                            </div>
+                            <div t-if="doc.contract_signing_amount" class="col-xs-3 ml16">
+                                <strong>Contract Signing Amount:</strong>
+                                <p t-field="doc.contract_signing_amount"/>
+                            </div>
+                            <div t-if="doc.delivery_amount" class="col-xs-3 ml8">
+                                <strong>Delivery Amount:</strong>
+                                <p t-field="doc.delivery_amount"/>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <table class="table ">
+                            <thead class="bg-100">
+
+                                <tr>
+                                    <th>Unit Number</th>
+                                    <th>Unit Area</th>
+                                    <th>Unit Floor</th>
+                                </tr>
+
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <tr>
+                                    <td>
+                                        <span t-field="doc.order_line[0].product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.order_line[0].product_id.unit_area"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.order_line[0].product_id.floor"/>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="row">
+                        <table class="table">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th>Seq</th>
+                                    <th>Date</th>
+                                    <th class="text-right">Amount</th>
+                                    <th class="text-right">Installment Type</th>
+                                    <th class="text-right">Payment Status</th>
+                                </tr>
+
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="doc.installment_ids" t-as="l">
+
+                                    <tr>
+                                        <td>
+                                            <span t-field="l.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.installment_date"/>
+                                        </td>
+                                        <td style="text-align: right">
+                                            <span t-field="l.installment_amount"/>
+                                        </td>
+                                        <td style="text-align: right">
+                                            <span t-field="l.installment_type"/>
+                                        </td>
+                                        <td style="text-align: right">
+                                            <span t-field="l.status"/>
+                                        </td>
+
+                                    </tr>
+
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="row mt32 ml8 mb32" id="informations_main">
+                            <div class="col-xs-3 ml8">
+                                <strong>Maintenance Percentage:</strong>
+                                <p t-field="doc.maintenance_per"/>
+                            </div>
+                            <div class="col-xs-3 ml8">
+                                <strong>Maintenance Amount:</strong>
+                                <p t-field="doc.maintenance_amount"/>
+                            </div>
+                            <div class="col-xs-3 ml16">
+                                <strong>Maintenance No:</strong>
+                                <p t-field="doc.maintenance_no"/>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <table class="table ">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th>Seq</th>
+                                    <th>Date</th>
+                                    <th class="text-right">Amount</th>
+                                    <th class="text-right">Payment Status</th>
+                                </tr>
+
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="doc.maintenance_ids" t-as="l">
+                                    <tr>
+                                        <td>
+                                            <span t-field="l.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.maintenance_date"/>
+                                        </td>
+                                        <td style="text-align: right">
+                                            <span t-field="l.maintenance_amount"/>
+                                        </td>
+                                        <td style="text-align: right">
+                                            <span t-field="l.status"/>
+                                        </td>
+
+                                    </tr>
+
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="oe_structure"/>
+
+                </div>
+            </t>
+        </template>
+
+
+        <template id="payment_plan_tmp_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="print_payment_plan.payment_plan_tmp_report_document" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
