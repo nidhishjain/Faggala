@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="view_order_form_payment_print_inherit" model="ir.ui.view">
+            <field name="name">view.order.form.payment.print.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//button[@name="action_create_installments"]' position='after'>
+                    <span style="visibility: hidden;"></span>
+                    <button name="print_payment_plan_report" type="object" string="Print Installments"
+                            class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

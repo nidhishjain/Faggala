@@ -12,7 +12,7 @@ class SaleInstallment(models.Model):
     sale_id = fields.Many2one(comodel_name="sale.order", required=True, ondelete='cascade')
     installment_date = fields.Date(copy=False)
     installment_amount = fields.Float()
-    status = fields.Selection(string="Payment Type", selection=[('paid', 'Paid'),
+    status = fields.Selection(string="Payment Status", selection=[('paid', 'Paid'),
                                                                 ('not_paid', 'Not Paid')],
                               copy=False, default='not_paid')
     name = fields.Integer(string="Seq", required=True, copy=False, default='0')
