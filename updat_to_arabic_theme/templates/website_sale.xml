@@ -24,9 +24,10 @@
                             <t t-set="combination_info" t-value="product._get_combination_info_variant()"/>
                             <div class="product_summary">
                                 <a class="o_product_comparison_table" t-att-href="product.website_url">
-                                    <span t-esc="combination_info['display_name']"/>
+                                    <span t-field="product.Website_name"/>
                                     <br/>
                                 </a>
+
                                 <span>
                                     <strong>السعر:</strong>
                                     <del t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
@@ -92,6 +93,17 @@
                 </tbody>
             </table>
         </xpath>
+
+    </template>
+    <template id="product_product_updated" inherit_id="website_sale_comparison.product_product"
+              name="Comparator - Product row in comparator popover2">
+        <xpath expr="//h6/a" position="replace">
+            <a t-att-href="product.website_url">
+                <span t-field="product.Website_name"/>
+            </a>
+            <br/>
+        </xpath>
+
     </template>
 
 
@@ -123,18 +135,166 @@
                             <div t-esc="line.product_uom_qty"/>
                         </td>
                         <td class="text-center td-price">
-                             <t t-set="combination_info"
-                                       t-value="line.product_id._get_combination_info_variant()"/>
+                            <t t-set="combination_info"
+                               t-value="line.product_id._get_combination_info_variant()"/>
 
-                           <del t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
-                                         style="white-space: nowrap;" t-esc="combination_info['list_price']"
-                                         t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
-                                    <span t-esc="combination_info['price']"
-                                          t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                            <del t-attf-class="text-danger mr8 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
+                                 style="white-space: nowrap;" t-esc="combination_info['list_price']"
+                                 t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                            <span t-esc="combination_info['price']"
+                                  t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </xpath>
+    </template>
+
+
+    <template id="rating_widget_stars_static_header" name="Rating: button static star widget"
+              inherit_id="website_sale.product">
+        <xpath expr="//div[@id='product_details']/h1" position="after">
+
+            <div class="header_rating">
+                <a href="#nav_tabs_content_3">
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="product"/>
+                        <t t-set="display_rating" t-value="True"/>
+                    </t>
+                </a>
+            </div>
+
+            <h5 t-field="product.country_id.name"></h5>
+
+        </xpath>
+    </template>
+
+
+    <template id="wizard_x" inherit_id="website_sale.wizard_checkout" name="Wizard Checkout Arabic">
+        <xpath expr="//div[hasclass('col-xl')]" position="replace">
+
+            <div class=" te_cart_wizard_main">
+                <div class="wizard">
+                    <div class="progress-wizard">
+
+                        <a class="no-decoration" t-att-href="step&gt;=10 and '/shop/cart' or '#'">
+                            <div id="wizard-step10" style="width:400px"
+                                 t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-none d-md-block"/>
+                                <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">مراجعة الأمر</div>
+                            </div>
+                        </a>
+
+                        <a class="no-decoration" t-att-href="step&gt;=20 and '/shop/checkout' or '#'">
+                            <div id="wizard-step20" style="width:400px"
+                                 t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-none d-md-block"/>
+                                <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">العنوان</div>
+                            </div>
+                        </a>
+
+
+                        <a class="no-decoration" t-att-href="step&gt;=40 and '/shop/payment' or '#'">
+                            <div id="wizard-step40" style="width:400px"
+                                 t-att-class="'progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
+                                <div class="progress-wizard-bar d-none d-md-block"/>
+                                <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                                <div class="text-center progress-wizard-steplabel">تأكيد الامر</div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </xpath>
+    </template>
+
+    <template id="sep products" inherit_id="website_sale.products_item">
+        <xpath expr="//a[@t-att-href='product_href']" position="before">
+
+
+            <div class="vertical_sep "></div>
+            <style>
+                .vertical_sep {
+                border-left: 3px solid #ced4da;
+                height: 250px;
+                z-index: 200;
+                margin-right: 20px;
+                margin-left: 20px;
+                position: absolute;
+                left: 50%;
+                top: 3%;
+                display: none;
+
+                }
+                .o_wsale_layout_list .vertical_sep{
+                display:block !important;
+
+                }
+
+                @media screen and (max-width: 1300px) {
+                .oe_product_cart .vertical_sep {
+                display: none !important;
+                }
+                }
+
+            </style>
+            <script>
+
+            </script>
+        </xpath>
+
+        <xpath expr="//h6" position="after">
+            <a t-att-href="'/shop/category/%s' %(product.categ_id.id-4)"
+               t-attf-class="nav-link #{' active' if product.categ_id.id == int(category or 0) else ''}"
+               t-esc="product.categ_id.name"/>
+
+        </xpath>
+
+    </template>
+
+    <template id="report_delivery_document_inherit_sale_stock_name" inherit_id="stock.report_delivery_document">
+        <xpath expr="//h2" position="replace">
+            <h2>
+                <span t-field="o.name"/>
+                <span>:أمـر تــسليـم</span>
+            </h2>
+        </xpath>
+    </template>
+
+    <template id="website_sale_delivery_date" inherit_id="website_sale.payment">
+        <xpath expr="//div[@id='payment_method']" position="before">
+
+            <form action="/shop/payment/date"
+                  method="POST" name="delivery_date_form">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="input-group date col-lg-10 mt16" id="date_container" data-target-input="nearest">
+                    <label style="margin:auto;margin-left:5px;">تـاريـخ التـوصيـل :</label>
+                    <t t-if="website_sale_order.commitment_date == ''" t-set='date_formatted'>
+                        <t t-options='{"widget": "date"}' t-esc="website_sale_order.expected_date"/>
+                    </t>
+                    <t t-if="website_sale_order.commitment_date != ''" t-set='date_formatted'>
+                        <t t-options='{"widget": "date"}' t-esc="website_sale_order.commitment_date"/>
+                    </t>
+                    <input type="text" name="input_date" class="form-control datetimepicker-input"
+                           t-att-value="date_formatted" data-target="#date_container" id="date_delivery"/>
+                    <div class="input-group-append" data-target="#date_container" data-toggle="datetimepicker">
+                        <div class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="background-color:red;">
+                        تــعديـل
+                        <i class="fa fa-calendar"/>
+                    </button>
+                </div>
+
+            </form>
+
         </xpath>
     </template>
 

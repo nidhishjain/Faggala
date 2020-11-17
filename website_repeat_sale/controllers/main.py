@@ -60,3 +60,11 @@ class WebSaleOrderRepeat(http.Controller):
                 )
         return request.redirect("/shop/cart")
 
+    @http.route('/delete', type='http', auth="public", website=True)
+    def repeat_sale_order(self, **kwargs):
+        order_id = kwargs.get('id')
+        repeat_order_id = request.env['sale.order'].sudo().browse(
+            int(order_id))
+        repeat_order_id.action_cancel()
+        print(repeat_order_id.state)
+        return request.redirect("/my/quotes")

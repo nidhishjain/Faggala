@@ -65,7 +65,7 @@
                                                        class="text-decoration-none">
                                                         <h6
                                                             t-attf-class="my-2 mb-0 product_name #{'te_2_line' if (website.number_of_product_line == '2') else 'te_3_line' if (website.number_of_product_line == '3') else ''}"
-                                                            t-raw="product.display_name"/>
+                                                            t-raw="product.Website_name"/>
                                                     </a>
                                                     <div itemprop="offers" itemscope="itemscope"
                                                          itemtype="http://schema.org/Offer"

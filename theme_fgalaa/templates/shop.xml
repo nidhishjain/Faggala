@@ -12,6 +12,9 @@
                       class="new_span dd_shop_prod_bg d-flex h-100 justify-content-center align-items-center"/>
             </a>
         </xpath>
+         <xpath expr="//h6[hasclass('o_wsale_products_item_title')]/a" position="replace">
+             <a itemprop="name" t-att-href="product_href" t-att-content="product.Website_name" t-field="product.Website_name" />
+         </xpath>
         <xpath expr="//h6[hasclass('o_wsale_products_item_title')]/a" position="attributes">
             <attribute name="t-attf-class">
                 product_name
@@ -125,6 +128,7 @@
                 <span class="te_filter_icon_close">x</span>
             </div>
         </xpath>
+
         <xpath expr="//t[@t-if='td_product']/td" position="attributes">
             <attribute name="t-attf-class">oe_product #{td_product['class']} te_shop_grid
             </attribute>
@@ -315,7 +319,7 @@
                             </div>
                             <ul class="nav nav-pills flex-column brand_main">
                                 <t t-foreach="brand_list" t-as="brand">
-                                    <li class="nav-item " dir="rtl">
+                                    <li class="nav-item ">
                                         <label style="margin: 0 20px;"
                                                t-attf-class="nav-link#{' active' if [0,brand.id] in attrib_values else ''}">
 

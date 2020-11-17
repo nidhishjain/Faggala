@@ -38,8 +38,8 @@
             <div id="read_more">
                 <a class="o_product_comparison_table product_name_compare"
                    t-attf-href="/shop/product/#{ slug(product.product_tmpl_id) }">
-                    <div class="more" t-field='product.display_name'></div>
-                    <div class="full_name_compare" t-field='product.display_name'></div>
+                    <div class="more" t-field='product.Website_name'></div>
+                    <div class="full_name_compare" t-field='product.Website_name'></div>
                 </a>
             </div>
         </xpath>

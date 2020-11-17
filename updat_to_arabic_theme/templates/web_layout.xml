@@ -12,44 +12,133 @@
     <template id="affix_top_menu_logo" inherit_id="website.layout_logo_show" name="Fixed Top logo">
         <xpath expr="//header//a[hasclass('navbar-brand')]" position="attributes">
             <attribute name="id" add="fixed_img"/>
-            <attribute name="t-attf-class" add="#{'o_affix_enabled'}" separator=" "/>
+            <attribute name="t-attf-class" add="#{'o_affix_enabled'} " separator=" "/>
+            <!--<attribute name="style" add="width:120px;height:120px;"/>-->
         </xpath>
 
     </template>
 
-  <template id="ad_bannars" inherit_id="website_sale.products_categories"
-              name="Ad Banners">
-        <xpath expr="//div[@id='wsale_products_categories_collapse']" position="after">
-          <div class="oe_structure" style="background:red;height: 380px;width:200px;position:absolute;right:70px;top:2px">
-              <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
-                                         style="height: 380px;width:200px;"
+
+    <template id="v_s_hr" name="vertical Separator">
+        <div class="v_s_hr ">
+            <span class="vertical_sep_snip border-black mx-auto s_hr_solid"></span>
+
+            <style>
+                .vertical_sep_snip {
+                border-left: 3px;
+                z-index: 200;
+                }
+                .s_hr_solid{
+                border-style: solid;
+                }
+                .s_hr_dashed{
+                border-style: dashed;
+                }
+                .s_hr_double{
+                border-style: double;
+                }
+
+
+            </style>
+        </div>
+    </template>
+    <template id="v_s_hr_snippet_options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <!-- COLOR | .s_hr -->
+            <div data-js="colorpicker"
+                 data-selector=".v_s_hr"
+                 data-target="span"
+                 data-color-prefix="border-"
+                 data-palette-exclude="transparent_grayscale, common"
+                 data-palette-title="Separator Color">
+                <we-collapse-area>
+                    <we-toggler>
+                        <i class="fa fa-fw fa-eyedropper"/>
+                        Color
+                    </we-toggler>
+                    <we-collapse/>
+                </we-collapse-area>
+            </div>
+
+            <div data-selector=".v_s_hr" data-target="span">
+                <we-collapse-area>
+                    <we-toggler>
+                        <i class="fa fa-fw fa-pencil"/>
+                        Style
+                    </we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="s_hr_solid">Solid</we-button>
+                        <we-button data-select-class="s_hr_dashed">Dashed</we-button>
+                        <!--<we-button data-select-class="s_hr_dotted">Dotted</we-button>-->
+                        <we-button data-select-class="s_hr_double">Double</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+                <we-collapse-area>
+                    <we-toggler>
+                        <i class="fa fa-fw fa-arrows-h"/>
+                        height
+                    </we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="h-25">25%</we-button>
+                        <we-button data-select-class="h-50">50%</we-button>
+                        <we-button data-select-class="h-75">75%</we-button>
+                        <we-button data-select-class="h-100">100%</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+                <we-collapse-area>
+                    <we-toggler>
+                        <i class="fa fa-fw fa-align-left"/>
+                        Alignment
+                    </we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="mr-auto">Left</we-button>
+                        <we-button data-select-class="mx-auto">Center</we-button>
+                        <we-button data-select-class="ml-auto">Right</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+            </div>
+            <div id="vertical_s" data-selector=".v_s_hr" data-drop-in=".v_s_hr_snippet_options, div">
+                <div data-selector=".v_s_hr"
+                     data-drop-near="p, h1, h2, h3, blockquote, .s_hr, .v_s_h, div, ul"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="theme_fgalaa" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+
+            <t t-snippet="updat_to_arabic_theme.v_s_hr"
+               t-thumbnail="/theme_fgalaa/static/src/img/snippets/snippets_icon/banner.jpg"/>
+
+        </xpath>
+    </template>
+
+
+    <template id="translate_menu" inherit_id="website_sale.products_categories">
+
+        <xpath expr="//div[@id='products_grid_before']/button" position="replace">
+            <button type="button" class="btn btn-link d-lg-none te_show_category"
+                    data-target="#wsale_products_categories_collapse" data-toggle="collapse">
+                عــرض المـنتــجـات
+            </button>
+        </xpath>
+
+    </template>
+
+    <template id="contact_us_bannar" inherit_id="website.contactus">
+
+        <xpath expr="//section" position="inside">
+
+             <!--AD bannares-->
+                 <div class="oe_structure" style="height: 100%;width:450px;z-index:700;float:left;">
+              <img class="img img-responsive img-fluid mx-auto d-block " alt="Ad Banner"
+                                         style="height: 100%;width:450px;margin-top:20px;"
                                          src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+                 </div>
 
-          </div>
-             <div class="oe_structure" style="background:black;height: 1800px;width:300px;position:absolute;right:-50px;top:600px">
-              <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
-                                         style="height: 1000px;width:300px;"
-                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
-                <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
-                                         style="height: 800px;width:300px;margin-top:5px;"
-                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+        </xpath>
 
-          </div>
-      </xpath>
-
-  </template>
-
-
-
-
-
-
-    <!--<template id="next_prev_buttons" inherit_id="website.homepage1" primary="True">-->
-        <!--<xpath expr="div[hasclass('carousel-control-prev')]" position="replace">-->
-            <!--<span>hiiiiii</span>-->
-        <!--</xpath>-->
-    <!--</template>-->
-
+    </template>
 
 
 </odoo>

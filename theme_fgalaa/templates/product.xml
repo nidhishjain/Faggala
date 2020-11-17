@@ -32,13 +32,16 @@
         <xpath expr="//div[@id='product_details']" position="attributes">
             <attribute name="class">col-lg-6 offset-xl-0</attribute>
         </xpath>
+        <xpath expr="//div[@id='product_details']/h1" position="replace">
+            <h1 t-field="product.Website_name" />
+        </xpath>
         <xpath expr="//div[@id='product_details']/h1" position="attributes">
             <attribute name="class">te_product_name</attribute>
         </xpath>
         <xpath expr="//div[@id='product_details']/h1" position="after">
             <span id="te_rect_cnt" class="d-none" t-esc="website.number_of_product_line"/>
         </xpath>
-        <xpath expr="//h1[@t-field='product.name']" position="after">
+        <xpath expr="//h1[@t-field='product.Website_name']" position="after">
             <div class="o_not_editable">
                 <p t-field="product.description_sale" class="te_prod_desc"/>
             </div>
@@ -194,7 +197,7 @@
                                             <a class="product_name"
                                                t-attf-href="/shop/product/#{ slug(alt_product) }">
                                                 <h6>
-                                                    <span t-att-title="alt_product.name" t-field="alt_product.name"
+                                                    <span t-att-title="alt_product.Website_name" t-field="alt_product.Website_name"
                                                           t-attf-class="alt_prod_name #{'te_2_line' if (website.number_of_product_line == '2') else 'te_3_line' if (website.number_of_product_line == '3') else ''}"/>
                                                 </h6>
                                             </a>
@@ -232,7 +235,7 @@
                                         <a class="product_name"
                                            t-attf-href="/shop/product/#{ slug(alt_product.product_tmpl_id) }">
                                             <h6>
-                                                <span t-att-title="alt_product.name" t-field="alt_product.name"
+                                                <span t-att-title="alt_product.Website_name" t-field="alt_product.Website_name"
                                                       t-attf-class="alt_prod_name #{'te_2_line' if (website.number_of_product_line == '2') else 'te_3_line' if (website.number_of_product_line == '3') else ''}"/>
                                             </h6>
                                         </a>
@@ -359,21 +362,35 @@
     <template id="html_content_tabs_ept" name="Product Tabs">
         <section class="product_tabs_ept s_tabs">
             <div class="container tabs_container_main">
-                <div class="row s_col_no_bgcolor">
+                <div class="row s_col_no_bgcolor" id="tab_pages">
                     <div class="col-lg-12">
                         <div class="bg-white">
                             <div class="product-header">
                                 <ul id="te_product_tabs" class="nav nav-tabs product-header-tabs" role="tablist">
+
+                                    <t t-if="request.website.viewref('website_sale.product_comment').active">
+                                        <li class="nav-item">
+                                            <a class="nav-link active show"
+                                               id="nav_tabs_link_3"
+                                               data-toggle="tab"
+                                               href="#nav_tabs_content_3"
+                                               role="tab"
+                                               aria-controls="nav_tabs_content_3"
+                                               aria-selected="true">التقيمات والمراجعات
+                                            </a>
+                                        </li>
+                                    </t>
+
                                     <li class="nav-item"
                                         t-if="product.website_description or request.env.user._is_admin()">
-                                        <a class="nav-link active show"
+                                        <a class="nav-link "
                                            id="nav_tabs_link_1"
                                            data-toggle="tab"
                                            itemprop="description"
                                            href="#nav_tabs_content_1"
                                            role="tab"
                                            aria-controls="nav_tabs_content_1"
-                                           aria-selected="true">Description
+                                           aria-selected="false">Description
                                         </a>
                                     </li>
                                     <t t-set="categories"
@@ -402,22 +419,32 @@
                                             </a>
                                         </li>
                                     </t>
-                                    <t t-if="request.website.viewref('website_sale.product_comment').active">
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                               id="nav_tabs_link_3"
-                                               data-toggle="tab"
-                                               href="#nav_tabs_content_3"
-                                               role="tab"
-                                               aria-controls="nav_tabs_content_3"
-                                               aria-selected="false">التقيمات والمراجعات
-                                            </a>
-                                        </li>
-                                    </t>
+
                                 </ul>
                             </div>
                             <div class="product-body tab-content">
-                                <div class="tab-pane fade show active py-3"
+
+                                <t t-if="request.website.viewref('website_sale.product_comment').active">
+                                    <div class="tab-pane fade  show active o_not_editable py-3"
+                                         id="nav_tabs_content_3"
+                                         role="tabpanel"
+                                         aria-labelledby="nav_tabs_link_3">
+                                        <div class="o_shop_discussion_rating te_product_tab oe_overlay_options o_not_editable">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-lg-12 mt16">
+                                                        <t t-call="portal.message_thread">
+                                                            <t t-set="object" t-value="product"/>
+                                                            <t t-set="display_rating" t-value="True"/>
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <div class="tab-pane fade  py-3"
                                      id="nav_tabs_content_1"
                                      role="tabpanel"
                                      aria-labelledby="nav_tabs_link_1">
@@ -521,25 +548,7 @@
                                         </div>
                                     </t>
                                 </div>
-                                <t t-if="request.website.viewref('website_sale.product_comment').active">
-                                    <div class="tab-pane fade o_not_editable py-3"
-                                         id="nav_tabs_content_3"
-                                         role="tabpanel"
-                                         aria-labelledby="nav_tabs_link_3">
-                                        <div class="o_shop_discussion_rating te_product_tab oe_overlay_options o_not_editable">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-lg-12 mt16">
-                                                        <t t-call="portal.message_thread">
-                                                            <t t-set="object" t-value="product"/>
-                                                            <t t-set="display_rating" t-value="True"/>
-                                                        </t>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </t>
+
                             </div>
                         </div>
                     </div>

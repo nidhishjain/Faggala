@@ -158,28 +158,28 @@
                                 <div class="te_offer_left col-lg-9 pull-right"
                                      style="margin-right:-70px;color:white;margin-left:0px;">
                                     <section>
-                                        <p style="font-size:14px;">
-                                            <img src="/theme_fgalaa/static/src/img/shop/output-onlinepngtools (2).png"
-                                                 style="margin:2px;width:30px;height:30px;border-radius:50%"/>
+                                        <p style="font-size:13px;">
+                                            <img src="/theme_fgalaa/static/src/img/shop/icon re.png"
+                                                 style="margin:2px;width:20px;height:20px;border-radius:50%"/>
                                             الدفع عند الاستلام
                                             <img src="/theme_fgalaa/static/src/img/shop/moneyback.png"
-                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             ارجاع السلع مجانا
-                                            <img src="/theme_fgalaa/static/src/img/shop/freeship.png"
-                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
+                                            <img src="/theme_fgalaa/static/src/img/shop/Delivery-Icon.png"
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             مزايا الشحن المجاني
 
                                             <img src="/theme_fgalaa/static/src/img/shop/NicePng_open-24-hours-png_3552848.png"
-                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             خدمة العملاء
-                                            <img src="/theme_fgalaa/static/src/img/shop/offers.png"
-                                                 style="margin:3px;width:30px;height:30px;border-radius:50%"/>
+                                            <img src="/theme_fgalaa/static/src/img/shop/order.png"
+                                                 style="margin:3px;width:20px;height:20px;border-radius:50%"/>
                                             العروض
                                         </p>
                                         <!--<section t-field="website.website_header_offer_ept"/>-->
                                     </section>
                                 </div>
-                                <div class="te_login_right col-lg-3 pull-left" style="margin-left:-0px;">
+                                <div class="te_login_right col-lg-3 pull-left" style="margin-left:-0px;margin-top:-10px;">
                                     <div class="text-right">
                                         <t t-set="website_sale_pricelists"
                                            t-value="website.get_pricelist_available(show_visible=True)"/>
@@ -188,24 +188,24 @@
                                             <t t-call="website_sale.pricelist_list"/>
                                         </div>
                                         <div class="te_header_lang"
-                                             t-att-style="'text-align:right' if website_sale_pricelists and len(website_sale_pricelists)&gt;1 else 'text-align:left'">
+                                             t-att-style="'text-align:right;color:white' if website_sale_pricelists and len(website_sale_pricelists)&gt;1 else 'text-align:left'">
                                             <div class="">
                                                 <t t-call="theme_fgalaa.header_language_ept"></t>
                                             </div>
                                         </div>
                                         <div class="">
-                                            <div class="dropdown te_user_account" t-ignore="true"
-                                                 t-if="not user_id._is_public()">
-                                                <a href="#" class="dropdown-toggle btn btn-link"
+                                            <div class="dropdown te_user_account"  t-ignore="true"
+                                                 t-if="not user_id._is_public()" >
+                                                <a href="#"  style="color:white;" class="dropdown-toggle btn btn-link"
                                                    data-toggle="dropdown">
-                                                    <span class="te_user_account_name"
+                                                    <span style="color:white;" class="te_user_account_name"
                                                           t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
-                                                    <span class="te_user_account_icon">
+                                                    <span style="color:white;" class="te_user_account_icon">
                                                         <i class="fa fa-user" aria-hidden="true"></i>
                                                     </span>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-left  js_usermenu" role="menu">
-                                                    <a href="/my/home" role="menuitem" class="dropdown-item">حسابى
+                                                    <a href="/my/home" role="menuitem"  class="dropdown-item">حسابى
                                                         <span class="fa fa-user"/>
                                                     </a>
                                                     <a href="/shop/cart" role="menuitem" class="dropdown-item">الدفع
@@ -226,12 +226,12 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div groups="base.group_public" class="te_signin"
+                                            <div groups="base.group_public" class="te_signin" style="color:white;"
                                                  t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                                 <a t-attf-href="/web/login" class="btn btn-link">
                                                     <img src="/theme_fgalaa/static/src/img/shop/login.png"
-                                                         style="margin:3px;width:30px;height:30px;"/>
-                                                    <span class="te_user_account_name">تسجيل الدخول</span>
+                                                         style="margin:3px;width:25px;height:25px;"/>
+                                                    <span class="te_user_account_name" style="color:white;">تسجيل الدخول</span>
                                                     <span class="te_user_account_icon">
                                                         <i class="fa fa-user" aria-hidden="true"/>
                                                     </span>
@@ -248,7 +248,7 @@
             </div>
         </xpath>
 
-
+1
         <xpath expr="//nav[hasclass('navbar-expand-md')]/div[hasclass('container')]"
                position="attributes">
             <attribute name="class">
@@ -258,7 +258,7 @@
         <xpath expr="//nav[hasclass('navbar-expand-md')]" position="inside">
             <div class="row py-3 align-items-center search_nav">
 
-                <div class="col-lg-8 te_header_style_2_right">
+                <div class="col-lg-10 te_header_style_2_right">
                     <div class="te_header_search">
                         <div class="te_srch_icon_header">
                             <a href="#" class="">
@@ -1050,16 +1050,16 @@
             <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="true">
-                <span class="lang_btn_name"
+                <span class="lang_btn_name" style="color:white;"
                       t-esc="list(filter(lambda lg : lg[0] == lang, languages))[0][2].split('/').pop()"/>
                 <span class="lang_btn_code" style="display:none"
                       t-esc="list(filter(lambda lg : lg[0] == lang, languages))[0][1]"/>
-                <span class="caret ml4"/>
+                <span class="caret ml4" style="color:white;"/>
             </button>
             <div class="dropdown-menu" role="menu">
                 <t t-foreach="languages" t-as="lg">
                     <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])"
-                       class="dropdown-item js_change_lang"
+                       class="dropdown-item js_change_lang" style="color:white;"
                        t-att-data-url_code="lg[1]">
                         <t t-esc="lg[2].split('/').pop()"/>
                     </a>

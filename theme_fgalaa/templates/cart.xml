@@ -16,6 +16,8 @@
             <div t-if="not website_sale_order or not website_sale_order.website_order_line"
                  class="js_cart_lines te_empty_cart mb32 text-center">
                 Your cart is empty!
+                <img style="height:300px;width:200px text-center"
+                     src="/theme_fgalaa/static/src/img/shop/FAVPNG_shopping-cart_YHd8eAJm.png"/>
             </div>
         </xpath>
         <xpath expr="//table[@id='cart_products']" position="attributes">
@@ -27,10 +29,10 @@
         <xpath expr="//strong[@t-field='line.name_short']" position="replace">
             <strong t-field="line.product_id.name"/>
 
-            <!--            <div class="te_rmv_cart_product">-->
-            <!--                <a href='#' aria-label="Remove from cart" title="Remove from cart"-->
-            <!--					class='js_delete_product no-decoration'>Remove item</a>-->
-            <!--            </div>-->
+            <!--<div class="te_rmv_cart_product">-->
+            <!--<a href='#' aria-label="Remove from cart" title="Remove from cart"-->
+            <!--class='js_delete_product no-decoration'>Remove item</a>-->
+            <!--</div>-->
         </xpath>
         <xpath expr="//td[hasclass('td-product_name')]/div" position="inside">
             <div class="te_cart_prod_attr_lines mt4">
@@ -210,17 +212,42 @@
         </xpath>
     </template>
     <!--======================= Cart Popover ==========================-->
+    <template id="cart_line_delete" name="Shopping Cart delete Line Product ">
+        <tr>
+            <input type="text" class="js_quantity form-control quantity" t-att-data-line-id="line.id"
+                   t-att-data-product-id="line.product_id.id"
+                   t-att-value="int(line.product_uom_qty) == line.product_uom_qty and int(line.product_uom_qty) or line.product_uom_qty"/>
+
+
+            <a href="#" aria-label="Remove from cart" title="Remove from cart"
+               class='delete_div js_delete_product no-decoration'>
+                <t t-raw="0"/>
+            </a>
+
+        </tr>
+    </template>
+
     <template id="cart_popover_ept" inherit_id="website_sale.cart_popover" priority="17">
+
+        <xpath expr="//div[hasclass('alert-info')]" position="inside">
+            <img style="height:300px;width:200px text-center"
+                 src="/theme_fgalaa/static/src/img/shop/FAVPNG_shopping-cart_YHd8eAJm.png"/>
+
+        </xpath>
+
+
         <xpath expr="//div[hasclass('col-9')]" position="replace">
             <div class="col-8">
                 <div>
                     <t t-call="website_sale.cart_line_product_link">
-                        <span class="h6 te_cart_popover_p_name" t-esc="line.product_id.name"/>
+                        <span class="h6 te_cart_popover_p_name" t-esc="line.product_id.Website_name"/>
                     </t>
+
                 </div>
                 <div class="te_cart_popover_details">
-                    <div class="te_cart_popover_qty py-1">Qty:
+                    <div class="te_cart_popover_qty py-1 js_quantity">Qty:
                         <span t-esc="int(line.product_uom_qty) == line.product_uom_qty and int(line.product_uom_qty) or line.product_uom_qty"/>
+
                     </div>
 
                     <div class="te_cart_popover_price" name="price">
@@ -251,26 +278,49 @@
                                       t-options='{"widget": "monetary","display_currency": line.product_id.currency_id,}'/>
                             </h6>
                         </div>
+
+                        <!--<div >-->
+                            <!--<t t-call="theme_fgalaa.cart_line_delete">-->
+                                <!--<i class='fa fa-trash-o'></i>-->
+                            <!--</t>-->
+
+
+
+                        <!--</div>-->
+
                     </div>
                 </div>
             </div>
+
+
         </xpath>
         <xpath expr="//div[hasclass('col-3')]" position="replace">
             <div class="col-4">
                 <span t-field="line.product_id.image_256" t-options="{'widget': 'image', 'class': 'rounded'}"/>
             </div>
         </xpath>
+
         <xpath expr="//div[hasclass('text-center')]" position="attributes">
             <attribute name="class">text-center cart_subtotal</attribute>
         </xpath>
+
+        <!--<xpath expr="//div[hasclass('cart_subtotal')]/span" position="before">-->
+            <!--<a class=" pull-right row mr8 py-3 s_delete_product no-decoration">-->
+                <!--<i class='fa fa-trash-o'></i>-->
+                <!--Delete all-->
+            <!--</a>-->
+        <!--</xpath>-->
+
         <xpath expr="//div[hasclass('cart_line')]" position="attributes">
             <attribute name="class">row py-4 cart_line</attribute>
         </xpath>
     </template>
+
+
     <!--=============================== Product Configurator Configure Optional Products ========================-->
     <template id="wizard_checkout_ept" inherit_id="website_sale.wizard_checkout">
-        <xpath expr="//div[hasclass('col-xl')]" position="attributes">
-            <attribute name="class">col-xl text-lg-right text-md-right te_cart_wizard_main</attribute>
-        </xpath>
+        <!--<xpath expr="//div[hasclass('col-xl')]" position="attributes">-->
+        <!--<attribute name="class"> te_cart_wizard_main</attribute>-->
+        <!--</xpath>-->
     </template>
 </odoo>

@@ -49,7 +49,8 @@
         'templates/404.xml',
         'templates/extra_pages.xml',
         'templates/custom_update.xml',
-        "views/res_company.xml"
+        "views/res_company.xml",
+        "views/product.xml"
 
     ],
 
