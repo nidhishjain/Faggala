@@ -18,32 +18,37 @@
                         <div class="d-block mb8 te_price_filter_amount">
 
 
-
                             <div class="d-inline-block pull-right">
                                 <label t-att-class="'d-none' if website.currency_id.position == 'after' else ''"
                                        t-field="website.currency_id.symbol"/>
+                                <span class="ept_price_max" t-esc="range_values[3]"/>
+
+                                <label t-att-class="'d-none' if website.currency_id.position == 'before' else ''"
+                                       t-field="website.currency_id.symbol"/>
+                            </div>
+
+
+                            <div class="d-inline-block ">
+                                <label t-att-class="'d-none' if website.currency_id.position == 'after' else ''"
+                                       t-field="website.currency_id.symbol"/>
+
                                 <span class="ept_price_min" t-esc="range_values[2]"/>
                                 <label t-att-class="'d-none' if website.currency_id.position == 'before' else ''"
                                        t-field="website.currency_id.symbol"/>
                             </div>
-
-
-                                 <div class="d-inline-block ">
-                                <label t-att-class="'d-none' if website.currency_id.position == 'after' else ''"
-                                            t-field="website.currency_id.symbol"/>
-                                <span class="ept_price_max" t-esc="range_values[3]"/>
-                                <label t-att-class="'d-none' if website.currency_id.position == 'before' else ''"
-                                       t-field="website.currency_id.symbol"/>
-                            </div>
                         </div>
-                        <div id="ept_price_slider"/>
+                        <!--<div id="ept_price_slider"/>-->
+                        <!--range slider 2-->
+
+                        <div id="slider-range"></div>
                         <div class="te_price_wrap">
                             <!--change-->
 
-                             <div class="te_price_min">
+                            <div class="te_price_min">
                                 <label t-att-class="'d-none' if website.currency_id.position == 'after' else ''"
                                        t-field="website.currency_id.symbol"/>
-                                <input name="min_price" type="number" class="sliderValue ept_price_min" data-index="0"
+                                <input name="min_price" type="number" class="sliderValue ept_price_min min-value"
+                                       data-index="0"
                                        t-att-value="range_values[0]"/>
                                 <label t-att-class="'d-none' if website.currency_id.position == 'before' else ''"
                                        t-field="website.currency_id.symbol"/>
@@ -52,10 +57,11 @@
                             <div class="te_price_wrap_line">-</div>
 
 
-                             <div class="te_price_max">
+                            <div class="te_price_max">
                                 <label t-att-class="'d-none' if website.currency_id.position == 'after' else ''"
                                        t-field="website.currency_id.symbol"/>
-                                <input name="max_price" type="number" class="sliderValue ept_price_max" data-index="1"
+                                <input name="max_price" type="number" class="sliderValue ept_price_max max-value"
+                                       data-index="1"
                                        t-att-value="range_values[1]"/>
                                 <label t-att-class="'d-none' if website.currency_id.position == 'before' else ''"
                                        t-field="website.currency_id.symbol"/>
@@ -63,23 +69,65 @@
 
 
                         </div>
+
+
+
+                        <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+                        <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+                        <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css"/>
+                        <script>
+                            console.log( $( ".ept_price_max" )[1].value )
+                            console.log( $( ".max-value" ).val()*-1 )
+                            $(function() {
+                            $( "#slider-range" ).slider({
+                            range: true,
+                            min: $( ".ept_price_max" )[1].value*-1,
+                            max: 1,
+                            values: [ $( ".max-value" ).val()*-1, 1 ],
+                            slide: function( event, ui ) {
+                            min=ui.values[ 1 ]
+                            console.log("min")
+                            max=ui.values[ 0 ]
+                            console.log("max")
+                            if (0>min){
+                            min = min *-1
+                            console.log("if-min")
+                            }
+                            if (0>max){
+                            console.log("if-max")
+                            max = max *-1
+                            }
+
+                            $( ".min-value" ).val(min )
+                            $( ".max-value" ).val(max )
+
+                            }
+                            });
+
+
+                            });
+
+                        </script>
+
                         <span class="ept_price_slider_error"/>
-                        <span class="w-100 btn btn-primary mt16 rounded py-1 "  id="price_slider_filter">Apply
+
+
+                        <span class="w-100 btn btn-primary mt16 rounded py-1 " id="price_slider_filter">Apply
                             Filter
                         </span>
                     </div>
                 </div>
 
                 <!--AD bannares-->
-                 <div class="oe_structure" style="height: 5000px;width:300px;z-index:700;margin-right:-20px;">
-              <img class="img img-responsive img-fluid mx-auto d-block " alt="Ad Banner"
-                                         style="height: 2500px;width:300px;margin-top:7px;"
-                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
-                <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
-                                         style="height: 2500px;width:300px;margin-top:5px;"
-                                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+                <div class="oe_structure" style="height: 5000px;width:300px;z-index:700;margin-right:-20px;">
+                    <img class="img img-responsive img-fluid mx-auto d-block " alt="Ad Banner"
+                         style="height: 2500px;width:300px;margin-top:7px;"
+                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
+                    <img class="img img-responsive img-fluid mx-auto d-block" alt="Ad Banner"
+                         style="height: 2500px;width:300px;margin-top:5px;"
+                         src="/theme_fgalaa/static/src/img/snippets/structure/text_image/437_500.jpg"></img>
 
-          </div>
+                </div>
             </t>
         </xpath>
     </template>
