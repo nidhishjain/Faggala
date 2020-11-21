@@ -275,3 +275,12 @@ margin-right: -1px !important;
 .o_rtl #mainSlider .owl-carousel, .o_rtl #thumbnailSlider .owl-carousel, .o_rtl .alternative_product_main .owl-carousel, .o_rtl .accessory_product_main .owl-carousel, .o_rtl .te_product_slider_2 .owl-carousel, .o_rtl .te_prod_slider_4 .owl-carousel, .o_rtl .te_brand_slider .owl-carousel, .o_rtl .te_category_slider .owl-carousel, .o_rtl .te_prod_slider_1 .owl-carousel {
     direction: ltr !important;
 }
+
+.brand_carousel .owl-nav button.owl-prev{
+right:0px !important;
+
+}
+
+.brand_carousel .owl-nav button.owl-next {
+left:0 !important;
+}
