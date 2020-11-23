@@ -60,9 +60,9 @@
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                 <br/>
 <!--                <a t-if="sale_order.state != 'sent'" id="add_to_cart" class="btn btn-primary float-right" data-placement="top" data-id = "ol" data-html="true" data-toggle="modal" data-target="#get_so">Return</a>-->
-                <a style="margin:3px;" t-if="sale_order.state != 'sent'" id="add_to_cart" class="btn btn-primary float-right mr-3"
+                <a style="margin:3px;width: 13%;" t-if="sale_order.state != 'sent'" id="add_to_cart" class="btn btn-primary float-right mr-3"
                 data-placement="top" data-id = "ol" data-html="true" data-toggle="modal" data-target="#get_so"><font color="white">
-                Return</font></a>
+                إرجـاع</font></a>
             </form>
             
             <div role="dialog" class="modal fade" tabindex="-1"

@@ -10,6 +10,7 @@
         'templates/asset.xml',
         'templates/web_layout.xml',
         'templates/website_sale.xml',
+
     ],
 
 

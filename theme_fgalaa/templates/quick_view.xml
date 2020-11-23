@@ -64,7 +64,14 @@
                         <t t-call="website_sale.shop_product_carousel"/>
                     </div>
                     <div class="col-md-6 col-xl-6" id="product_details">
-                        <h1 itemprop="name" t-field="product.Website_name" class="te_product_name">Product Name</h1>
+                        <t t-if="product.Website_name">
+                        <h1 itemprop="name" t-field="product.Website_name" class="te_product_name"></h1>
+                        </t>
+                         <t t-else="1">
+                            <h1 itemprop="name" t-field="product.name" class="te_product_name">هذا المنتج</h1>
+                         </t>
+
+
                         <div class="o_not_editable">
                             <p t-field="product.description_sale" class="te_prod_desc"/>
                         </div>

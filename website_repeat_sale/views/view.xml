@@ -45,7 +45,7 @@
     <template id="website_repeat_sale_order_in_form"
               inherit_id="sale.sale_order_portal_content">
         <xpath expr="//div[@id='introduction']//h2" position="after">
-            <a t-attf-href="/order/repeat?id=#{sale_order.id}" style="background:red;color:white;" class="btn btn-secondary" >
+            <a t-attf-href="/order/repeat?id=#{sale_order.id}" style="background:##de0b14;color:white;margin: 3px;" class="btn btn-secondary" >
                 إعـادة الـطلــب
             </a>
              <a   t-if="sale_order.state in ['sent']" style="background:red;color:white;margin:3px;" onclick="make_sure_on()" class="btn btn-secondary">
