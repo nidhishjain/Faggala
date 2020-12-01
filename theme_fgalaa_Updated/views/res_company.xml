@@ -1,0 +1,65 @@
+<odoo>
+    <record id="res_company_form" model="ir.ui.view">
+        <field name="name">res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Company Places">
+                    <group>
+                        <group>
+                            <field name="branch_name1" placeholder="اسم الفرع"/>
+                            <field name="place1_lat"/>
+                            <field name="place1_long"/>
+                        </group>
+
+                        <group>
+                            <field name="branch_name2" placeholder="اسم الفرع"/>
+                            <field name="place2_lat"/>
+                            <field name="place2_long"/>
+                        </group>
+
+                        <group>
+                            <field name="branch_name3" placeholder="اسم الفرع"/>
+                            <field name="place3_lat"/>
+                            <field name="place3_long"/>
+                        </group>
+
+                        <group>
+                            <field name="branch_name4" placeholder="اسم الفرع"/>
+                            <field name="place4_lat"/>
+                            <field name="place4_long"/>
+                        </group>
+
+                        <group>
+                            <field name="branch_name5" placeholder="اسم الفرع"/>
+                            <field name="place5_lat"/>
+                            <field name="place5_long"/>
+                        </group>
+
+                         <group>
+                            <field name="branch_name6" placeholder="اسم الفرع"/>
+                            <field name="place6_lat"/>
+                            <field name="place6_long"/>
+                        </group>
+
+                         <group>
+                            <field name="branch7" placeholder="اسم الفرع"/>
+                            <field name="place7_lat"/>
+                            <field name="place7_long"/>
+                        </group>
+
+                         <group>
+                            <field name="branch_name8" placeholder="اسم الفرع"/>
+                            <field name="place8_lat"/>
+                            <field name="place8_long"/>
+                        </group>
+
+
+
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

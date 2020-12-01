@@ -5,7 +5,7 @@
     'company': 'Trend',
     'category': 'Sales',
     'images': ['static/description/banner.png'],
-    'depends': ['sale_management', 'stock','emipro_theme_base'],
+    'depends': ['sale_management', 'stock','emipro_theme_base_fgalaa'],
     'data': [
         'views/product_url.xml',
     ],

@@ -12,13 +12,13 @@
 		  <menuitem
             name="Product Brands"
             id="menu_product_brand_ept_sale"
-            action="emipro_theme_brand.action_product_brand_ept"
+            action="emipro_theme_brand_fgalaa.action_product_brand_ept"
             parent="sale.prod_config_main"/>
 
 		  <menuitem
             name="Product Brands"
             id="menu_product_brand_ept_stock"
-            action="emipro_theme_brand.action_product_brand_ept"
+            action="emipro_theme_brand_fgalaa.action_product_brand_ept"
             parent="stock.menu_product_in_config_stock"/>
 
 	 </data>
